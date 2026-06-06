@@ -75,8 +75,21 @@ img,video{ display:block; }
   pointer-events:none;
 }
 .curtain .cross{
-  font-family:var(--serif); color:var(--gold); font-size:2.2rem;
+  display:inline-block; position:relative;
+  width:26px; height:42px;
   opacity:0; animation:crossFlicker 2.4s ease forwards;
+}
+.curtain .cross::before{
+  content:''; position:absolute;
+  background:var(--gold);
+  width:4px; height:100%;
+  left:50%; transform:translateX(-50%);
+}
+.curtain .cross::after{
+  content:''; position:absolute;
+  background:var(--gold);
+  height:4px; width:100%;
+  top:28%;
 }
 @keyframes crossFlicker{
   0%{opacity:0} 18%{opacity:.85} 30%{opacity:.4} 42%{opacity:.9} 100%{opacity:0}
@@ -812,7 +825,7 @@ footer{
 
 <div class="grain" aria-hidden="true"></div>
 <div class="vignette" aria-hidden="true"></div>
-<div class="curtain" aria-hidden="true"><span class="cross">✝&#xFE0E;</span></div>
+<div class="curtain" aria-hidden="true"><span class="cross"></span></div>
 
 <!-- ════════════ NAV ════════════ -->
 <nav id="nav">
