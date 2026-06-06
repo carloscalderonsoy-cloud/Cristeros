@@ -831,7 +831,7 @@ footer{
 <header class="hero">
   <div class="hero-media" aria-hidden="true">
     <div class="poster"></div>
-    <video id="hero-video" muted loop playsinline preload="auto" data-src="assets/VideoHero.mp4"></video>
+    <video id="hero-video" muted playsinline preload="auto"></video>
   </div>
   <div class="hero-frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
 
@@ -1521,20 +1521,52 @@ footer{
 (function(){
   'use strict';
 
-  /* ── Video blob loader (progressive enhancement) ── */
+  /* ── Video blob loader (progressive enhancement) ───────────────────────── */
   (function loadVideo(){
     var v = document.getElementById('hero-video');
     if(!v) return;
-    v.addEventListener('playing', function(){ v.classList.add('playing'); });
-    v.addEventListener('loadeddata', function(){ var p=v.play(); if(p&&p.catch)p.catch(function(){}); });
-    fetch(v.getAttribute('data-src'))
-      .then(function(r){ return r.ok ? r.blob() : Promise.reject(r.status); })
-      .then(function(blob){
-        v.src = URL.createObjectURL(blob);
+
+    var sources = [
+      'assets/VideoHero.mp4',
+      'assets/VideoHero2.mp4'
+    ];
+    var current = 0;
+    var objectUrls = [];
+
+    function playVideo(){
+      var p = v.play();
+      if(p && p.catch) p.catch(function(){});
+    }
+
+    function setSource(index){
+      current = index % sources.length;
+      var src = sources[current];
+      if(objectUrls[current]){
+        v.src = objectUrls[current];
         v.load();
-        var p = v.play(); if(p && p.catch) p.catch(function(){});
-      })
-      .catch(function(){ /* photo base layer remains */ });
+        playVideo();
+        return;
+      }
+      fetch(src)
+        .then(function(r){ return r.ok ? r.blob() : Promise.reject(r.status); })
+        .then(function(blob){
+          objectUrls[current] = URL.createObjectURL(blob);
+          v.src = objectUrls[current];
+          v.load();
+          playVideo();
+        })
+        .catch(function(){ /* photo base layer remains */ });
+    }
+
+    function nextVideo(){
+      current = (current + 1) % sources.length;
+      setSource(current);
+    }
+
+    v.addEventListener('playing', function(){ v.classList.add('playing'); });
+    v.addEventListener('ended', nextVideo);
+    v.addEventListener('loadeddata', function(){ playVideo(); });
+    setSource(current);
   })();
 
   /* ── Cinematic entrance ── */
