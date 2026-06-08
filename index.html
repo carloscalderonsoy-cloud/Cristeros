@@ -1722,5 +1722,419 @@ footer{
 
 })();
 </script>
+
+<!-- ════════════ TWEAKS PANEL ════════════ -->
+<style>
+/* ── Toggle button ── */
+#tweaks-toggle{
+  position:fixed; bottom:2rem; right:2rem; z-index:200;
+  width:52px; height:52px; border-radius:50%;
+  background:var(--ink); border:1px solid rgba(201,168,76,.45);
+  color:var(--gold); font-size:1.2rem;
+  cursor:pointer; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 24px rgba(0,0,0,.55);
+  transition:border-color .3s, box-shadow .3s, transform .25s;
+  font-family:var(--serif);
+}
+#tweaks-toggle:hover{
+  border-color:var(--gold);
+  box-shadow:0 6px 32px rgba(201,168,76,.22);
+  transform:scale(1.06);
+}
+#tweaks-toggle svg{ width:20px; height:20px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+
+/* ── Panel ── */
+#tweaks-panel{
+  position:fixed; top:0; right:-340px; bottom:0; z-index:190;
+  width:320px; background:rgba(12,7,3,.97); backdrop-filter:blur(12px);
+  border-left:1px solid rgba(201,168,76,.22);
+  display:flex; flex-direction:column; overflow:hidden;
+  transition:right .38s cubic-bezier(.4,0,.2,1);
+}
+#tweaks-panel.open{ right:0; }
+
+.tw-head{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1.2rem 1.4rem; border-bottom:1px solid rgba(201,168,76,.15);
+  flex-shrink:0;
+}
+.tw-head h2{
+  font-family:var(--serif); font-size:.88rem; letter-spacing:4px;
+  text-transform:uppercase; color:var(--gold-hi); margin:0;
+}
+.tw-close{
+  background:none; border:none; color:rgba(201,168,76,.5);
+  font-size:1.1rem; cursor:pointer; width:36px; height:36px;
+  display:flex; align-items:center; justify-content:center;
+  transition:color .25s;
+}
+.tw-close:hover{ color:var(--gold); }
+
+.tw-body{
+  flex:1; overflow-y:auto; padding:1.2rem 1.4rem; display:flex; flex-direction:column; gap:1.6rem;
+}
+.tw-body::-webkit-scrollbar{ width:4px; }
+.tw-body::-webkit-scrollbar-track{ background:transparent; }
+.tw-body::-webkit-scrollbar-thumb{ background:rgba(201,168,76,.2); border-radius:2px; }
+
+.tw-group{}
+.tw-group-title{
+  font-family:var(--serif); font-size:.72rem; letter-spacing:4px;
+  text-transform:uppercase; color:var(--sepia);
+  padding-bottom:.5rem; border-bottom:1px solid rgba(201,168,76,.1);
+  margin-bottom:.9rem;
+}
+
+.tw-row{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:.6rem; margin-bottom:.65rem;
+}
+.tw-label{
+  font-family:var(--sans); font-size:.82rem; color:rgba(212,197,160,.6);
+  flex:1; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.tw-row input[type="text"],
+.tw-row input[type="tel"],
+.tw-row select{
+  font-family:var(--sans); font-size:.82rem;
+  background:rgba(255,255,255,.04); border:1px solid rgba(201,168,76,.18);
+  color:var(--cream); padding:.3rem .55rem; width:148px; flex-shrink:0;
+  outline:none; transition:border-color .25s;
+}
+.tw-row input[type="text"]:focus,
+.tw-row select:focus{ border-color:rgba(201,168,76,.5); }
+.tw-row select option{ background:#1a0e07; color:var(--cream); }
+
+/* Color swatch */
+.tw-color-wrap{
+  display:flex; align-items:center; gap:.5rem;
+}
+.tw-color-wrap input[type="color"]{
+  width:36px; height:28px; padding:1px 2px;
+  border:1px solid rgba(201,168,76,.25); background:none; cursor:pointer;
+  border-radius:0;
+}
+.tw-color-hex{
+  font-family:var(--sans); font-size:.78rem;
+  color:rgba(212,197,160,.45); width:66px; text-align:right;
+}
+
+/* Reset button */
+.tw-reset{
+  font-family:var(--serif); font-size:.75rem; letter-spacing:3px;
+  text-transform:uppercase; color:rgba(201,168,76,.45);
+  background:none; border:1px solid rgba(201,168,76,.18);
+  padding:.55rem 1rem; cursor:pointer; width:100%;
+  transition:color .25s, border-color .25s;
+}
+.tw-reset:hover{ color:var(--gold); border-color:rgba(201,168,76,.4); }
+
+/* Font preview */
+.tw-font-preview{
+  font-size:.88rem; color:rgba(201,168,76,.35);
+  margin-top:.15rem; font-style:italic; line-height:1.3;
+  padding-left:.2rem;
+}
+</style>
+
+<!-- Toggle button -->
+<button id="tweaks-toggle" aria-label="Personalizar diseño" title="Personalizar">
+  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+</button>
+
+<!-- Panel -->
+<aside id="tweaks-panel" aria-label="Panel de personalización" role="complementary">
+  <div class="tw-head">
+    <h2>Personalizar</h2>
+    <button class="tw-close" id="tweaks-close" aria-label="Cerrar">✕</button>
+  </div>
+
+  <div class="tw-body">
+
+    <!-- TÍTULO -->
+    <div class="tw-group">
+      <div class="tw-group-title">Título del Header</div>
+      <div class="tw-row">
+        <span class="tw-label">Logo (nav)</span>
+        <input type="text" id="tw-nav-logo" value="CRISTIADA" maxlength="32">
+      </div>
+      <div class="tw-row">
+        <span class="tw-label">Años (nav)</span>
+        <input type="text" id="tw-nav-years" value="1926–2026" maxlength="20">
+      </div>
+      <div class="tw-row">
+        <span class="tw-label">Hero — línea top</span>
+        <input type="text" id="tw-hero-top" value="La Guerra" maxlength="40">
+      </div>
+      <div class="tw-row">
+        <span class="tw-label">Hero — título</span>
+        <input type="text" id="tw-hero-main" value="Cristera" maxlength="40">
+      </div>
+      <div class="tw-row">
+        <span class="tw-label">Hero — subtítulo</span>
+        <input type="text" id="tw-hero-tag" value="Cien años de memoria, fe y sacrificio" maxlength="80">
+      </div>
+    </div>
+
+    <!-- COLORES -->
+    <div class="tw-group">
+      <div class="tw-group-title">Colores de fondo</div>
+      <div class="tw-row">
+        <span class="tw-label">Fondo oscuro</span>
+        <div class="tw-color-wrap">
+          <input type="color" id="tw-c-ink" value="#120a05">
+          <span class="tw-color-hex" id="tw-h-ink">#120a05</span>
+        </div>
+      </div>
+      <div class="tw-row">
+        <span class="tw-label">Papel / secciones</span>
+        <div class="tw-color-wrap">
+          <input type="color" id="tw-c-bg" value="#e8dcc8">
+          <span class="tw-color-hex" id="tw-h-bg">#e8dcc8</span>
+        </div>
+      </div>
+      <div class="tw-row">
+        <span class="tw-label">Dorado (acento)</span>
+        <div class="tw-color-wrap">
+          <input type="color" id="tw-c-gold" value="#c9a84c">
+          <span class="tw-color-hex" id="tw-h-gold">#c9a84c</span>
+        </div>
+      </div>
+      <div class="tw-row">
+        <span class="tw-label">Rojo / mártires</span>
+        <div class="tw-color-wrap">
+          <input type="color" id="tw-c-red" value="#8b1a1a">
+          <span class="tw-color-hex" id="tw-h-red">#8b1a1a</span>
+        </div>
+      </div>
+      <div class="tw-row">
+        <span class="tw-label">Crema / texto</span>
+        <div class="tw-color-wrap">
+          <input type="color" id="tw-c-cream" value="#f2e8d5">
+          <span class="tw-color-hex" id="tw-h-cream">#f2e8d5</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TIPOGRAFÍAS -->
+    <div class="tw-group">
+      <div class="tw-group-title">Tipografías</div>
+      <div class="tw-row">
+        <span class="tw-label">Serif (títulos)</span>
+        <select id="tw-f-serif">
+          <option value="'Cinzel', serif" selected>Cinzel</option>
+          <option value="'Playfair Display', serif">Playfair Display</option>
+          <option value="'IM Fell English SC', serif">IM Fell English</option>
+          <option value="'Libre Caslon Text', serif">Libre Caslon</option>
+          <option value="'Josefin Slab', serif">Josefin Slab</option>
+        </select>
+      </div>
+      <div class="tw-font-preview" id="tw-prev-serif" style="font-family:'Cinzel',serif">
+        La Guerra Cristera · 1926–2026
+      </div>
+
+      <div class="tw-row" style="margin-top:.7rem">
+        <span class="tw-label">Cursiva (citas)</span>
+        <select id="tw-f-italic">
+          <option value="'Cormorant Garamond', serif" selected>Cormorant Garamond</option>
+          <option value="'EB Garamond', serif">EB Garamond</option>
+          <option value="'Crimson Pro', serif">Crimson Pro</option>
+          <option value="'Lora', serif">Lora</option>
+          <option value="'Libre Baskerville', serif">Libre Baskerville</option>
+        </select>
+      </div>
+      <div class="tw-font-preview" id="tw-prev-italic" style="font-family:'Cormorant Garamond',serif;font-style:italic">
+        "Morir de pie por Dios…"
+      </div>
+
+      <div class="tw-row" style="margin-top:.7rem">
+        <span class="tw-label">Sans (cuerpo)</span>
+        <select id="tw-f-sans">
+          <option value="'Lato', sans-serif" selected>Lato</option>
+          <option value="'Source Sans 3', sans-serif">Source Sans 3</option>
+          <option value="'Nunito', sans-serif">Nunito</option>
+          <option value="'Raleway', sans-serif">Raleway</option>
+          <option value="'Inter', sans-serif">Inter</option>
+        </select>
+      </div>
+      <div class="tw-font-preview" id="tw-prev-sans" style="font-family:'Lato',sans-serif;font-style:normal">
+        Sitio conmemorativo · Archivo histórico
+      </div>
+    </div>
+
+    <button class="tw-reset" id="tw-reset">↺ Restaurar valores</button>
+
+  </div>
+</aside>
+
+<script>
+(function(){
+  'use strict';
+
+  var root = document.documentElement;
+  var panel = document.getElementById('tweaks-panel');
+
+  /* ── Open / close ── */
+  document.getElementById('tweaks-toggle').addEventListener('click', function(){
+    panel.classList.toggle('open');
+  });
+  document.getElementById('tweaks-close').addEventListener('click', function(){
+    panel.classList.remove('open');
+  });
+
+  /* ── Font loader ── */
+  var loadedFonts = {};
+  var fontMap = {
+    'Playfair Display':'Playfair+Display:wght@400;700',
+    'IM Fell English SC':'IM+Fell+English+SC',
+    'Libre Caslon Text':'Libre+Caslon+Text:wght@400;700',
+    'Josefin Slab':'Josefin+Slab:wght@400;700',
+    'EB Garamond':'EB+Garamond:ital,wght@0,400;1,400',
+    'Crimson Pro':'Crimson+Pro:ital,wght@0,400;1,400',
+    'Lora':'Lora:ital,wght@0,400;1,400',
+    'Libre Baskerville':'Libre+Baskerville:ital,wght@0,400;1,400',
+    'Source Sans 3':'Source+Sans+3:wght@300;400;700',
+    'Nunito':'Nunito:wght@300;400;700',
+    'Raleway':'Raleway:wght@300;400;700',
+    'Inter':'Inter:wght@300;400;700'
+  };
+  function ensureFont(name){
+    var clean = name.replace(/'/g,'').split(',')[0].trim();
+    if(loadedFonts[clean] || !fontMap[clean]) return;
+    loadedFonts[clean] = true;
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'https://fonts.googleapis.com/css2?family=' + fontMap[clean] + '&display=swap';
+    document.head.appendChild(link);
+  }
+
+  /* ── Color helpers ── */
+  function setColor(varName, hex, hexEl){
+    root.style.setProperty(varName, hex);
+    if(hexEl) hexEl.textContent = hex;
+    /* keep semi-transparent variants in sync */
+    if(varName === '--ink'){
+      var r = parseInt(hex.slice(1,3),16);
+      var g = parseInt(hex.slice(3,5),16);
+      var b = parseInt(hex.slice(5,7),16);
+      root.style.setProperty('--ink-2', hex);
+      document.querySelectorAll('nav.scrolled').forEach(function(el){});
+    }
+    if(varName === '--cream'){
+      var r2=parseInt(hex.slice(1,3),16), g2=parseInt(hex.slice(3,5),16), b2=parseInt(hex.slice(5,7),16);
+      root.style.setProperty('--cream-dim','rgba('+r2+','+g2+','+b2+',0.72)');
+    }
+    if(varName === '--gold'){
+      root.style.setProperty('--gold-hi', lighten(hex, 20));
+    }
+    if(varName === '--bg'){
+      root.style.setProperty('--bg', hex);
+    }
+  }
+  function lighten(hex, pct){
+    var r=parseInt(hex.slice(1,3),16)+pct, g=parseInt(hex.slice(3,5),16)+pct, b=parseInt(hex.slice(5,7),16)+pct;
+    r=Math.min(255,r); g=Math.min(255,g); b=Math.min(255,b);
+    return '#'+[r,g,b].map(function(v){ return v.toString(16).padStart(2,'0'); }).join('');
+  }
+  function wireColor(inputId, varName, hexId){
+    var inp = document.getElementById(inputId);
+    var hexEl = hexId ? document.getElementById(hexId) : null;
+    if(!inp) return;
+    inp.addEventListener('input', function(){ setColor(varName, inp.value, hexEl); });
+  }
+  wireColor('tw-c-ink',   '--ink',   'tw-h-ink');
+  wireColor('tw-c-bg',    '--bg',    'tw-h-bg');
+  wireColor('tw-c-gold',  '--gold',  'tw-h-gold');
+  wireColor('tw-c-red',   '--red',   'tw-h-red');
+  wireColor('tw-c-cream', '--cream', 'tw-h-cream');
+
+  /* ── Font helpers ── */
+  function wireFont(selId, varName, previewId){
+    var sel = document.getElementById(selId);
+    var prev = previewId ? document.getElementById(previewId) : null;
+    if(!sel) return;
+    sel.addEventListener('change', function(){
+      ensureFont(sel.value);
+      root.style.setProperty(varName, sel.value);
+      if(prev) prev.style.fontFamily = sel.value;
+    });
+  }
+  wireFont('tw-f-serif',  '--serif',  'tw-prev-serif');
+  wireFont('tw-f-italic', '--italic', 'tw-prev-italic');
+  wireFont('tw-f-sans',   '--sans',   'tw-prev-sans');
+
+  /* ── Title helpers ── */
+  function wireText(inputId, updateFn){
+    var inp = document.getElementById(inputId);
+    if(!inp) return;
+    inp.addEventListener('input', function(){ updateFn(inp.value); });
+  }
+
+  /* nav logo: "✝ CRISTIADA 1926–2026" — keep cross, update text + years */
+  var navLogoEl = document.querySelector('.nav-logo');
+  var navLogoText, navLogoEm;
+  if(navLogoEl){
+    navLogoText = navLogoEl.childNodes[2]; /* text node after .x span */
+    navLogoEm   = navLogoEl.querySelector('em');
+  }
+  wireText('tw-nav-logo', function(v){
+    if(navLogoText) navLogoText.textContent = ' ' + v + ' ';
+  });
+  wireText('tw-nav-years', function(v){
+    if(navLogoEm) navLogoEm.textContent = v;
+  });
+
+  /* hero h1 */
+  var heroTop  = document.querySelector('.hero h1 .top');
+  var heroMain = document.querySelector('.hero h1 .main em');
+  wireText('tw-hero-top',  function(v){ if(heroTop)  heroTop.textContent  = v; });
+  wireText('tw-hero-main', function(v){ if(heroMain) heroMain.textContent = v; });
+
+  /* hero tagline */
+  var heroTag = document.querySelector('.tagline');
+  wireText('tw-hero-tag', function(v){ if(heroTag) heroTag.textContent = v; });
+
+  /* ── Reset ── */
+  var defaults = {
+    'tw-c-ink':'#120a05', 'tw-c-bg':'#e8dcc8', 'tw-c-gold':'#c9a84c',
+    'tw-c-red':'#8b1a1a', 'tw-c-cream':'#f2e8d5',
+    'tw-nav-logo':'CRISTIADA', 'tw-nav-years':'1926–2026',
+    'tw-hero-top':'La Guerra', 'tw-hero-main':'Cristera',
+    'tw-hero-tag':'Cien años de memoria, fe y sacrificio',
+    'tw-f-serif':'\'Cinzel\', serif',
+    'tw-f-italic':'\'Cormorant Garamond\', serif',
+    'tw-f-sans':'\'Lato\', sans-serif'
+  };
+  document.getElementById('tw-reset').addEventListener('click', function(){
+    Object.keys(defaults).forEach(function(id){
+      var el = document.getElementById(id);
+      if(!el) return;
+      el.value = defaults[id];
+      el.dispatchEvent(new Event('input'));
+      el.dispatchEvent(new Event('change'));
+    });
+    /* reset CSS vars explicitly */
+    ['--ink','--ink-2','--bg','--gold','--gold-hi','--red','--cream','--cream-dim','--serif','--italic','--sans']
+      .forEach(function(v){ root.style.removeProperty(v); });
+    /* restore hex labels */
+    document.getElementById('tw-h-ink').textContent   = '#120a05';
+    document.getElementById('tw-h-bg').textContent    = '#e8dcc8';
+    document.getElementById('tw-h-gold').textContent  = '#c9a84c';
+    document.getElementById('tw-h-red').textContent   = '#8b1a1a';
+    document.getElementById('tw-h-cream').textContent = '#f2e8d5';
+    /* restore previews */
+    document.getElementById('tw-prev-serif').style.fontFamily  = "'Cinzel',serif";
+    document.getElementById('tw-prev-italic').style.fontFamily = "'Cormorant Garamond',serif";
+    document.getElementById('tw-prev-sans').style.fontFamily   = "'Lato',sans-serif";
+    /* restore DOM text */
+    if(navLogoText) navLogoText.textContent = ' CRISTIADA ';
+    if(navLogoEm)   navLogoEm.textContent   = '1926–2026';
+    if(heroTop)     heroTop.textContent      = 'La Guerra';
+    if(heroMain)    heroMain.textContent     = 'Cristera';
+    if(heroTag)     heroTag.textContent      = 'Cien años de memoria, fe y sacrificio';
+  });
+
+})();
+</script>
 </body>
 </html>
