@@ -1859,14 +1859,6 @@ footer{
         <input type="text" id="tw-nav-logo" value="CRISTIADA" maxlength="32">
       </div>
       <div class="tw-row">
-        <span class="tw-label">Años (nav)</span>
-        <input type="text" id="tw-nav-years" value="1926–2026" maxlength="20">
-      </div>
-      <div class="tw-row">
-        <span class="tw-label">Hero — línea top</span>
-        <input type="text" id="tw-hero-top" value="La Guerra" maxlength="40">
-      </div>
-      <div class="tw-row">
         <span class="tw-label">Hero — título</span>
         <input type="text" id="tw-hero-main" value="Cristera" maxlength="40">
       </div>
@@ -1887,13 +1879,6 @@ footer{
         </div>
       </div>
       <div class="tw-row">
-        <span class="tw-label">Papel / secciones</span>
-        <div class="tw-color-wrap">
-          <input type="color" id="tw-c-bg" value="#e8dcc8">
-          <span class="tw-color-hex" id="tw-h-bg">#e8dcc8</span>
-        </div>
-      </div>
-      <div class="tw-row">
         <span class="tw-label">Dorado (acento)</span>
         <div class="tw-color-wrap">
           <input type="color" id="tw-c-gold" value="#c9a84c">
@@ -1901,17 +1886,10 @@ footer{
         </div>
       </div>
       <div class="tw-row">
-        <span class="tw-label">Rojo / mártires</span>
+        <span class="tw-label">Papel / secciones</span>
         <div class="tw-color-wrap">
-          <input type="color" id="tw-c-red" value="#8b1a1a">
-          <span class="tw-color-hex" id="tw-h-red">#8b1a1a</span>
-        </div>
-      </div>
-      <div class="tw-row">
-        <span class="tw-label">Crema / texto</span>
-        <div class="tw-color-wrap">
-          <input type="color" id="tw-c-cream" value="#f2e8d5">
-          <span class="tw-color-hex" id="tw-h-cream">#f2e8d5</span>
+          <input type="color" id="tw-c-bg" value="#e8dcc8">
+          <span class="tw-color-hex" id="tw-h-bg">#e8dcc8</span>
         </div>
       </div>
     </div>
@@ -1925,8 +1903,6 @@ footer{
           <option value="'Cinzel', serif" selected>Cinzel</option>
           <option value="'Playfair Display', serif">Playfair Display</option>
           <option value="'IM Fell English SC', serif">IM Fell English</option>
-          <option value="'Libre Caslon Text', serif">Libre Caslon</option>
-          <option value="'Josefin Slab', serif">Josefin Slab</option>
         </select>
       </div>
       <div class="tw-font-preview" id="tw-prev-serif" style="font-family:'Cinzel',serif">
@@ -1939,8 +1915,6 @@ footer{
           <option value="'Cormorant Garamond', serif" selected>Cormorant Garamond</option>
           <option value="'EB Garamond', serif">EB Garamond</option>
           <option value="'Crimson Pro', serif">Crimson Pro</option>
-          <option value="'Lora', serif">Lora</option>
-          <option value="'Libre Baskerville', serif">Libre Baskerville</option>
         </select>
       </div>
       <div class="tw-font-preview" id="tw-prev-italic" style="font-family:'Cormorant Garamond',serif;font-style:italic">
@@ -1952,9 +1926,7 @@ footer{
         <select id="tw-f-sans">
           <option value="'Lato', sans-serif" selected>Lato</option>
           <option value="'Source Sans 3', sans-serif">Source Sans 3</option>
-          <option value="'Nunito', sans-serif">Nunito</option>
           <option value="'Raleway', sans-serif">Raleway</option>
-          <option value="'Inter', sans-serif">Inter</option>
         </select>
       </div>
       <div class="tw-font-preview" id="tw-prev-sans" style="font-family:'Lato',sans-serif;font-style:normal">
@@ -1987,16 +1959,10 @@ footer{
   var fontMap = {
     'Playfair Display':'Playfair+Display:wght@400;700',
     'IM Fell English SC':'IM+Fell+English+SC',
-    'Libre Caslon Text':'Libre+Caslon+Text:wght@400;700',
-    'Josefin Slab':'Josefin+Slab:wght@400;700',
     'EB Garamond':'EB+Garamond:ital,wght@0,400;1,400',
     'Crimson Pro':'Crimson+Pro:ital,wght@0,400;1,400',
-    'Lora':'Lora:ital,wght@0,400;1,400',
-    'Libre Baskerville':'Libre+Baskerville:ital,wght@0,400;1,400',
     'Source Sans 3':'Source+Sans+3:wght@300;400;700',
-    'Nunito':'Nunito:wght@300;400;700',
-    'Raleway':'Raleway:wght@300;400;700',
-    'Inter':'Inter:wght@300;400;700'
+    'Raleway':'Raleway:wght@300;400;700'
   };
   function ensureFont(name){
     var clean = name.replace(/'/g,'').split(',')[0].trim();
@@ -2042,11 +2008,9 @@ footer{
     if(!inp) return;
     inp.addEventListener('input', function(){ setColor(varName, inp.value, hexEl); });
   }
-  wireColor('tw-c-ink',   '--ink',   'tw-h-ink');
-  wireColor('tw-c-bg',    '--bg',    'tw-h-bg');
-  wireColor('tw-c-gold',  '--gold',  'tw-h-gold');
-  wireColor('tw-c-red',   '--red',   'tw-h-red');
-  wireColor('tw-c-cream', '--cream', 'tw-h-cream');
+  wireColor('tw-c-ink',  '--ink',  'tw-h-ink');
+  wireColor('tw-c-gold', '--gold', 'tw-h-gold');
+  wireColor('tw-c-bg',   '--bg',   'tw-h-bg');
 
   /* ── Font helpers ── */
   function wireFont(selId, varName, previewId){
@@ -2070,36 +2034,24 @@ footer{
     inp.addEventListener('input', function(){ updateFn(inp.value); });
   }
 
-  /* nav logo: "✝ CRISTIADA 1926–2026" — keep cross, update text + years */
+  /* nav logo — keep cross and em, update middle text node */
   var navLogoEl = document.querySelector('.nav-logo');
-  var navLogoText, navLogoEm;
-  if(navLogoEl){
-    navLogoText = navLogoEl.childNodes[2]; /* text node after .x span */
-    navLogoEm   = navLogoEl.querySelector('em');
-  }
+  var navLogoText;
+  if(navLogoEl) navLogoText = navLogoEl.childNodes[2];
   wireText('tw-nav-logo', function(v){
     if(navLogoText) navLogoText.textContent = ' ' + v + ' ';
   });
-  wireText('tw-nav-years', function(v){
-    if(navLogoEm) navLogoEm.textContent = v;
-  });
 
-  /* hero h1 */
-  var heroTop  = document.querySelector('.hero h1 .top');
+  /* hero h1 title + tagline */
   var heroMain = document.querySelector('.hero h1 .main em');
-  wireText('tw-hero-top',  function(v){ if(heroTop)  heroTop.textContent  = v; });
+  var heroTag  = document.querySelector('.tagline');
   wireText('tw-hero-main', function(v){ if(heroMain) heroMain.textContent = v; });
-
-  /* hero tagline */
-  var heroTag = document.querySelector('.tagline');
-  wireText('tw-hero-tag', function(v){ if(heroTag) heroTag.textContent = v; });
+  wireText('tw-hero-tag',  function(v){ if(heroTag)  heroTag.textContent  = v; });
 
   /* ── Reset ── */
   var defaults = {
-    'tw-c-ink':'#120a05', 'tw-c-bg':'#e8dcc8', 'tw-c-gold':'#c9a84c',
-    'tw-c-red':'#8b1a1a', 'tw-c-cream':'#f2e8d5',
-    'tw-nav-logo':'CRISTIADA', 'tw-nav-years':'1926–2026',
-    'tw-hero-top':'La Guerra', 'tw-hero-main':'Cristera',
+    'tw-c-ink':'#120a05', 'tw-c-gold':'#c9a84c', 'tw-c-bg':'#e8dcc8',
+    'tw-nav-logo':'CRISTIADA', 'tw-hero-main':'Cristera',
     'tw-hero-tag':'Cien años de memoria, fe y sacrificio',
     'tw-f-serif':'\'Cinzel\', serif',
     'tw-f-italic':'\'Cormorant Garamond\', serif',
@@ -2114,24 +2066,20 @@ footer{
       el.dispatchEvent(new Event('change'));
     });
     /* reset CSS vars explicitly */
-    ['--ink','--ink-2','--bg','--gold','--gold-hi','--red','--cream','--cream-dim','--serif','--italic','--sans']
+    ['--ink','--ink-2','--bg','--gold','--gold-hi','--serif','--italic','--sans']
       .forEach(function(v){ root.style.removeProperty(v); });
     /* restore hex labels */
-    document.getElementById('tw-h-ink').textContent   = '#120a05';
-    document.getElementById('tw-h-bg').textContent    = '#e8dcc8';
-    document.getElementById('tw-h-gold').textContent  = '#c9a84c';
-    document.getElementById('tw-h-red').textContent   = '#8b1a1a';
-    document.getElementById('tw-h-cream').textContent = '#f2e8d5';
+    document.getElementById('tw-h-ink').textContent  = '#120a05';
+    document.getElementById('tw-h-gold').textContent = '#c9a84c';
+    document.getElementById('tw-h-bg').textContent   = '#e8dcc8';
     /* restore previews */
     document.getElementById('tw-prev-serif').style.fontFamily  = "'Cinzel',serif";
     document.getElementById('tw-prev-italic').style.fontFamily = "'Cormorant Garamond',serif";
     document.getElementById('tw-prev-sans').style.fontFamily   = "'Lato',sans-serif";
     /* restore DOM text */
     if(navLogoText) navLogoText.textContent = ' CRISTIADA ';
-    if(navLogoEm)   navLogoEm.textContent   = '1926–2026';
-    if(heroTop)     heroTop.textContent      = 'La Guerra';
-    if(heroMain)    heroMain.textContent     = 'Cristera';
-    if(heroTag)     heroTag.textContent      = 'Cien años de memoria, fe y sacrificio';
+    if(heroMain)    heroMain.textContent    = 'Cristera';
+    if(heroTag)     heroTag.textContent     = 'Cien años de memoria, fe y sacrificio';
   });
 
 })();
