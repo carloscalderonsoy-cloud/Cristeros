@@ -22,6 +22,7 @@
   --ink-2:      #1c1109;
   --sepia-deep: #2c1810;
   --sepia:      #8b6547;
+  --sepia-ink:  #6e4f37;
   --gold:       #c9a84c;
   --gold-hi:    #e7c873;
   --red:        #8b1a1a;
@@ -30,7 +31,7 @@
   --cream-dim:  rgba(242,232,213,0.72);
   --bg:         #e8dcc8;
   --text:       #2a1f0e;
-  --dim:        #6b5a42;
+  --dim:        #5d4a33;
   --serif:      'Cinzel', serif;
   --italic:     'Cormorant Garamond', serif;
   --sans:       'Lato', sans-serif;
@@ -143,7 +144,7 @@ nav.scrolled{
 .nav-toggle.open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
 .nav-toggle.open span:nth-child(2){ opacity:0; }
 .nav-toggle.open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
-@media (max-width:920px){
+@media (max-width:1080px){
   .nav-toggle{ display:flex; }
   .nav-links{
     position:absolute; top:68px; left:0; right:0; flex-direction:column; gap:0;
@@ -389,7 +390,7 @@ nav.scrolled{
 }
 .stat-unit{
   font-family:var(--serif); font-size:.88rem; letter-spacing:2px;
-  color:var(--sepia); text-transform:uppercase; display:block; margin-top:.4rem;
+  color:var(--sepia-ink); text-transform:uppercase; display:block; margin-top:.4rem;
 }
 .stat-sub{ font-size:.92rem; color:var(--dim); margin-top:.3rem; }
 @media (max-width:550px){ .stat-item{ min-width:100%; } }
@@ -438,7 +439,7 @@ nav.scrolled{
 .dark-band-caption{
   position:absolute; bottom:1rem; right:1.5rem;
   font-family:var(--serif); font-size:.75rem;
-  letter-spacing:2px; color:rgba(201,168,76,0.35); text-transform:uppercase;
+  letter-spacing:2px; color:rgba(201,168,76,0.58); text-transform:uppercase;
 }
 
 /* ══════════════════════════════════════════════
@@ -463,7 +464,7 @@ nav.scrolled{
   background:var(--gold); border:2px solid var(--ink);
 }
 .tl-year{ font-family:var(--serif); font-size:1rem; color:var(--gold); font-weight:700; line-height:1; }
-.tl-month{ font-size:.78rem; color:rgba(201,168,76,.45); letter-spacing:1px; text-transform:uppercase; margin-top:.2rem; }
+.tl-month{ font-size:.78rem; color:rgba(201,168,76,.68); letter-spacing:1px; text-transform:uppercase; margin-top:.2rem; }
 .tl-body{ flex:1; padding:0 0 2.5rem 1.8rem; }
 .tl-body details{ border:1px solid rgba(201,168,76,0.12); transition:border-color .3s, background .3s; }
 .tl-body details[open]{ border-color:rgba(201,168,76,0.28); background:rgba(201,168,76,0.03); }
@@ -514,7 +515,7 @@ nav.scrolled{
 .map-cartouche::after{ bottom:4px; right:4px; border-width:0 1px 1px 0; }
 .map-cartouche-title{
   font-family:var(--serif); font-size:.88rem; letter-spacing:4px;
-  text-transform:uppercase; color:var(--sepia); margin-bottom:.5rem;
+  text-transform:uppercase; color:var(--sepia-ink); margin-bottom:.5rem;
 }
 .map-cartouche-sub{ font-size:.95rem; color:var(--dim); line-height:1.6; }
 .map-legend{
@@ -535,7 +536,7 @@ nav.scrolled{
 .map-group{ background:var(--bg); padding:1.5rem 1.2rem; }
 .map-group-header{
   font-family:var(--serif); font-size:.82rem; letter-spacing:3px;
-  text-transform:uppercase; color:var(--sepia); margin-bottom:.8rem;
+  text-transform:uppercase; color:var(--sepia-ink); margin-bottom:.8rem;
   padding-bottom:.5rem; border-bottom:1px solid rgba(139,115,85,0.2);
   display:flex; align-items:center; gap:.5rem;
 }
@@ -555,10 +556,10 @@ details.state-item summary::-webkit-details-marker{ display:none; }
 .st-arrow{ font-size:.82rem; color:var(--sepia); margin-left:auto; transition:transform .3s; }
 details.state-item[open] .st-arrow{ transform:rotate(90deg); }
 .st-body{ padding:.3rem 0 1rem 1.5rem; }
-.st-sub{ font-size:.85rem; color:var(--sepia); letter-spacing:1px; text-transform:uppercase; margin-bottom:.4rem; }
+.st-sub{ font-size:.85rem; color:var(--sepia-ink); letter-spacing:1px; text-transform:uppercase; margin-bottom:.4rem; }
 .st-desc{ font-size:.95rem; color:var(--dim); line-height:1.7; margin-bottom:.7rem; }
 .st-facts{ display:flex; flex-wrap:wrap; gap:.8rem; margin-top:.5rem; }
-.st-fact dt{ font-size:.78rem; color:var(--sepia); text-transform:uppercase; letter-spacing:1px; }
+.st-fact dt{ font-size:.78rem; color:var(--sepia-ink); text-transform:uppercase; letter-spacing:1px; }
 .st-fact dd{ font-family:var(--serif); font-size:1rem; color:var(--text); font-weight:700; }
 
 /* ══════════════════════════════════════════════
@@ -620,7 +621,7 @@ dialog#lb::backdrop{ background:rgba(0,0,0,.9); backdrop-filter:blur(6px); }
 .lb-close:hover{ background:var(--red); border-color:var(--red); color:#fff; }
 .lb-cap{
   padding:.8rem 1.2rem; font-family:var(--serif); font-size:.85rem;
-  letter-spacing:1.5px; color:rgba(212,197,160,.5); text-transform:uppercase;
+  letter-spacing:1.5px; color:rgba(212,197,160,.68); text-transform:uppercase;
   border-top:1px solid rgba(201,168,76,.1);
 }
 
@@ -648,7 +649,7 @@ dialog#lb::backdrop{ background:rgba(0,0,0,.9); backdrop-filter:blur(6px); }
   color:var(--red); font-size:1.1rem;
 }
 .martyr-name{ font-family:var(--serif); font-size:1rem; color:var(--text); margin-bottom:.2rem; }
-.martyr-date{ font-size:.88rem; color:var(--sepia); letter-spacing:1px; margin-bottom:.6rem; }
+.martyr-date{ font-size:.88rem; color:var(--sepia-ink); letter-spacing:1px; margin-bottom:.6rem; }
 .martyr-desc{ font-size:.92rem; color:var(--dim); line-height:1.6; }
 
 /* ══════════════════════════════════════════════
@@ -670,13 +671,13 @@ dialog#lb::backdrop{ background:rgba(0,0,0,.9); backdrop-filter:blur(6px); }
 .book-spine{ width:5px; flex-shrink:0; align-self:stretch; min-height:60px; background:var(--red); }
 .book-meta{ flex:1; }
 .book-title{ font-family:var(--serif); font-size:1.05rem; color:var(--text); margin-bottom:.2rem; }
-.book-author{ font-size:.92rem; color:var(--sepia); font-style:italic; }
+.book-author{ font-size:.92rem; color:var(--sepia-ink); font-style:italic; }
 .book-synopsis{ font-size:.95rem; color:var(--dim); line-height:1.65; margin-bottom:.6rem; }
 details.book-more summary{
   list-style:none; cursor:pointer; min-height:44px;
   display:flex; align-items:center; gap:.4rem;
   font-family:var(--serif); font-size:.82rem; letter-spacing:2px;
-  text-transform:uppercase; color:var(--sepia);
+  text-transform:uppercase; color:var(--sepia-ink);
 }
 details.book-more summary::-webkit-details-marker{ display:none; }
 details.book-more summary::before{ content:'+ '; }
@@ -698,7 +699,7 @@ details.book-more[open] summary::before{ content:'− '; }
   font-family:var(--serif); font-size:.88rem; letter-spacing:2px;
   text-transform:uppercase; font-weight:600;
   padding:0 1.5rem; min-height:44px;
-  background:none; border:none; color:rgba(201,168,76,.45);
+  background:none; border:none; color:rgba(201,168,76,.62);
   cursor:pointer; transition:color .3s; white-space:nowrap; position:relative;
 }
 .tab-btn::after{
@@ -711,7 +712,7 @@ details.book-more[open] summary::before{ content:'− '; }
 .tab-panel.active{ display:block; }
 .video-wrap{ position:relative; padding-bottom:56.25%; height:0; overflow:hidden; background:#111; }
 .video-wrap iframe{ position:absolute; top:0; left:0; width:100%; height:100%; border:none; }
-.video-note{ text-align:center; margin-top:.8rem; font-size:.9rem; color:rgba(201,168,76,.35); font-family:var(--serif); letter-spacing:1px; }
+.video-note{ text-align:center; margin-top:.8rem; font-size:.9rem; color:rgba(201,168,76,.6); font-family:var(--serif); letter-spacing:1px; }
 .doc-grid{
   display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
   gap:1px; background:rgba(201,168,76,.08); margin-top:2.5rem;
@@ -723,12 +724,12 @@ details.book-more[open] summary::before{ content:'− '; }
 .doc-card:hover{ border-color:rgba(201,168,76,.25); }
 .doc-year{ font-family:var(--serif); font-size:.82rem; letter-spacing:2px; color:var(--gold); }
 .doc-title{ font-family:var(--serif); font-size:1.05rem; color:var(--cream); margin:.3rem 0 .5rem; }
-.doc-desc{ font-size:.95rem; color:rgba(212,197,160,.55); line-height:1.65; }
+.doc-desc{ font-size:.95rem; color:rgba(212,197,160,.72); line-height:1.65; }
 .social-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:1px; background:rgba(201,168,76,.08); }
 .social-card{ background:var(--ink); padding:1.8rem 1.5rem; border:1px solid rgba(201,168,76,.08); }
 .social-label{ font-family:var(--serif); font-size:.82rem; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:.5rem; }
 .social-title{ font-family:var(--serif); font-size:1.05rem; color:var(--cream); margin-bottom:.5rem; }
-.social-desc{ font-size:.95rem; color:rgba(212,197,160,.55); line-height:1.6; margin-bottom:1rem; }
+.social-desc{ font-size:.95rem; color:rgba(212,197,160,.72); line-height:1.6; margin-bottom:1rem; }
 
 /* ══════════════════════════════════════════════
    TESTIMONIOS
@@ -746,7 +747,7 @@ details.book-more[open] summary::before{ content:'− '; }
   font-size:clamp(1.05rem,2.5vw,1.4rem); color:var(--text);
   line-height:1.85; margin-bottom:1.2rem; position:relative; z-index:1;
 }
-.q-author{ font-family:var(--serif); font-size:.88rem; letter-spacing:2px; color:var(--sepia); text-transform:uppercase; }
+.q-author{ font-family:var(--serif); font-size:.88rem; letter-spacing:2px; color:var(--sepia-ink); text-transform:uppercase; }
 .q-nav{ display:flex; align-items:center; justify-content:center; gap:1rem; margin-top:2rem; }
 .q-btn{
   background:none; border:1px solid rgba(139,115,85,.3); color:var(--sepia);
@@ -805,17 +806,17 @@ footer{
   display:grid; grid-template-columns:1fr auto; gap:3rem; align-items:start;
 }
 .footer-logo{ font-family:var(--serif); color:var(--gold); font-size:1rem; letter-spacing:3px; margin-bottom:.6rem; }
-.footer-line{ font-size:.9rem; color:rgba(212,197,160,.35); line-height:1.7; max-width:340px; }
+.footer-line{ font-size:.9rem; color:rgba(212,197,160,.58); line-height:1.7; max-width:340px; }
 .footer-sources h4{
   font-family:var(--serif); font-size:.82rem; letter-spacing:3px;
   text-transform:uppercase; color:var(--sepia); margin-bottom:.7rem;
 }
 .footer-sources ul{ list-style:none; }
-.footer-sources li{ font-size:.88rem; color:rgba(212,197,160,.35); margin-bottom:.35rem; line-height:1.5; }
+.footer-sources li{ font-size:.88rem; color:rgba(212,197,160,.58); margin-bottom:.35rem; line-height:1.5; }
 .footer-copy{
   max-width:960px; margin:2rem auto 0; padding-top:1.5rem;
   border-top:1px solid rgba(201,168,76,.08);
-  font-size:.82rem; color:rgba(212,197,160,.22);
+  font-size:.82rem; color:rgba(212,197,160,.48);
   display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem;
 }
 @media (max-width:580px){ .footer-inner{ grid-template-columns:1fr; } }
@@ -839,6 +840,7 @@ footer{
       <li><a href="#escenarios">Escenarios</a></li>
       <li><a href="#galeria">Galería</a></li>
       <li><a href="#martires">Mártires</a></li>
+      <li><a href="#libros">Libros</a></li>
       <li><a href="#multimedia">Multimedia</a></li>
       <li><a href="#testimonios">Testimonios</a></li>
       <li><a href="#centenario">El Centenario</a></li>
@@ -936,8 +938,8 @@ footer{
 
 <!-- ════════════ DARK BAND 1 ════════════ -->
 <div class="dark-band">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Cristeros.jpg/1280px-Cristeros.jpg"
-       alt="Grupo de combatientes cristeros, circa 1927" loading="lazy">
+  <img src="assets/1.jpg"
+       alt="Cristeros con el estandarte guadalupano junto a una familia, circa 1927" loading="lazy">
   <div class="dark-band-overlay">
     <div class="dark-band-text">
       <blockquote>"Morir de pie por Dios es mejor que vivir de rodillas ante los hombres."</blockquote>
@@ -1292,8 +1294,50 @@ footer{
       <div class="photo-cap">Cristeros · 1928</div>
     </div>
 
+    <div class="photo-item wide" onclick="openLb(this)"
+         data-src="assets/2.jpg"
+         data-cap="Tropa cristera posando con sus cananas y fusiles · c. 1927 · Archivo histórico">
+      <img src="assets/2.jpg" alt="Tropa cristera posando con cananas y fusiles, circa 1927" loading="lazy">
+      <div class="photo-cap">Tropa cristera · c. 1927</div>
+    </div>
+
+    <div class="photo-item tall" onclick="openLb(this)"
+         data-src="assets/8.jpg"
+         data-cap="Niña con cartel: «¡Viva Cristo Rey! Viva N. S. de Guadalupe. ¡Viva el Papa!» · Fotograma de época">
+      <img src="assets/8.jpg" alt="Niña sosteniendo un cartel que dice Viva Cristo Rey, Viva Nuestra Señora de Guadalupe, Viva el Papa" loading="lazy">
+      <div class="photo-cap">«¡Viva Cristo Rey!» · Fotograma de época</div>
+    </div>
+
+    <div class="photo-item" onclick="openLb(this)"
+         data-src="assets/3.jpg"
+         data-cap="«Mujeres Patriotas» · Las Brigadas Femeninas abastecieron de municiones y correo a los cristeros">
+      <img src="assets/3.jpg" alt="Mujeres patriotas armadas, integrantes de las Brigadas Femeninas" loading="lazy">
+      <div class="photo-cap">Mujeres Patriotas · Brigadas Femeninas</div>
+    </div>
+
+    <div class="photo-item" onclick="openLb(this)"
+         data-src="assets/4.jpg"
+         data-cap="Srta. Ma. Carmen Robles y compañeras, la víspera de su prisión por soldados callistas · Huejuquilla, Jal. · 18 Ene. 1928">
+      <img src="assets/4.jpg" alt="Carmen Robles y compañeras vestidas de luto, la víspera de su prisión, Huejuquilla, Jalisco, 1928" loading="lazy">
+      <div class="photo-cap">Carmen Robles y compañeras · Huejuquilla · 1928</div>
+    </div>
+
+    <div class="photo-item" onclick="openLb(this)"
+         data-src="assets/5.jpg"
+         data-cap="Caballería cristera en la sierra · Archivo histórico">
+      <img src="assets/5.jpg" alt="Caballería cristera formada frente a una casa rural en la sierra" loading="lazy">
+      <div class="photo-cap">Caballería en la sierra</div>
+    </div>
+
+    <div class="photo-item wide" onclick="openLb(this)"
+         data-src="assets/6.jpg"
+         data-cap="Combatientes cristeros con cananas cruzadas · c. 1927–1929 · Archivo histórico">
+      <img src="assets/6.jpg" alt="Retrato de grupo de combatientes cristeros con cananas cruzadas" loading="lazy">
+      <div class="photo-cap">Combatientes · c. 1927–1929</div>
+    </div>
+
   </div>
-  <p style="text-align:center;margin-top:1.2rem;font-family:var(--serif);font-size:.82rem;letter-spacing:2px;color:rgba(201,168,76,.25);text-transform:uppercase;">
+  <p style="text-align:center;margin-top:1.2rem;font-family:var(--serif);font-size:.82rem;letter-spacing:2px;color:rgba(201,168,76,.55);text-transform:uppercase;">
     Imágenes: Archivo histórico · Wikimedia Commons · Dominio público
   </p>
 </section>
@@ -1754,10 +1798,10 @@ footer{
 }
 .tw-head h2{
   font-family:var(--sans); font-size:.65rem; letter-spacing:3.5px;
-  text-transform:uppercase; color:rgba(212,197,160,.28); margin:0; font-weight:400;
+  text-transform:uppercase; color:rgba(212,197,160,.55); margin:0; font-weight:400;
 }
 .tw-close{
-  background:none; border:none; color:rgba(212,197,160,.25);
+  background:none; border:none; color:rgba(212,197,160,.5);
   font-size:.85rem; cursor:pointer; width:28px; height:28px;
   display:flex; align-items:center; justify-content:center; transition:color .2s;
 }
@@ -1772,7 +1816,7 @@ footer{
 .tw-section + .tw-section{ border-top:1px solid rgba(201,168,76,.07); }
 .tw-section-title{
   font-family:var(--sans); font-size:.62rem; letter-spacing:3px;
-  text-transform:uppercase; color:rgba(212,197,160,.28); margin-bottom:.85rem;
+  text-transform:uppercase; color:rgba(212,197,160,.5); margin-bottom:.85rem;
 }
 
 /* Field */
@@ -1780,7 +1824,7 @@ footer{
 .tw-field:last-child{ margin-bottom:0; }
 .tw-field-label{
   display:block; font-family:var(--sans); font-size:.7rem;
-  letter-spacing:.5px; color:rgba(212,197,160,.42); margin-bottom:.4rem;
+  letter-spacing:.5px; color:rgba(212,197,160,.65); margin-bottom:.4rem;
 }
 
 /* Text input */
@@ -1793,12 +1837,31 @@ footer{
 }
 .tw-input:focus{ border-bottom-color:rgba(201,168,76,.4); }
 
+/* Preset cards */
+.tw-presets{ display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+.tw-preset{
+  background:rgba(255,255,255,.04); border:1px solid rgba(201,168,76,.12);
+  border-radius:6px; padding:.55rem .35rem .5rem; cursor:pointer;
+  display:flex; flex-direction:column; gap:.18rem; align-items:center;
+  transition:all .18s;
+}
+.tw-preset:hover{ border-color:rgba(201,168,76,.4); }
+.tw-preset.active{ border-color:rgba(201,168,76,.85); background:rgba(201,168,76,.08); }
+.tw-preset b{
+  font-family:var(--serif); font-size:.74rem; letter-spacing:1px;
+  color:rgba(242,232,213,.88); font-weight:600;
+}
+.tw-preset span{
+  font-family:var(--sans); font-size:.55rem; letter-spacing:1px;
+  text-transform:uppercase; color:rgba(212,197,160,.5); text-align:center;
+}
+
 /* Pill group */
 .tw-pills{ display:flex; gap:5px; }
 .tw-pill{
   flex:1; height:28px;
   background:rgba(255,255,255,.04); border:1px solid rgba(201,168,76,.12);
-  color:rgba(212,197,160,.32); font-family:var(--sans);
+  color:rgba(212,197,160,.55); font-family:var(--sans);
   font-size:.68rem; letter-spacing:1px; text-transform:lowercase;
   cursor:pointer; border-radius:999px; transition:all .18s;
   padding:0 .2rem; white-space:nowrap; overflow:hidden;
@@ -1816,7 +1879,7 @@ footer{
 .tw-swatch-row-label{
   grid-column:1/-1; font-family:var(--sans); font-size:.56rem;
   letter-spacing:2px; text-transform:uppercase;
-  color:rgba(212,197,160,.22); padding-top:.2rem; display:block;
+  color:rgba(212,197,160,.45); padding-top:.2rem; display:block;
 }
 .tw-swatch{
   height:34px; border-radius:3px; cursor:pointer;
@@ -1834,7 +1897,7 @@ footer{
 .tw-reset{
   display:block; width:calc(100% - 2.2rem); margin:0 1.1rem;
   background:none; border:1px solid rgba(201,168,76,.12);
-  color:rgba(212,197,160,.28); font-family:var(--sans);
+  color:rgba(212,197,160,.5); font-family:var(--sans);
   font-size:.62rem; letter-spacing:2.5px; text-transform:uppercase;
   padding:.5rem; cursor:pointer; transition:all .2s;
 }
@@ -1851,6 +1914,83 @@ body.theme-light .lb-cap{ color:rgba(60,30,5,.55); }
 body.theme-light .footer-line,
 body.theme-light .footer-sources li{ color:rgba(30,15,5,.55); }
 body.theme-light .footer-copy{ color:rgba(30,15,5,.45); }
+
+/* ── light-theme: surfaces that quedaban oscuras con texto oscuro ── */
+body.theme-light nav,
+body.theme-light nav.scrolled{
+  background:rgba(247,241,230,.92); backdrop-filter:blur(10px);
+  border-bottom-color:rgba(107,66,0,.18);
+}
+@media (max-width:1080px){
+  body.theme-light .nav-links{
+    background:rgba(247,241,230,.97);
+    border-bottom-color:rgba(107,66,0,.18);
+  }
+  body.theme-light .nav-links a{ border-top-color:rgba(107,66,0,.08); }
+}
+body.theme-light footer{ background:#e6dbc4; border-top-color:rgba(107,66,0,.2); }
+
+/* ── light-theme: la hero conserva el video oscuro → texto siempre claro ── */
+body.theme-light .hero h1{ color:#f2e8d5; }
+body.theme-light .hero h1 .top{ color:rgba(242,232,213,.75); }
+body.theme-light .hero h1 .main em{ color:#e7c873; }
+body.theme-light .hero .tagline,
+body.theme-light .hero .hero-sub{ color:rgba(242,232,213,.8); }
+body.theme-light .hero .eyebrow,
+body.theme-light .grito .cry{ color:#e7c873; }
+body.theme-light .hero .btn-gold{ background:#c9a84c; color:#120a05; border-color:#c9a84c; }
+body.theme-light .hero .btn-gold:hover{ background:transparent; color:#e7c873; }
+body.theme-light .hero .btn-ghost{ color:#f2e8d5; }
+
+/* ── light-theme: dark bands conservan overlay oscuro → texto claro ── */
+body.theme-light .dark-band-text blockquote{ color:#f2e8d5; }
+body.theme-light .dark-band-text cite{ color:#e7c873; }
+body.theme-light .dark-band-caption{ color:rgba(231,200,115,.6); }
+
+/* ── light-theme: dorados literales sobre fondo claro → sepia ── */
+body.theme-light .tab-btn{ color:rgba(107,66,0,.6); }
+body.theme-light .video-note{ color:rgba(107,66,0,.6); }
+
+/* ══ COMPOSICIÓN LANDING ══ */
+/* editorial: bloque alineado a la izquierda, estilo portada de revista */
+body.compo-editorial .hero{
+  align-items:flex-start; text-align:left;
+  padding-left:clamp(1.5rem,7vw,7rem);
+}
+body.compo-editorial .hero-inner{ max-width:680px; }
+body.compo-editorial .hero-sub{ margin-left:0; max-width:520px; }
+body.compo-editorial .grito{ margin-left:0; max-width:560px; }
+body.compo-editorial .grito .rule:not(.r){ display:none; }
+body.compo-editorial .cta{ justify-content:flex-start; }
+body.compo-editorial .hero-media::after{
+  background:
+    linear-gradient(to right,
+      rgba(18,10,5,0.86) 0%, rgba(18,10,5,0.55) 38%,
+      rgba(18,10,5,0.12) 68%, rgba(18,10,5,0.35) 100%),
+    linear-gradient(to bottom,
+      rgba(18,10,5,0.5) 0%, transparent 35%,
+      rgba(18,10,5,0.45) 75%, var(--ink) 100%);
+}
+
+/* pie: bloque anclado al pie del viewport, estilo cartel de cine */
+body.compo-pie .hero{ justify-content:flex-end; padding-bottom:9rem; }
+body.compo-pie .eyebrow{ margin-bottom:1.2rem; }
+body.compo-pie .grito{ margin-top:1.6rem; }
+body.compo-pie .hero-sub{ margin-top:1.2rem; }
+body.compo-pie .cta{ margin-top:1.8rem; }
+body.compo-pie .hero-media::after{
+  background:
+    radial-gradient(120% 80% at 50% 12%, rgba(201,168,76,0.08), transparent 55%),
+    linear-gradient(to bottom,
+      rgba(18,10,5,0.55) 0%,
+      rgba(18,10,5,0.18) 30%,
+      rgba(18,10,5,0.62) 60%,
+      rgba(18,10,5,0.94) 85%,
+      var(--ink) 100%);
+}
+@media (max-width:600px){
+  body.compo-editorial .hero{ padding-left:1.5rem; }
+}
 </style>
 
 <button id="tweaks-toggle" aria-label="Personalizar" title="Personalizar">
@@ -1863,6 +2003,19 @@ body.theme-light .footer-copy{ color:rgba(30,15,5,.45); }
     <button class="tw-close" id="tweaks-close">✕</button>
   </div>
   <div class="tw-body">
+
+    <!-- VERSIONES CURADAS -->
+    <div class="tw-section">
+      <div class="tw-section-title">Versiones</div>
+      <div class="tw-presets" id="tw-preset-group">
+        <button class="tw-preset active" data-preset="0"><b>Épico</b><span>cine · dorado</span></button>
+        <button class="tw-preset" data-preset="1"><b>Editorial</b><span>revista · ébano</span></button>
+        <button class="tw-preset" data-preset="2"><b>Cartel</b><span>póster · ámbar</span></button>
+        <button class="tw-preset" data-preset="3"><b>Lectura</b><span>claro · diurno</span></button>
+        <button class="tw-preset" data-preset="4"><b>Pergamino</b><span>impreso antiguo</span></button>
+        <button class="tw-preset" data-preset="5"><b>Contraste</b><span>accesible</span></button>
+      </div>
+    </div>
 
     <!-- TÍTULO DEL HEADER -->
     <div class="tw-section">
@@ -1884,7 +2037,8 @@ body.theme-light .footer-copy{ color:rgba(30,15,5,.45); }
         <label class="tw-field-label">Imagen / video</label>
         <div class="tw-pills" id="tw-media-group">
           <button class="tw-pill active" data-media="video">video</button>
-          <button class="tw-pill" data-media="photo">cabalgata</button>
+          <button class="tw-pill" data-media="cabalgata">cabalgata</button>
+          <button class="tw-pill" data-media="familia">familia</button>
         </div>
       </div>
       <div class="tw-field">
@@ -1921,6 +2075,14 @@ body.theme-light .footer-copy{ color:rgba(30,15,5,.45); }
           <button class="tw-pill active" data-font="'Lato', sans-serif" data-var="--sans">lato</button>
           <button class="tw-pill" data-font="'Source Sans 3', sans-serif" data-var="--sans">source</button>
           <button class="tw-pill" data-font="'Raleway', sans-serif" data-var="--sans">raleway</button>
+        </div>
+      </div>
+      <div class="tw-field">
+        <label class="tw-field-label">Composición landing</label>
+        <div class="tw-pills" id="tw-compo-group">
+          <button class="tw-pill active" data-compo="centrado">centrado</button>
+          <button class="tw-pill" data-compo="editorial">editorial</button>
+          <button class="tw-pill" data-compo="pie">pie</button>
         </div>
       </div>
     </div>
@@ -1992,15 +2154,71 @@ body.theme-light .footer-copy{ color:rgba(30,15,5,.45); }
 
   /* hero media toggle */
   var heroVid = document.getElementById('hero-video');
+  var heroPoster = document.querySelector('.hero-media .poster');
+  var posterSrcs = { cabalgata:'assets/cabalgata.jpg', familia:'assets/familia-nino.webp' };
   document.getElementById('tw-media-group').addEventListener('click', function(e){
     var btn = e.target.closest('.tw-pill'); if(!btn || !btn.dataset.media) return;
     document.querySelectorAll('#tw-media-group .tw-pill').forEach(function(p){ p.classList.remove('active'); });
     btn.classList.add('active');
-    if(btn.dataset.media === 'photo'){
-      if(heroVid){ heroVid.pause(); heroVid.classList.remove('playing'); }
-    } else {
+    var m = btn.dataset.media;
+    if(m === 'video'){
+      if(heroPoster) heroPoster.style.backgroundImage = '';
       if(heroVid){ heroVid.play && heroVid.play().catch(function(){}); heroVid.classList.add('playing'); }
+    } else {
+      if(heroVid){ heroVid.pause(); heroVid.classList.remove('playing'); }
+      if(heroPoster) heroPoster.style.backgroundImage = "url('" + posterSrcs[m] + "')";
     }
+  });
+
+  /* composición landing */
+  document.getElementById('tw-compo-group').addEventListener('click', function(e){
+    var btn = e.target.closest('.tw-pill'); if(!btn || !btn.dataset.compo) return;
+    document.querySelectorAll('#tw-compo-group .tw-pill').forEach(function(p){ p.classList.remove('active'); });
+    btn.classList.add('active');
+    document.body.classList.remove('compo-editorial','compo-pie');
+    if(btn.dataset.compo !== 'centrado') document.body.classList.add('compo-' + btn.dataset.compo);
+  });
+
+  /* versiones curadas */
+  var presets = [
+    /* Épico — la versión cinematográfica original */
+    { p:0, media:'video',     serif:0, sans:0, compo:'centrado' },
+    /* Editorial — portada de revista documental */
+    { p:2, media:'cabalgata', serif:1, sans:1, compo:'editorial' },
+    /* Cartel — póster de cine, título al pie */
+    { p:1, media:'video',     serif:0, sans:0, compo:'pie' },
+    /* Lectura — fondo claro diurno, serif suave */
+    { p:5, media:'cabalgata', serif:1, sans:1, compo:'centrado' },
+    /* Pergamino — impreso antiguo, tipografía de época */
+    { p:4, media:'cabalgata', serif:2, sans:0, compo:'editorial' },
+    /* Contraste — máxima legibilidad accesible */
+    { p:6, media:'familia',   serif:0, sans:1, compo:'centrado' }
+  ];
+  var applyingPreset = false;
+  var presetGroup = document.getElementById('tw-preset-group');
+  presetGroup.addEventListener('click', function(e){
+    var btn = e.target.closest('.tw-preset'); if(!btn) return;
+    var pr = presets[+btn.dataset.preset]; if(!pr) return;
+    applyingPreset = true;
+    var sw = document.querySelector('#tw-palette-group .tw-swatch[data-p="'+pr.p+'"]');
+    if(sw) sw.click();
+    var md = document.querySelector('#tw-media-group .tw-pill[data-media="'+pr.media+'"]');
+    if(md) md.click();
+    var serifPills = document.querySelectorAll('#tw-serif-group .tw-pill');
+    if(serifPills[pr.serif]) serifPills[pr.serif].click();
+    var sansPills = document.querySelectorAll('#tw-sans-group .tw-pill');
+    if(sansPills[pr.sans]) sansPills[pr.sans].click();
+    var cp = document.querySelector('#tw-compo-group .tw-pill[data-compo="'+pr.compo+'"]');
+    if(cp) cp.click();
+    applyingPreset = false;
+    presetGroup.querySelectorAll('.tw-preset').forEach(function(b){ b.classList.remove('active'); });
+    btn.classList.add('active');
+  });
+  /* un cambio manual desmarca la versión activa */
+  ['tw-palette-group','tw-media-group','tw-serif-group','tw-sans-group','tw-compo-group'].forEach(function(gid){
+    document.getElementById(gid).addEventListener('click', function(){
+      if(!applyingPreset) presetGroup.querySelectorAll('.tw-preset').forEach(function(b){ b.classList.remove('active'); });
+    });
   });
 
   /* font pill groups */
@@ -2028,7 +2246,7 @@ body.theme-light .footer-copy{ color:rgba(30,15,5,.45); }
   /* reset */
   document.getElementById('tw-reset').addEventListener('click', function(){
     ['--ink','--ink-2','--bg','--gold','--gold-hi','--cream','--cream-dim','--serif','--sans'].forEach(function(v){ root.style.removeProperty(v); });
-    document.body.classList.remove('theme-light');
+    document.body.classList.remove('theme-light','compo-editorial','compo-pie');
     document.getElementById('tw-nav-logo').value = 'CRISTIADA';
     document.getElementById('tw-hero-main').value = 'Cristera';
     if(navLogoText) navLogoText.textContent = ' CRISTIADA ';
@@ -2037,6 +2255,9 @@ body.theme-light .footer-copy{ color:rgba(30,15,5,.45); }
     document.querySelectorAll('#tw-serif-group .tw-pill').forEach(function(p,i){ p.classList.toggle('active',i===0); });
     document.querySelectorAll('#tw-sans-group .tw-pill').forEach(function(p,i){ p.classList.toggle('active',i===0); });
     document.querySelectorAll('#tw-media-group .tw-pill').forEach(function(p,i){ p.classList.toggle('active',i===0); });
+    document.querySelectorAll('#tw-compo-group .tw-pill').forEach(function(p,i){ p.classList.toggle('active',i===0); });
+    document.querySelectorAll('#tw-preset-group .tw-preset').forEach(function(p,i){ p.classList.toggle('active',i===0); });
+    if(heroPoster) heroPoster.style.backgroundImage = '';
     if(heroVid){ heroVid.play && heroVid.play().catch(function(){}); heroVid.classList.add('playing'); }
   });
 
