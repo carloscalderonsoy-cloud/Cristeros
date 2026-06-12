@@ -7,7 +7,7 @@
 <meta name="description" content="Centenario de la Guerra Cristera (1926–1929). Un siglo de memoria, fe y sacrificio en el occidente de México. ¡Viva Cristo Rey!">
 <meta property="og:title" content="La Guerra Cristera · Cien Años de Memoria · 1926–2026">
 <meta property="og:description" content="Centenario de la Guerra Cristera. Un siglo de memoria, fe y sacrificio en México.">
-<meta property="og:image" content="assets/cabalgata.jpg">
+<meta property="og:image" content="assets/cabalgata-catedral.jpg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -114,8 +114,8 @@ nav.scrolled{
   border-bottom-color:rgba(201,168,76,0.18);
 }
 .nav-inner{
-  max-width:1280px; margin:0 auto; height:68px; padding:0 2rem;
-  display:flex; align-items:center; justify-content:space-between;
+  max-width:1380px; margin:0 auto; height:68px; padding:0 2rem;
+  display:flex; align-items:center; justify-content:space-between; gap:1.5rem;
 }
 .nav-logo{
   font-family:var(--serif); color:var(--cream); text-decoration:none;
@@ -124,11 +124,11 @@ nav.scrolled{
 }
 .nav-logo .x{ color:var(--gold); }
 .nav-logo em{ color:var(--gold); font-style:normal; font-weight:500; letter-spacing:2px; }
-.nav-links{ display:flex; gap:1.7rem; list-style:none; }
+.nav-links{ display:flex; gap:1.35rem; list-style:none; }
 .nav-links a{
   font-family:var(--sans); color:var(--cream-dim); text-decoration:none;
-  font-size:.95rem; letter-spacing:2px; text-transform:uppercase; font-weight:400;
-  padding:.4rem 0; position:relative; transition:color .3s;
+  font-size:.85rem; letter-spacing:1.5px; text-transform:uppercase; font-weight:400;
+  padding:.4rem 0; position:relative; transition:color .3s; white-space:nowrap;
 }
 .nav-links a::after{
   content:''; position:absolute; left:0; right:0; bottom:-2px; height:1px;
@@ -144,7 +144,7 @@ nav.scrolled{
 .nav-toggle.open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
 .nav-toggle.open span:nth-child(2){ opacity:0; }
 .nav-toggle.open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
-@media (max-width:1080px){
+@media (max-width:1180px){
   .nav-toggle{ display:flex; }
   .nav-links{
     position:absolute; top:68px; left:0; right:0; flex-direction:column; gap:0;
@@ -152,11 +152,16 @@ nav.scrolled{
     border-bottom:1px solid rgba(201,168,76,0.18);
     max-height:0; overflow:hidden; transition:max-height .4s ease;
   }
-  .nav-links.open{ max-height:60vh; }
+  .nav-links.open{ max-height:70vh; overflow-y:auto; }
   .nav-links a{
     padding:1rem 2rem; min-height:44px; display:flex; align-items:center;
-    border-top:1px solid rgba(201,168,76,0.07);
+    border-top:1px solid rgba(201,168,76,0.07); font-size:.95rem;
   }
+}
+@media (max-width:480px){
+  .nav-inner{ padding:0 1rem; }
+  .nav-logo{ font-size:.85rem; letter-spacing:2px; }
+  .nav-logo em{ letter-spacing:1px; }
 }
 
 /* ══════════════════════════════════════════════
@@ -175,7 +180,7 @@ nav.scrolled{
   filter:saturate(.62) contrast(1.06) sepia(.22) brightness(.82);
 }
 .hero-media .poster{
-  background:url('assets/cabalgata.jpg') center 30% / cover no-repeat;
+  background:url('assets/cabalgata-catedral.jpg') center 30% / cover no-repeat;
   animation:slowZoom 26s ease-out forwards;
 }
 .hero-media video{
@@ -379,13 +384,14 @@ nav.scrolled{
   border-left:1px solid rgba(139,115,85,0.2);
 }
 .stat-item{
-  flex:1 1 220px; min-width:220px; padding:2.5rem 2rem; text-align:center;
+  flex:1 1 220px; min-width:220px; padding:2.5rem 1rem; text-align:center;
   border-right:1px solid rgba(139,115,85,0.2);
   border-bottom:1px solid rgba(139,115,85,0.2);
+  overflow:hidden;
 }
 .stat-num{
   font-family:var(--serif); font-weight:900; line-height:1;
-  font-size:clamp(2.4rem,5vw,4rem); color:var(--red); display:block;
+  font-size:clamp(1.9rem,3.6vw,3rem); color:var(--red); display:block;
   white-space:nowrap;
 }
 .stat-unit{
@@ -843,7 +849,7 @@ footer{
       <li><a href="#libros">Libros</a></li>
       <li><a href="#multimedia">Multimedia</a></li>
       <li><a href="#testimonios">Testimonios</a></li>
-      <li><a href="#centenario">El Centenario</a></li>
+      <li><a href="#centenario">Centenario</a></li>
     </ul>
   </div>
 </nav>
@@ -938,7 +944,7 @@ footer{
 
 <!-- ════════════ DARK BAND 1 ════════════ -->
 <div class="dark-band">
-  <img src="assets/1.jpg"
+  <img src="assets/estandarte-familia.jpg"
        alt="Cristeros con el estandarte guadalupano junto a una familia, circa 1927" loading="lazy">
   <div class="dark-band-overlay">
     <div class="dark-band-text">
@@ -1150,8 +1156,8 @@ footer{
 
 <!-- ════════════ DARK BAND 2 ════════════ -->
 <div class="dark-band">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/MiguelPro.jpg/800px-MiguelPro.jpg"
-       alt="Padre Miguel Pro S.J., fusilado el 23 de noviembre de 1927" loading="lazy">
+  <img src="assets/padre-pro-brazos.jpg"
+       alt="Padre Miguel Pro S.J. con los brazos en cruz ante el pelotón de fusilamiento, 23 de noviembre de 1927" loading="lazy">
   <div class="dark-band-overlay">
     <div class="dark-band-text">
       <blockquote>"Padre, perdono a todos mis enemigos y ruego a Dios que también los perdone."</blockquote>
@@ -1247,19 +1253,24 @@ footer{
   <div class="photo-grid">
 
     <div class="photo-item wide" onclick="openLb(this)"
-         data-src="assets/cabalgata.jpg"
-         data-cap="Caballería cristera con el estandarte guadalupano · Archivo histórico">
-      <img src="assets/cabalgata.jpg" alt="Caballería cristera con el estandarte guadalupano" loading="lazy">
+         data-src="assets/cabalgata-catedral.jpg"
+         data-cap="Caballería cristera con el estandarte guadalupano ante la catedral · Archivo histórico">
+      <img src="assets/cabalgata-catedral.jpg" alt="Caballería cristera con el estandarte guadalupano ante la catedral" loading="lazy">
       <div class="photo-cap">Cabalgata · Estandarte Guadalupano</div>
     </div>
 
     <div class="photo-item tall" onclick="openLb(this)"
-         data-src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/MiguelPro.jpg/480px-MiguelPro.jpg"
-         data-cap="Padre Miguel Pro S.J. · Fusilado el 23 de noviembre de 1927 · Dominio público">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/MiguelPro.jpg/320px-MiguelPro.jpg"
-           alt="Padre Miguel Agustín Pro S.J., fusilado el 23 de noviembre de 1927" loading="lazy"
-           onerror="this.parentElement.innerHTML='<div class=\'photo-ph\'>P. Miguel Pro S.J.<span>† 23 Nov. 1927</span></div>'">
-      <div class="photo-cap">P. Miguel Pro S.J. · † 1927</div>
+         data-src="assets/cristero-crucifijo.jpg"
+         data-cap="Combatiente cristero con crucifijo al pecho · c. 1927 · Archivo histórico">
+      <img src="assets/cristero-crucifijo.jpg" alt="Combatiente cristero con crucifijo al pecho y canana, circa 1927" loading="lazy">
+      <div class="photo-cap">Cristero con crucifijo · c. 1927</div>
+    </div>
+
+    <div class="photo-item" onclick="openLb(this)"
+         data-src="assets/padre-pro-oracion.jpg"
+         data-cap="Padre Miguel Pro S.J. orando de rodillas ante el pelotón · Ciudad de México · 23 Nov. 1927">
+      <img src="assets/padre-pro-oracion.jpg" alt="Padre Miguel Pro orando de rodillas ante el pelotón de fusilamiento, 1927" loading="lazy">
+      <div class="photo-cap">P. Pro ante el pelotón · 1927</div>
     </div>
 
     <div class="photo-item" onclick="openLb(this)"
@@ -1268,14 +1279,6 @@ footer{
       <img src="uploads/cristeros2.jpg" alt="Combatientes cristeros" loading="lazy"
            onerror="this.parentElement.innerHTML='<div class=\'photo-ph\'>Archivo<span>Cristeros · 1927–1929</span></div>'">
       <div class="photo-cap">Cristeros · Bajío</div>
-    </div>
-
-    <div class="photo-item" onclick="openLb(this)"
-         data-src="uploads/cristeros4.jpg"
-         data-cap="La Cristiada · Archivo histórico">
-      <img src="uploads/cristeros4.jpg" alt="La Cristiada, archivo histórico" loading="lazy"
-           onerror="this.parentElement.innerHTML='<div class=\'photo-ph\'>Archivo<span>La Cristiada</span></div>'">
-      <div class="photo-cap">La Cristiada · Archivo</div>
     </div>
 
     <div class="photo-item wide" onclick="openLb(this)"
@@ -1295,44 +1298,44 @@ footer{
     </div>
 
     <div class="photo-item wide" onclick="openLb(this)"
-         data-src="assets/2.jpg"
+         data-src="assets/tropa-cristera.jpg"
          data-cap="Tropa cristera posando con sus cananas y fusiles · c. 1927 · Archivo histórico">
-      <img src="assets/2.jpg" alt="Tropa cristera posando con cananas y fusiles, circa 1927" loading="lazy">
+      <img src="assets/tropa-cristera.jpg" alt="Tropa cristera posando con cananas y fusiles, circa 1927" loading="lazy">
       <div class="photo-cap">Tropa cristera · c. 1927</div>
     </div>
 
     <div class="photo-item tall" onclick="openLb(this)"
-         data-src="assets/8.jpg"
-         data-cap="Niña con cartel: «¡Viva Cristo Rey! Viva N. S. de Guadalupe. ¡Viva el Papa!» · Fotograma de época">
-      <img src="assets/8.jpg" alt="Niña sosteniendo un cartel que dice Viva Cristo Rey, Viva Nuestra Señora de Guadalupe, Viva el Papa" loading="lazy">
-      <div class="photo-cap">«¡Viva Cristo Rey!» · Fotograma de época</div>
+         data-src="assets/nina-viva-cristo-rey.jpg"
+         data-cap="Niña con cartel: «¡Viva Cristo Rey! Viva N. S. de Guadalupe. ¡Viva el Papa!» · Fotografía de época">
+      <img src="assets/nina-viva-cristo-rey.jpg" alt="Niña sosteniendo un cartel que dice Viva Cristo Rey, Viva Nuestra Señora de Guadalupe, Viva el Papa" loading="lazy">
+      <div class="photo-cap">«¡Viva Cristo Rey!» · Fotografía de época</div>
     </div>
 
     <div class="photo-item" onclick="openLb(this)"
-         data-src="assets/3.jpg"
+         data-src="assets/mujeres-patriotas.jpg"
          data-cap="«Mujeres Patriotas» · Las Brigadas Femeninas abastecieron de municiones y correo a los cristeros">
-      <img src="assets/3.jpg" alt="Mujeres patriotas armadas, integrantes de las Brigadas Femeninas" loading="lazy">
+      <img src="assets/mujeres-patriotas.jpg" alt="Mujeres patriotas armadas, integrantes de las Brigadas Femeninas" loading="lazy">
       <div class="photo-cap">Mujeres Patriotas · Brigadas Femeninas</div>
     </div>
 
     <div class="photo-item" onclick="openLb(this)"
-         data-src="assets/4.jpg"
+         data-src="assets/carmen-robles.jpg"
          data-cap="Srta. Ma. Carmen Robles y compañeras, la víspera de su prisión por soldados callistas · Huejuquilla, Jal. · 18 Ene. 1928">
-      <img src="assets/4.jpg" alt="Carmen Robles y compañeras vestidas de luto, la víspera de su prisión, Huejuquilla, Jalisco, 1928" loading="lazy">
+      <img src="assets/carmen-robles.jpg" alt="Carmen Robles y compañeras vestidas de luto, la víspera de su prisión, Huejuquilla, Jalisco, 1928" loading="lazy">
       <div class="photo-cap">Carmen Robles y compañeras · Huejuquilla · 1928</div>
     </div>
 
     <div class="photo-item" onclick="openLb(this)"
-         data-src="assets/5.jpg"
+         data-src="assets/caballeria-sierra.jpg"
          data-cap="Caballería cristera en la sierra · Archivo histórico">
-      <img src="assets/5.jpg" alt="Caballería cristera formada frente a una casa rural en la sierra" loading="lazy">
+      <img src="assets/caballeria-sierra.jpg" alt="Caballería cristera formada frente a una casa rural en la sierra" loading="lazy">
       <div class="photo-cap">Caballería en la sierra</div>
     </div>
 
     <div class="photo-item wide" onclick="openLb(this)"
-         data-src="assets/6.jpg"
+         data-src="assets/combatientes-cananas.jpg"
          data-cap="Combatientes cristeros con cananas cruzadas · c. 1927–1929 · Archivo histórico">
-      <img src="assets/6.jpg" alt="Retrato de grupo de combatientes cristeros con cananas cruzadas" loading="lazy">
+      <img src="assets/combatientes-cananas.jpg" alt="Retrato de grupo de combatientes cristeros con cananas cruzadas" loading="lazy">
       <div class="photo-cap">Combatientes · c. 1927–1929</div>
     </div>
 
@@ -1921,7 +1924,7 @@ body.theme-light nav.scrolled{
   background:rgba(247,241,230,.92); backdrop-filter:blur(10px);
   border-bottom-color:rgba(107,66,0,.18);
 }
-@media (max-width:1080px){
+@media (max-width:1180px){
   body.theme-light .nav-links{
     background:rgba(247,241,230,.97);
     border-bottom-color:rgba(107,66,0,.18);
@@ -2155,7 +2158,7 @@ body.compo-pie .hero-media::after{
   /* hero media toggle */
   var heroVid = document.getElementById('hero-video');
   var heroPoster = document.querySelector('.hero-media .poster');
-  var posterSrcs = { cabalgata:'assets/cabalgata.jpg', familia:'assets/familia-nino.webp' };
+  var posterSrcs = { cabalgata:'assets/cabalgata-catedral.jpg', familia:'assets/familia-nino.webp' };
   document.getElementById('tw-media-group').addEventListener('click', function(e){
     var btn = e.target.closest('.tw-pill'); if(!btn || !btn.dataset.media) return;
     document.querySelectorAll('#tw-media-group .tw-pill').forEach(function(p){ p.classList.remove('active'); });
