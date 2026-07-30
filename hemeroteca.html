@@ -262,8 +262,10 @@ dialog#hem-lb::backdrop{ background:rgba(0,0,0,.92); backdrop-filter:blur(6px); 
 .hem-lb-close:hover{ background:var(--red); border-color:var(--red); color:#fff; }
 .hem-lb-view{ flex:1; overflow:auto; background:#0d0805; display:flex; align-items:flex-start; }
 .hem-lb-view.fit{ align-items:center; justify-content:center; }
-#hem-lb-img{ display:block; flex-shrink:0; }
+#hem-lb-img{ display:block; flex-shrink:0; -webkit-user-drag:none; user-select:none; }
 .hem-lb-view.fit #hem-lb-img{ max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; }
+.hem-lb-view:not(.fit){ cursor:grab; touch-action:none; }
+.hem-lb-view:not(.fit).grabbing{ cursor:grabbing; }
 .hem-lb-cap{
   padding:.8rem 1.1rem; border-top:1px solid rgba(201,168,76,.12);
   font-family:var(--italic); font-style:italic; font-size:.9rem;
@@ -580,6 +582,31 @@ footer{
   }
   fitBtn.addEventListener('click', function(){ setFit(true); });
   realBtn.addEventListener('click', function(){ setFit(false); });
+
+  /* ── Hand tool: drag to pan when viewing at actual size ── */
+  var dragging = false, dragStartX = 0, dragStartY = 0, scrollStartX = 0, scrollStartY = 0;
+  view.addEventListener('pointerdown', function(e){
+    if(view.classList.contains('fit')) return;
+    dragging = true;
+    view.classList.add('grabbing');
+    dragStartX = e.clientX; dragStartY = e.clientY;
+    scrollStartX = view.scrollLeft; scrollStartY = view.scrollTop;
+    view.setPointerCapture(e.pointerId);
+    e.preventDefault();
+  });
+  view.addEventListener('pointermove', function(e){
+    if(!dragging) return;
+    view.scrollLeft = scrollStartX - (e.clientX - dragStartX);
+    view.scrollTop  = scrollStartY - (e.clientY - dragStartY);
+  });
+  function endDrag(e){
+    if(!dragging) return;
+    dragging = false;
+    view.classList.remove('grabbing');
+    try{ view.releasePointerCapture(e.pointerId); }catch(err){}
+  }
+  view.addEventListener('pointerup', endDrag);
+  view.addEventListener('pointercancel', endDrag);
 
   document.querySelectorAll('.hem-card').forEach(function(card){
     card.addEventListener('click', function(){

@@ -767,7 +767,7 @@ details.book-more[open] summary::before{ content:'− '; }
 /* ══════════════════════════════════════════════
    CENTENARIO
 ══════════════════════════════════════════════ */
-.centenario-section{ background:var(--ink); padding:6rem 2rem 7rem; }
+.centenario-section{ background:var(--ink); padding:6rem 2rem 7rem; position:relative; }
 .centenario-wrap{ max-width:680px; margin:0 auto; }
 .centenario-num{
   font-family:var(--serif); font-weight:900;
@@ -778,6 +778,15 @@ details.book-more[open] summary::before{ content:'− '; }
 .centenario-body p{ font-size:clamp(1.02rem,1.8vw,1.15rem); color:rgba(212,197,160,.75); line-height:1.95; margin-bottom:1.5rem; }
 .centenario-body strong{ color:var(--cream); font-weight:700; }
 .centenario-body em{ color:var(--gold); font-style:normal; }
+.section-page-num{
+  position:absolute; right:1.8rem; bottom:1.6rem;
+  font-family:var(--serif); font-weight:700; font-size:1.4rem;
+  letter-spacing:2px; color:rgba(201,168,76,.7);
+  user-select:none;
+}
+@media (max-width:600px){
+  .section-page-num{ right:1.2rem; bottom:1.2rem; font-size:1.15rem; }
+}
 
 /* ══════════════════════════════════════════════
    MEDIA MODAL
@@ -910,6 +919,25 @@ footer{
   </p>
   <div class="ornament reveal">✠&#xFE0E;</div>
   <p class="attr reveal">Sitio conmemorativo · 1926 – 2026</p>
+</section>
+
+<!-- ════════════ CENTENARIO ════════════ -->
+<section class="centenario-section" id="centenario">
+  <div class="centenario-wrap">
+    <div class="section-header">
+      <span class="section-eyebrow">· El Centenario ·</span>
+      <h2 class="section-title on-dark">¿Por qué 2026?</h2>
+      <div class="section-rule"></div>
+    </div>
+    <span class="centenario-num" aria-hidden="true">100</span>
+    <div class="centenario-body">
+      <p>En <em>agosto de 1926</em>, en Chalchihuites, Zacatecas, sonaron los primeros disparos de una guerra que el mundo no quiso recordar. <strong>Cien años después</strong>, ese silencio sigue siendo una deuda con los estados de México que vieron a sus padres, hijos y sacerdotes morir sin que ningún libro de texto escolar lo reconociera plenamente.</p>
+      <p>El centenario de <em>2026</em> no es solo un aniversario: es una oportunidad para que México reconozca uno de los episodios más complejos de su historia moderna. <strong>La Cristiada no fue ni una rebelión de fanáticos ni una guerra de la Iglesia</strong>: fue la respuesta de comunidades enteras —campesinos, madres, jóvenes, sacerdotes— ante la eliminación forzada de su identidad cultural.</p>
+      <p>Los <em>25 santos canonizados en Roma en el año 2000</em> son el recordatorio de que esta historia tiene nombre, rostro y fecha de martirio. Recordarlos no es política ni nostalgia: es <strong>honrar la verdad histórica</strong> de un pueblo que dijo No cuando el Estado le exigió callar lo que más amaba.</p>
+    </div>
+    <div class="ornament-line light"><span>· 1926 · 2026 ·</span></div>
+  </div>
+  <span class="section-page-num" aria-hidden="true">03</span>
 </section>
 
 <!-- ════════════ STATS (paper) ════════════ -->
@@ -1538,24 +1566,6 @@ footer{
       <div class="q-dots" id="q-dots"></div>
       <button class="q-btn" onclick="qNav(1)" aria-label="Siguiente">→</button>
     </div>
-  </div>
-</section>
-
-<!-- ════════════ CENTENARIO ════════════ -->
-<section class="centenario-section" id="centenario">
-  <div class="centenario-wrap">
-    <div class="section-header">
-      <span class="section-eyebrow">· El Centenario ·</span>
-      <h2 class="section-title on-dark">¿Por qué 2026?</h2>
-      <div class="section-rule"></div>
-    </div>
-    <span class="centenario-num" aria-hidden="true">100</span>
-    <div class="centenario-body">
-      <p>En <em>agosto de 1926</em>, en Chalchihuites, Zacatecas, sonaron los primeros disparos de una guerra que el mundo no quiso recordar. <strong>Cien años después</strong>, ese silencio sigue siendo una deuda con los estados de México que vieron a sus padres, hijos y sacerdotes morir sin que ningún libro de texto escolar lo reconociera plenamente.</p>
-      <p>El centenario de <em>2026</em> no es solo un aniversario: es una oportunidad para que México reconozca uno de los episodios más complejos de su historia moderna. <strong>La Cristiada no fue ni una rebelión de fanáticos ni una guerra de la Iglesia</strong>: fue la respuesta de comunidades enteras —campesinos, madres, jóvenes, sacerdotes— ante la eliminación forzada de su identidad cultural.</p>
-      <p>Los <em>25 santos canonizados en Roma en el año 2000</em> son el recordatorio de que esta historia tiene nombre, rostro y fecha de martirio. Recordarlos no es política ni nostalgia: es <strong>honrar la verdad histórica</strong> de un pueblo que dijo No cuando el Estado le exigió callar lo que más amaba.</p>
-    </div>
-    <div class="ornament-line light"><span>· 1926 · 2026 ·</span></div>
   </div>
 </section>
 
