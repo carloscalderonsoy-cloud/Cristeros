@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hemeroteca · La Guerra Cristera en la Prensa · 1926–2026</title>
+<meta name="description" content="Hemeroteca digital de la Guerra Cristera: planas y recortes originales de El Informador (Guadalajara, Jal.), julio de 1926, organizados por fecha de edición.">
+<meta property="og:title" content="Hemeroteca · La Guerra Cristera en la Prensa">
+<meta property="og:description" content="Planas y recortes de prensa de julio de 1926, los días previos a la suspensión de cultos en México.">
+<meta property="og:image" content="assets/hemeroteca/1926-07-16_El_Informador_Plana_1.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════
+   TOKENS (shared with index.html)
+══════════════════════════════════════════════ */
+:root{
+  --ink:        #120a05;
+  --ink-2:      #1c1109;
+  --sepia-deep: #2c1810;
+  --sepia:      #8b6547;
+  --sepia-ink:  #6e4f37;
+  --gold:       #c9a84c;
+  --gold-hi:    #e7c873;
+  --red:        #8b1a1a;
+  --red-hi:     #b3302a;
+  --cream:      #f2e8d5;
+  --cream-dim:  rgba(242,232,213,0.72);
+  --bg:         #e8dcc8;
+  --text:       #2a1f0e;
+  --dim:        #5d4a33;
+  --serif:      'Cinzel', serif;
+  --italic:     'Cormorant Garamond', serif;
+  --sans:       'Lato', sans-serif;
+}
+*,*::before,*::after{ margin:0; padding:0; box-sizing:border-box; }
+.cross,.nav-logo .x{ font-variant-emoji:text; }
+html{ scroll-behavior:smooth; }
+body{
+  font-family:var(--sans); font-weight:400;
+  background:var(--bg); color:var(--text);
+  overflow-x:hidden;
+}
+img{ display:block; }
+
+.grain{
+  position:fixed; inset:-150%; z-index:60; pointer-events:none;
+  opacity:.05; mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grainShift 0.6s steps(2) infinite;
+}
+@keyframes grainShift{
+  0%{transform:translate(0,0)} 25%{transform:translate(-3%,2%)}
+  50%{transform:translate(2%,-3%)} 75%{transform:translate(-2%,-2%)}
+  100%{transform:translate(3%,3%)}
+}
+
+/* ══════════════════════════════════════════════
+   NAV (shared with index.html)
+══════════════════════════════════════════════ */
+nav{
+  position:fixed; top:0; width:100%; z-index:100;
+  background:rgba(18,10,5,0.92); backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(201,168,76,0.18);
+}
+.nav-inner{
+  max-width:1380px; margin:0 auto; height:68px; padding:0 2rem;
+  display:flex; align-items:center; justify-content:space-between; gap:1.5rem;
+}
+.nav-logo{
+  font-family:var(--serif); color:var(--cream); text-decoration:none;
+  font-size:1rem; letter-spacing:3px; text-transform:uppercase; font-weight:600;
+  display:flex; align-items:center; gap:.55rem; white-space:nowrap;
+}
+.nav-logo .x{ color:var(--gold); }
+.nav-logo em{ color:var(--gold); font-style:normal; font-weight:500; letter-spacing:2px; }
+.nav-links{ display:flex; gap:1.35rem; list-style:none; }
+.nav-links a{
+  font-family:var(--sans); color:var(--cream-dim); text-decoration:none;
+  font-size:.85rem; letter-spacing:1.5px; text-transform:uppercase; font-weight:400;
+  padding:.4rem 0; position:relative; transition:color .3s; white-space:nowrap;
+}
+.nav-links a::after{
+  content:''; position:absolute; left:0; right:0; bottom:-2px; height:1px;
+  background:var(--gold); transform:scaleX(0); transform-origin:center; transition:transform .3s;
+}
+.nav-links a:hover{ color:var(--gold-hi); }
+.nav-links a:hover::after{ transform:scaleX(1); }
+.nav-links a.current{ color:var(--gold-hi); }
+.nav-links a.current::after{ transform:scaleX(1); }
+.nav-toggle{
+  display:none; flex-direction:column; gap:5px; background:none; border:none;
+  cursor:pointer; min-width:44px; min-height:44px; align-items:center; justify-content:center;
+}
+.nav-toggle span{ display:block; width:24px; height:1.5px; background:var(--cream); transition:all .3s; }
+.nav-toggle.open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
+.nav-toggle.open span:nth-child(2){ opacity:0; }
+.nav-toggle.open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
+@media (max-width:1180px){
+  .nav-toggle{ display:flex; }
+  .nav-links{
+    position:absolute; top:68px; left:0; right:0; flex-direction:column; gap:0;
+    background:rgba(18,10,5,0.97); backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(201,168,76,0.18);
+    max-height:0; overflow:hidden; transition:max-height .4s ease;
+  }
+  .nav-links.open{ max-height:70vh; overflow-y:auto; }
+  .nav-links a{
+    padding:1rem 2rem; min-height:44px; display:flex; align-items:center;
+    border-top:1px solid rgba(201,168,76,0.07); font-size:.95rem;
+  }
+}
+@media (max-width:480px){
+  .nav-inner{ padding:0 1rem; }
+  .nav-logo{ font-size:.85rem; letter-spacing:2px; }
+  .nav-logo em{ letter-spacing:1px; }
+}
+
+/* ══════════════════════════════════════════════
+   PAGE HERO (dark)
+══════════════════════════════════════════════ */
+.hem-hero{
+  background:var(--ink); padding:9.5rem 1.5rem 4.5rem; text-align:center;
+  position:relative;
+}
+.hem-eyebrow{
+  font-family:var(--serif); font-size:.85rem; letter-spacing:4px;
+  text-transform:uppercase; color:var(--gold); margin-bottom:.8rem; display:block;
+}
+.hem-hero h1{
+  font-family:var(--serif); font-weight:700; color:var(--cream);
+  font-size:clamp(2.2rem,6vw,3.6rem); line-height:1.05;
+}
+.hem-rule{ width:50px; height:1px; background:var(--gold); margin:1.1rem auto 1.8rem; opacity:.5; }
+.hem-hero p{
+  max-width:660px; margin:0 auto; font-family:var(--italic); font-style:italic;
+  font-size:clamp(1rem,2vw,1.2rem); line-height:1.85; color:var(--cream-dim);
+}
+.hem-hero p strong{ font-style:normal; color:var(--gold-hi); font-weight:600; }
+.hem-hero .cue{
+  display:block; margin-top:1.6rem; font-family:var(--sans); font-style:normal;
+  font-size:.76rem; letter-spacing:2px; text-transform:uppercase; color:rgba(201,168,76,.55);
+}
+
+/* ══════════════════════════════════════════════
+   ARCHIVE (paper)
+══════════════════════════════════════════════ */
+.hem-archive{
+  background-color:var(--bg);
+  background-image:
+    repeating-linear-gradient(-45deg, transparent 0, transparent 8px,
+      rgba(0,0,0,0.018) 8px, rgba(0,0,0,0.018) 9px),
+    repeating-linear-gradient( 45deg, transparent 0, transparent 14px,
+      rgba(0,0,0,0.01) 14px, rgba(0,0,0,0.01) 15px);
+  padding:3.5rem 2rem 6rem;
+}
+.hem-archive-inner{ max-width:1180px; margin:0 auto; }
+
+.hem-date-row{
+  display:flex; gap:2.4rem; padding:2.8rem 0;
+  border-bottom:1px solid rgba(139,115,85,0.28);
+}
+.hem-date-row:first-child{ padding-top:0; }
+.hem-date-row:last-child{ border-bottom:none; }
+
+.hem-date-badge{
+  flex:0 0 150px; text-align:center; padding-top:.2rem;
+}
+.hem-badge-day{
+  font-family:var(--serif); font-weight:900; line-height:1;
+  font-size:3.2rem; color:var(--red); display:block;
+}
+.hem-badge-month{
+  font-family:var(--serif); font-size:.95rem; letter-spacing:3px; text-transform:uppercase;
+  color:var(--sepia-ink); display:block; margin-top:.25rem;
+}
+.hem-badge-year{ font-size:.85rem; color:var(--dim); display:block; margin-top:.1rem; }
+.hem-badge-weekday{
+  font-family:var(--italic); font-style:italic; font-size:.92rem; color:var(--sepia);
+  display:block; margin-top:.7rem;
+}
+.hem-badge-edition{
+  font-size:.68rem; letter-spacing:1px; text-transform:uppercase; color:var(--sepia-ink);
+  margin-top:.9rem; padding-top:.7rem; border-top:1px solid rgba(139,115,85,.3);
+  display:block; line-height:1.5;
+}
+
+.hem-cards{
+  flex:1; min-width:0;
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(190px,1fr)); gap:1.5rem;
+}
+.hem-card{
+  background:#fbf7ec; border:1px solid rgba(28,17,9,.12); cursor:pointer;
+  text-align:left; padding:0; font:inherit; color:inherit;
+  box-shadow:0 5px 16px rgba(28,17,9,.14);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.hem-card:hover, .hem-card:focus-visible{
+  transform:translateY(-5px);
+  box-shadow:0 14px 30px rgba(28,17,9,.22);
+}
+.hem-card-thumb{ display:block; aspect-ratio:3/4; overflow:hidden; background:#e4d9c0; }
+.hem-card-thumb img{
+  width:100%; height:100%; object-fit:cover; object-position:top center; display:block;
+}
+.hem-card-tag{
+  display:block; font-family:var(--sans); font-size:.62rem; letter-spacing:2px;
+  text-transform:uppercase; color:var(--red); padding:.65rem .75rem 0;
+}
+.hem-card-label{
+  display:block; padding:.3rem .75rem .8rem; font-family:var(--serif);
+  font-size:.86rem; color:var(--text); line-height:1.3;
+}
+
+@media (max-width:640px){
+  .hem-date-row{ flex-direction:column; gap:1.2rem; }
+  .hem-date-badge{
+    flex:none; text-align:left; display:flex; align-items:baseline; gap:.7rem; flex-wrap:wrap;
+  }
+  .hem-badge-day{ font-size:2.2rem; }
+  .hem-badge-weekday, .hem-badge-edition{ margin-top:0; padding-top:0; border-top:none; }
+  .hem-badge-edition{ flex-basis:100%; margin-top:.3rem; }
+}
+
+/* ══════════════════════════════════════════════
+   LIGHTBOX (plain — no reader effects)
+══════════════════════════════════════════════ */
+dialog#hem-lb{
+  width:96vw; height:92vh; max-width:1300px; padding:0; margin:auto;
+  background:var(--ink); border:1px solid rgba(201,168,76,.28);
+  flex-direction:column; overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,.6);
+}
+dialog#hem-lb[open]{ display:flex; }
+dialog#hem-lb::backdrop{ background:rgba(0,0,0,.92); backdrop-filter:blur(6px); }
+.hem-lb-bar{
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  padding:.8rem 1.1rem; border-bottom:1px solid rgba(201,168,76,.15); flex-wrap:wrap;
+}
+.hem-lb-info{ min-width:0; }
+.hem-lb-title{ font-family:var(--serif); color:var(--gold-hi); font-size:1rem; }
+.hem-lb-meta{
+  font-size:.72rem; letter-spacing:1.5px; text-transform:uppercase;
+  color:rgba(201,168,76,.55); margin-top:.15rem;
+}
+.hem-lb-actions{ display:flex; gap:.5rem; flex-shrink:0; align-items:center; }
+.hem-lb-btn{
+  background:rgba(255,255,255,.05); border:1px solid rgba(201,168,76,.3); color:var(--cream);
+  font-family:var(--sans); font-size:.7rem; letter-spacing:1.5px; text-transform:uppercase;
+  padding:0 .9rem; height:36px; cursor:pointer; transition:background .2s, border-color .2s;
+}
+.hem-lb-btn:hover{ border-color:var(--gold); }
+.hem-lb-btn.active{ background:var(--gold); color:var(--ink); border-color:var(--gold); font-weight:700; }
+.hem-lb-close{
+  background:rgba(255,255,255,.05); border:1px solid rgba(201,168,76,.3); color:var(--gold);
+  width:36px; height:36px; cursor:pointer; font-size:1rem;
+  display:flex; align-items:center; justify-content:center; transition:background .2s;
+}
+.hem-lb-close:hover{ background:var(--red); border-color:var(--red); color:#fff; }
+.hem-lb-view{ flex:1; overflow:auto; background:#0d0805; display:flex; align-items:flex-start; }
+.hem-lb-view.fit{ align-items:center; justify-content:center; }
+#hem-lb-img{ display:block; flex-shrink:0; }
+.hem-lb-view.fit #hem-lb-img{ max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; }
+.hem-lb-cap{
+  padding:.8rem 1.1rem; border-top:1px solid rgba(201,168,76,.12);
+  font-family:var(--italic); font-style:italic; font-size:.9rem;
+  color:rgba(242,232,213,.8); line-height:1.65;
+}
+@media (max-width:560px){
+  .hem-lb-bar{ padding:.7rem .8rem; }
+  .hem-lb-title{ font-size:.9rem; }
+  .hem-lb-cap{ padding:.7rem .8rem; }
+}
+
+/* ══════════════════════════════════════════════
+   SOURCE NOTE + FOOTER (shared)
+══════════════════════════════════════════════ */
+.hem-source{
+  text-align:center; margin-top:3rem; font-family:var(--serif); font-size:.8rem;
+  letter-spacing:2px; color:var(--sepia-ink); text-transform:uppercase;
+}
+footer{
+  background:#1a100a;
+  border-top:1px solid rgba(201,168,76,.12);
+  padding:4rem 2rem max(3rem, env(safe-area-inset-bottom));
+}
+.footer-inner{
+  max-width:960px; margin:0 auto;
+  display:grid; grid-template-columns:1fr auto; gap:3rem; align-items:start;
+}
+.footer-logo{ font-family:var(--serif); color:var(--gold); font-size:1rem; letter-spacing:3px; margin-bottom:.6rem; }
+.footer-line{ font-size:.9rem; color:rgba(212,197,160,.58); line-height:1.7; max-width:340px; }
+.footer-sources h4{
+  font-family:var(--serif); font-size:.82rem; letter-spacing:3px;
+  text-transform:uppercase; color:var(--sepia); margin-bottom:.7rem;
+}
+.footer-sources ul{ list-style:none; }
+.footer-sources li{ font-size:.88rem; color:rgba(212,197,160,.58); margin-bottom:.35rem; line-height:1.5; }
+.footer-copy{
+  max-width:960px; margin:2rem auto 0; padding-top:1.5rem;
+  border-top:1px solid rgba(201,168,76,.08);
+  font-size:.82rem; color:rgba(212,197,160,.48);
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem;
+}
+@media (max-width:580px){ .footer-inner{ grid-template-columns:1fr; } }
+
+/* ── Scroll reveal ── */
+@media (prefers-reduced-motion: no-preference){
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+}
+</style>
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ════════════ NAV ════════════ -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><span class="x">✝&#xFE0E;</span> CRISTIADA <em>1926–2026</em></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html#cronologia">Cronología</a></li>
+      <li><a href="index.html#escenarios">Escenarios</a></li>
+      <li><a href="index.html#galeria">Galería</a></li>
+      <li><a href="hemeroteca.html" class="current" aria-current="page">Hemeroteca</a></li>
+      <li><a href="index.html#martires">Mártires</a></li>
+      <li><a href="index.html#libros">Libros</a></li>
+      <li><a href="index.html#multimedia">Multimedia</a></li>
+      <li><a href="index.html#testimonios">Testimonios</a></li>
+      <li><a href="index.html#centenario">Centenario</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ════════════ HERO ════════════ -->
+<header class="hem-hero">
+  <span class="hem-eyebrow">· Prensa y Archivo Documental ·</span>
+  <h1>Hemeroteca</h1>
+  <div class="hem-rule"></div>
+  <p>
+    Planas y recortes originales de <strong>El Informador</strong> (Guadalajara, Jalisco),
+    correspondientes a julio de 1926 — los días previos a que la «Ley Calles» entrara en vigor
+    y los templos de México suspendieran el culto el 1.º de agosto.
+    <span class="cue">Cada edición conserva su fecha. Toca una plana o recorte para leerlo a tamaño completo ↓</span>
+  </p>
+</header>
+
+<!-- ════════════ ARCHIVO POR FECHA ════════════ -->
+<main class="hem-archive">
+  <div class="hem-archive-inner">
+
+    <!-- 16 de julio de 1926 -->
+    <div class="hem-date-row reveal">
+      <div class="hem-date-badge">
+        <span class="hem-badge-day">16</span>
+        <span class="hem-badge-month">Julio</span>
+        <span class="hem-badge-year">1926</span>
+        <span class="hem-badge-weekday">Viernes</span>
+        <span class="hem-badge-edition">El Informador<br>Guadalajara, Jal.<br>Núm. 3155</span>
+      </div>
+      <div class="hem-cards">
+        <button class="hem-card"
+          data-src="assets/hemeroteca/1926-07-16_El_Informador_Plana_1.png"
+          data-title="Primera Plana · 16 de julio de 1926"
+          data-meta="El Informador · Guadalajara, Jal. · Núm. 3155"
+          data-cap="Portada completa del 16 de julio de 1926. Titulares sobre huelgas ferrocarrileras y las inundaciones en Oaxaca — dos semanas antes de que la «Ley Calles» entrara en vigor y el país entrara en guerra.">
+          <span class="hem-card-thumb">
+            <img src="assets/hemeroteca/1926-07-16_El_Informador_Plana_1.png" alt="Primera plana de El Informador, 16 de julio de 1926" loading="lazy">
+          </span>
+          <span class="hem-card-tag">Primera plana</span>
+          <span class="hem-card-label">El Informador · Núm. 3155</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 17 de julio de 1926 -->
+    <div class="hem-date-row reveal">
+      <div class="hem-date-badge">
+        <span class="hem-badge-day">17</span>
+        <span class="hem-badge-month">Julio</span>
+        <span class="hem-badge-year">1926</span>
+        <span class="hem-badge-weekday">Sábado</span>
+        <span class="hem-badge-edition">El Informador<br>Guadalajara, Jal.<br>Núm. 3157</span>
+      </div>
+      <div class="hem-cards">
+        <button class="hem-card"
+          data-src="assets/hemeroteca/1926-07-17_El_Informador_Plana_1.png"
+          data-title="Primera Plana · 17 de julio de 1926"
+          data-meta="El Informador · Guadalajara, Jal. · Núm. 3157"
+          data-cap="El cateo de templos en Puebla, la amenaza de un paro ferrocarrilero general y el conflicto agrario en la Mixteca comparten portada: la tensión social y religiosa crecía día con día.">
+          <span class="hem-card-thumb">
+            <img src="assets/hemeroteca/1926-07-17_El_Informador_Plana_1.png" alt="Primera plana de El Informador, 17 de julio de 1926" loading="lazy">
+          </span>
+          <span class="hem-card-tag">Primera plana</span>
+          <span class="hem-card-label">El Informador · Núm. 3157</span>
+        </button>
+
+        <button class="hem-card"
+          data-src="assets/hemeroteca/1926-07-17_Debe_reformarse_la_ley_del_petroleo.png"
+          data-title="Debe Reformarse la Ley del Petróleo"
+          data-meta="Recorte original · El Informador · 17 de julio de 1926"
+          data-cap="La Cámara de Propietarios de Nuevo León exige reformar la ley petrolera: una de las muchas disputas económicas que se entrelazaban con el conflicto religioso de esos días.">
+          <span class="hem-card-thumb">
+            <img src="assets/hemeroteca/1926-07-17_Debe_reformarse_la_ley_del_petroleo.png" alt="Recorte: Debe reformarse la ley del petróleo, El Informador, 17 de julio de 1926" loading="lazy">
+          </span>
+          <span class="hem-card-tag">Recorte original</span>
+          <span class="hem-card-label">Debe Reformarse la Ley del Petróleo</span>
+        </button>
+
+        <button class="hem-card"
+          data-src="assets/hemeroteca/1926-07-17_recorte_debe-reformarse-ley-petroleo-legible.png"
+          data-title="Debe Reformarse la Ley del Petróleo — versión legible"
+          data-meta="Reconstrucción legible · 17 de julio de 1926"
+          data-cap="La misma nota sobre la ley del petróleo, reconstruida para lectura clara donde el papel original se ha deteriorado con el tiempo.">
+          <span class="hem-card-thumb">
+            <img src="assets/hemeroteca/1926-07-17_recorte_debe-reformarse-ley-petroleo-legible.png" alt="Versión legible del recorte Debe reformarse la ley del petróleo" loading="lazy">
+          </span>
+          <span class="hem-card-tag">Versión legible</span>
+          <span class="hem-card-label">Debe Reformarse la Ley del Petróleo</span>
+        </button>
+
+        <button class="hem-card"
+          data-src="assets/hemeroteca/1926-07-17_recorte_templos-cateados-puebla.png"
+          data-title="Fueron Cateados Varios Templos en Puebla"
+          data-meta="Reconstrucción legible · 17 de julio de 1926"
+          data-cap="Soldados federales catean los templos poblanos en pleno festejo de la Virgen del Carmen e impiden la salida de los fieles: un anticipo de la persecución religiosa que estallaría semanas después.">
+          <span class="hem-card-thumb">
+            <img src="assets/hemeroteca/1926-07-17_recorte_templos-cateados-puebla.png" alt="Recorte: Fueron cateados varios templos en Puebla, 17 de julio de 1926" loading="lazy">
+          </span>
+          <span class="hem-card-tag">Versión legible</span>
+          <span class="hem-card-label">Fueron Cateados Varios Templos en Puebla</span>
+        </button>
+
+        <button class="hem-card"
+          data-src="assets/hemeroteca/1926-07-17_recorte_saenz-manifiesto-catolicos.png"
+          data-title="Salió para Los Ángeles el Sr. Lic. Sáenz / Un Manifiesto a los Católicos del País"
+          data-meta="Reconstrucción legible · 17 de julio de 1926"
+          data-cap="La Liga de Defensa de la Libertad Religiosa lanza un manifiesto llamando al boicot católico desde el 1 de agosto: la resistencia civil organizada antes de que se tomaran las armas.">
+          <span class="hem-card-thumb">
+            <img src="assets/hemeroteca/1926-07-17_recorte_saenz-manifiesto-catolicos.png" alt="Recorte: Un manifiesto a los católicos del país, 17 de julio de 1926" loading="lazy">
+          </span>
+          <span class="hem-card-tag">Versión legible</span>
+          <span class="hem-card-label">Un Manifiesto a los Católicos del País</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- 18 de julio de 1926 -->
+    <div class="hem-date-row reveal">
+      <div class="hem-date-badge">
+        <span class="hem-badge-day">18</span>
+        <span class="hem-badge-month">Julio</span>
+        <span class="hem-badge-year">1926</span>
+        <span class="hem-badge-weekday">Domingo</span>
+        <span class="hem-badge-edition">El Informador<br>Guadalajara, Jal.<br>Núm. 3158</span>
+      </div>
+      <div class="hem-cards">
+        <button class="hem-card"
+          data-src="assets/hemeroteca/1926-07-18_El_Informador_Plana_1.png"
+          data-title="Primera Plana · 18 de julio de 1926"
+          data-meta="El Informador · Guadalajara, Jal. · Núm. 3158"
+          data-cap="El fin del plazo a los huelguistas ferrocarrileros agrava el conflicto laboral, mientras el país se aproxima al 1 de agosto y a la suspensión total del culto católico.">
+          <span class="hem-card-thumb">
+            <img src="assets/hemeroteca/1926-07-18_El_Informador_Plana_1.png" alt="Primera plana de El Informador, 18 de julio de 1926" loading="lazy">
+          </span>
+          <span class="hem-card-tag">Primera plana</span>
+          <span class="hem-card-label">El Informador · Núm. 3158</span>
+        </button>
+
+        <button class="hem-card"
+          data-src="assets/hemeroteca/1926-07-18_recorte_seran-cerrados-los-templos.png"
+          data-title="Serán Cerrados los Templos"
+          data-meta="Reconstrucción legible · 18 de julio de 1926"
+          data-cap="Se confirma extraoficialmente que el Episcopado Mexicano lanzará una carta pastoral a inicios de agosto y que el cierre de los templos será paulatino. Días después, el 1 de agosto de 1926, la suspensión de cultos sería un hecho.">
+          <span class="hem-card-thumb">
+            <img src="assets/hemeroteca/1926-07-18_recorte_seran-cerrados-los-templos.png" alt="Recorte: Serán cerrados los templos, 18 de julio de 1926" loading="lazy">
+          </span>
+          <span class="hem-card-tag">Versión legible</span>
+          <span class="hem-card-label">Serán Cerrados los Templos</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="hem-source">Fuente: El Informador (Guadalajara, Jal.) · Reproducción con fines históricos y educativos</p>
+</main>
+
+<dialog id="hem-lb">
+  <div class="hem-lb-bar">
+    <div class="hem-lb-info">
+      <div class="hem-lb-title" id="hem-lb-title"></div>
+      <div class="hem-lb-meta" id="hem-lb-meta"></div>
+    </div>
+    <div class="hem-lb-actions">
+      <button class="hem-lb-btn active" id="hem-lb-fit">Ajustada</button>
+      <button class="hem-lb-btn" id="hem-lb-real">Tamaño real</button>
+      <button class="hem-lb-close" id="hem-lb-close" aria-label="Cerrar">✕</button>
+    </div>
+  </div>
+  <div class="hem-lb-view fit" id="hem-lb-view">
+    <img id="hem-lb-img" src="" alt="">
+  </div>
+  <p class="hem-lb-cap" id="hem-lb-cap"></p>
+</dialog>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">✝&#xFE0E; CRISTIADA · 1926–2026</div>
+      <p class="footer-line">Sitio conmemorativo de carácter histórico y cultural. Todos los textos son de dominio público o han sido elaborados con fines educativos y de difusión histórica.</p>
+    </div>
+    <div class="footer-sources">
+      <h4>Fuentes históricas</h4>
+      <ul>
+        <li>El Informador — Hemeroteca, Guadalajara, Jal.</li>
+        <li>Jean Meyer — <em>La Cristiada</em> (1973)</li>
+        <li>Archivo General de la Nación — AGN</li>
+        <li>Mediateca INAH — mediateca.inah.gob.mx</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-copy">
+    <span>✝&#xFE0E; 100 Años de la Guerra Cristera · 1926–2026</span>
+    <span>Sitio conmemorativo · Carácter histórico y cultural</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ── Mobile menu ── */
+  var toggle = document.getElementById('nav-toggle');
+  var links  = document.getElementById('nav-links');
+  toggle.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    toggle.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){
+      links.classList.remove('open');
+      toggle.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+    }
+  });
+
+  /* ── Scroll reveal ── */
+  var revObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); revObs.unobserve(e.target); }
+    });
+  }, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ revObs.observe(el); });
+
+  /* ── Lightbox: fit-to-screen by default, toggle to actual size with scroll ── */
+  var dlg    = document.getElementById('hem-lb');
+  var view   = document.getElementById('hem-lb-view');
+  var img    = document.getElementById('hem-lb-img');
+  var title  = document.getElementById('hem-lb-title');
+  var meta   = document.getElementById('hem-lb-meta');
+  var cap    = document.getElementById('hem-lb-cap');
+  var fitBtn = document.getElementById('hem-lb-fit');
+  var realBtn= document.getElementById('hem-lb-real');
+
+  function setFit(fit){
+    view.classList.toggle('fit', fit);
+    fitBtn.classList.toggle('active', fit);
+    realBtn.classList.toggle('active', !fit);
+    view.scrollTop = 0; view.scrollLeft = 0;
+  }
+  fitBtn.addEventListener('click', function(){ setFit(true); });
+  realBtn.addEventListener('click', function(){ setFit(false); });
+
+  document.querySelectorAll('.hem-card').forEach(function(card){
+    card.addEventListener('click', function(){
+      var d = card.dataset;
+      img.src = d.src; img.alt = d.title || '';
+      title.textContent = d.title || '';
+      meta.textContent  = d.meta  || '';
+      cap.textContent   = d.cap   || '';
+      setFit(true);
+      dlg.showModal();
+    });
+  });
+  document.getElementById('hem-lb-close').addEventListener('click', function(){ dlg.close(); });
+  dlg.addEventListener('click', function(e){ if(e.target === dlg) dlg.close(); });
+
+})();
+</script>
+
+</body>
+</html>
