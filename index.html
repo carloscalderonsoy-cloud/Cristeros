@@ -784,8 +784,15 @@ details.book-more[open] summary::before{ content:'− '; }
   letter-spacing:2px; color:rgba(201,168,76,.7);
   user-select:none;
 }
+.section-page-num.on-paper{ color:rgba(110,79,55,.7); }
+.hero .section-page-num{ bottom:5.6rem; }
 @media (max-width:600px){
   .section-page-num{ right:1.2rem; bottom:1.2rem; font-size:1.15rem; }
+  .hero .section-page-num{ bottom:5.2rem; }
+}
+.hero,.intro,.centenario-section,.stats,.tl-section,.map-section,
+.gallery-section,.martyrs-section,.books-section,.media-section,.testimonios-section{
+  position:relative;
 }
 
 /* ══════════════════════════════════════════════
@@ -903,6 +910,7 @@ footer{
     <span>Desliza</span>
     <span class="line"></span>
   </a>
+  <span class="section-page-num" aria-hidden="true">01</span>
 </header>
 
 <!-- ════════════ INTRO ════════════ -->
@@ -919,6 +927,7 @@ footer{
   </p>
   <div class="ornament reveal">✠&#xFE0E;</div>
   <p class="attr reveal">Sitio conmemorativo · 1926 – 2026</p>
+  <span class="section-page-num" aria-hidden="true">02</span>
 </section>
 
 <!-- ════════════ CENTENARIO ════════════ -->
@@ -942,6 +951,7 @@ footer{
 
 <!-- ════════════ STATS (paper) ════════════ -->
 <section class="stats bg-paper">
+  <span class="section-page-num on-paper" aria-hidden="true">04</span>
   <div class="stats-inner">
     <div class="stat-item reveal">
       <span class="stat-num" data-target="100">0</span>
@@ -981,7 +991,7 @@ footer{
       <cite>— Combatiente cristero anónimo, Jalisco, 1927</cite>
     </div>
   </div>
-  <p class="dark-band-caption">Archivo fotográfico · Colección histórica</p>
+  <p class="dark-band-caption">05 · Archivo fotográfico · Colección histórica</p>
 </div>
 
 <!-- ════════════ CRONOLOGÍA ════════════ -->
@@ -1181,6 +1191,7 @@ footer{
     </div>
 
   </div>
+  <span class="section-page-num" aria-hidden="true">06</span>
 </section>
 
 <!-- ════════════ DARK BAND 2 ════════════ -->
@@ -1193,7 +1204,7 @@ footer{
       <cite>— P. Miguel Pro S.J. · Ciudad de México · 23 Nov. 1927</cite>
     </div>
   </div>
-  <p class="dark-band-caption">P. Miguel Pro S.J. · Foto: Dominio público</p>
+  <p class="dark-band-caption">07 · P. Miguel Pro S.J. · Foto: Dominio público</p>
 </div>
 
 <!-- ════════════ ESCENARIOS (paper) ════════════ -->
@@ -1270,6 +1281,7 @@ footer{
       </div>
     </div>
   </div>
+  <span class="section-page-num on-paper" aria-hidden="true">08</span>
 </section>
 
 <!-- ════════════ GALERÍA ════════════ -->
@@ -1372,6 +1384,7 @@ footer{
   <p style="text-align:center;margin-top:1.2rem;font-family:var(--serif);font-size:.82rem;letter-spacing:2px;color:rgba(201,168,76,.55);text-transform:uppercase;">
     Imágenes: Archivo histórico · Wikimedia Commons · Dominio público
   </p>
+  <span class="section-page-num" aria-hidden="true">09</span>
 </section>
 
 <dialog id="lb">
@@ -1426,6 +1439,7 @@ footer{
       <p class="martyr-desc">Juan Pablo II canonizó a 25 mártires mexicanos de la Cristiada en Roma.</p>
     </div>
   </div>
+  <span class="section-page-num on-paper" aria-hidden="true">10</span>
 </section>
 
 <!-- ════════════ LIBROS (paper) ════════════ -->
@@ -1479,6 +1493,7 @@ footer{
       <details class="book-more"><summary>Leer síntesis</summary><p class="book-full">Publicado tras el estreno de "For Greater Glory", reúne a historiadores, críticos de cine y teólogos para analizar cómo la Cristiada ha sido recordada en la cultura popular mexicana. Incluye análisis de corridos, pinturas y películas.</p></details>
     </div>
   </div>
+  <span class="section-page-num on-paper" aria-hidden="true">11</span>
 </section>
 
 <!-- ════════════ MULTIMEDIA ════════════ -->
@@ -1540,6 +1555,7 @@ footer{
       </div>
     </div>
   </div>
+  <span class="section-page-num" aria-hidden="true">12</span>
 </section>
 
 <dialog class="media-dialog" id="media-dlg">
@@ -1567,6 +1583,7 @@ footer{
       <button class="q-btn" onclick="qNav(1)" aria-label="Siguiente">→</button>
     </div>
   </div>
+  <span class="section-page-num on-paper" aria-hidden="true">13</span>
 </section>
 
 <!-- ════════════ FOOTER ════════════ -->
