@@ -115,15 +115,10 @@ nav.scrolled{
 }
 .nav-inner{
   max-width:1380px; margin:0 auto; height:68px; padding:0 2rem;
-  display:flex; align-items:center; justify-content:space-between; gap:1.5rem;
-}
-.nav-logo{
-  font-family:var(--serif); color:var(--cream); text-decoration:none;
-  font-size:1.2rem; letter-spacing:3px; text-transform:uppercase; font-weight:600;
-  display:flex; align-items:center; gap:.6rem; white-space:nowrap; flex-shrink:0;
+  display:flex; align-items:center; gap:1.5rem;
 }
 .nav-logo .x{ color:var(--gold); font-size:1.55em; -webkit-text-stroke:1px currentColor; text-stroke:1px currentColor; }
-.nav-scroll-wrap{ position:relative; flex:1; min-width:0; margin-left:1.2rem; }
+.nav-scroll-wrap{ position:relative; flex:1; min-width:0; }
 .nav-scroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
 .nav-scroll::-webkit-scrollbar{ display:none; }
 .nav-row{ display:flex; align-items:center; gap:1.35rem; min-width:max-content; padding-right:2rem; }
@@ -138,6 +133,12 @@ nav.scrolled{
 }
 .nav-row a:hover{ color:var(--gold-hi); }
 .nav-row a:hover::after{ transform:scaleX(1); }
+.nav-row a.nav-logo{
+  font-family:var(--serif); color:var(--cream); font-size:1.15rem; letter-spacing:2.5px;
+  font-weight:700; display:flex; align-items:center; gap:.55rem;
+  padding-right:1.2rem; margin-right:.3rem; border-right:1px solid rgba(201,168,76,.25);
+}
+.nav-row a.nav-logo:hover{ color:var(--gold-hi); }
 .nav-scroll-hint{
   position:absolute; top:0; right:0; bottom:0; width:32px;
   background:linear-gradient(to right, rgba(18,10,5,0), rgba(18,10,5,.92) 82%);
@@ -146,8 +147,7 @@ nav.scrolled{
 .nav-scroll-hint.is-hidden{ opacity:0; }
 @media (max-width:480px){
   .nav-inner{ padding:0 1rem; }
-  .nav-logo{ font-size:1.05rem; letter-spacing:2px; }
-  .nav-scroll-wrap{ margin-left:.8rem; }
+  .nav-row a.nav-logo{ font-size:1rem; letter-spacing:1.8px; padding-right:.8rem; }
 }
 
 /* ── Compartir panel ── */
@@ -866,10 +866,10 @@ footer{
 <!-- ════════════ NAV ════════════ -->
 <nav id="nav">
   <div class="nav-inner">
-    <a class="nav-logo" href="#"><span class="x">✝&#xFE0E;</span> CRISTIADA</a>
     <div class="nav-scroll-wrap">
       <div id="nav-scroll" class="nav-scroll">
         <div class="nav-row" id="nav-row">
+          <a class="nav-logo" href="index.html"><span class="x">✝&#xFE0E;</span> CRISTIADA</a>
           <a href="#centenario">Propósito</a>
           <a href="#cronologia">Línea de Tiempo</a>
           <a href="#escenarios">Geografía</a>
@@ -918,6 +918,10 @@ footer{
     <div class="cta anim" style="--d:2.8s">
       <a href="#cronologia" class="btn btn-gold">Conoce la Historia</a>
       <a href="#galeria" class="btn btn-ghost">Ver el Archivo</a>
+      <button type="button" id="audio-btn" class="btn btn-ghost" aria-label="Encender música de fondo" onclick="toggleAudio()">
+        <span id="audio-icon" aria-hidden="true">♪</span>
+        <span id="audio-label">Encender Música</span>
+      </button>
     </div>
   </div>
 
@@ -927,6 +931,10 @@ footer{
   </a>
   <span class="section-page-num" aria-hidden="true">01</span>
 </header>
+
+<audio id="bg-audio" loop preload="none">
+  <source src="assets/IntroCristeros.mp3" type="audio/mpeg">
+</audio>
 
 <!-- ════════════ INTRO ════════════ -->
 <section class="intro" id="inicio">
@@ -1678,6 +1686,31 @@ footer{
     v.addEventListener('loadeddata', function(){ playVideo(); });
     setSource(current);
   })();
+
+  /* ── Música de fondo (toggle) ── */
+  window.toggleAudio = function(){
+    var audio = document.getElementById('bg-audio');
+    var btn   = document.getElementById('audio-btn');
+    var icon  = document.getElementById('audio-icon');
+    var label = document.getElementById('audio-label');
+    if(!audio) return;
+    if(audio.paused){
+      audio.volume = 0.35;
+      audio.play();
+      icon.textContent = '❚❚';
+      label.textContent = 'Apagar Música';
+      btn.setAttribute('aria-label','Apagar música de fondo');
+      btn.classList.remove('btn-ghost');
+      btn.classList.add('btn-gold');
+    } else {
+      audio.pause();
+      icon.textContent = '♪';
+      label.textContent = 'Encender Música';
+      btn.setAttribute('aria-label','Encender música de fondo');
+      btn.classList.remove('btn-gold');
+      btn.classList.add('btn-ghost');
+    }
+  };
 
   /* ── Cinematic entrance ── */
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

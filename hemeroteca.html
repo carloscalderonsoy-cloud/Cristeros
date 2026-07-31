@@ -69,15 +69,10 @@ nav{
 }
 .nav-inner{
   max-width:1380px; margin:0 auto; height:68px; padding:0 2rem;
-  display:flex; align-items:center; justify-content:space-between; gap:1.5rem;
-}
-.nav-logo{
-  font-family:var(--serif); color:var(--cream); text-decoration:none;
-  font-size:1.2rem; letter-spacing:3px; text-transform:uppercase; font-weight:600;
-  display:flex; align-items:center; gap:.6rem; white-space:nowrap; flex-shrink:0;
+  display:flex; align-items:center; gap:1.5rem;
 }
 .nav-logo .x{ color:var(--gold); font-size:1.55em; -webkit-text-stroke:1px currentColor; text-stroke:1px currentColor; }
-.nav-scroll-wrap{ position:relative; flex:1; min-width:0; margin-left:1.2rem; }
+.nav-scroll-wrap{ position:relative; flex:1; min-width:0; }
 .nav-scroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
 .nav-scroll::-webkit-scrollbar{ display:none; }
 .nav-row{ display:flex; align-items:center; gap:1.35rem; min-width:max-content; padding-right:2rem; }
@@ -94,6 +89,12 @@ nav{
 .nav-row a:hover::after{ transform:scaleX(1); }
 .nav-row a.current{ color:var(--gold-hi); }
 .nav-row a.current::after{ transform:scaleX(1); }
+.nav-row a.nav-logo{
+  font-family:var(--serif); color:var(--cream); font-size:1.15rem; letter-spacing:2.5px;
+  font-weight:700; display:flex; align-items:center; gap:.55rem;
+  padding-right:1.2rem; margin-right:.3rem; border-right:1px solid rgba(201,168,76,.25);
+}
+.nav-row a.nav-logo:hover{ color:var(--gold-hi); }
 .nav-scroll-hint{
   position:absolute; top:0; right:0; bottom:0; width:32px;
   background:linear-gradient(to right, rgba(18,10,5,0), rgba(18,10,5,.92) 82%);
@@ -102,8 +103,7 @@ nav{
 .nav-scroll-hint.is-hidden{ opacity:0; }
 @media (max-width:480px){
   .nav-inner{ padding:0 1rem; }
-  .nav-logo{ font-size:1.05rem; letter-spacing:2px; }
-  .nav-scroll-wrap{ margin-left:.8rem; }
+  .nav-row a.nav-logo{ font-size:1rem; letter-spacing:1.8px; padding-right:.8rem; }
 }
 
 /* ── Compartir panel ── */
@@ -299,9 +299,13 @@ dialog#hem-lb::backdrop{ background:rgba(0,0,0,.92); backdrop-filter:blur(6px); 
   color:rgba(242,232,213,.8); line-height:1.65;
 }
 @media (max-width:560px){
-  .hem-lb-bar{ padding:.7rem .8rem; }
+  .hem-lb-bar{ padding:.7rem .8rem; flex-direction:column; align-items:stretch; gap:.6rem; }
   .hem-lb-title{ font-size:.9rem; }
   .hem-lb-cap{ padding:.7rem .8rem; }
+  .hem-lb-actions{ width:100%; flex-wrap:wrap; gap:.5rem; }
+  .hem-lb-btn, .hem-lb-close{
+    flex:1 1 auto; padding:0 .6rem; font-size:.66rem; letter-spacing:.8px; height:40px;
+  }
 }
 
 /* ══════════════════════════════════════════════
@@ -350,10 +354,10 @@ footer{
 <!-- ════════════ NAV ════════════ -->
 <nav id="nav">
   <div class="nav-inner">
-    <a class="nav-logo" href="index.html"><span class="x">✝&#xFE0E;</span> CRISTIADA</a>
     <div class="nav-scroll-wrap">
       <div id="nav-scroll" class="nav-scroll">
         <div class="nav-row" id="nav-row">
+          <a class="nav-logo" href="index.html"><span class="x">✝&#xFE0E;</span> CRISTIADA</a>
           <a href="index.html#centenario">Propósito</a>
           <a href="index.html#cronologia">Línea de Tiempo</a>
           <a href="index.html#escenarios">Geografía</a>
@@ -541,7 +545,7 @@ footer{
     </div>
     <div class="hem-lb-actions">
       <button class="hem-lb-btn active" id="hem-lb-fit">Ajustada a su Pantalla</button>
-      <button class="hem-lb-btn" id="hem-lb-real">Tamaño Real</button>
+      <button class="hem-lb-btn" id="hem-lb-real">Ampliación</button>
       <button class="hem-lb-close" id="hem-lb-close" aria-label="Regresar">Regresar</button>
     </div>
   </div>
