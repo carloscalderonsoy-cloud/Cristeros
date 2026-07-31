@@ -119,50 +119,63 @@ nav.scrolled{
 }
 .nav-logo{
   font-family:var(--serif); color:var(--cream); text-decoration:none;
-  font-size:1rem; letter-spacing:3px; text-transform:uppercase; font-weight:600;
-  display:flex; align-items:center; gap:.55rem; white-space:nowrap;
+  font-size:1.2rem; letter-spacing:3px; text-transform:uppercase; font-weight:600;
+  display:flex; align-items:center; gap:.6rem; white-space:nowrap; flex-shrink:0;
 }
-.nav-logo .x{ color:var(--gold); }
-.nav-logo em{ color:var(--gold); font-style:normal; font-weight:500; letter-spacing:2px; }
-.nav-links{ display:flex; gap:1.35rem; list-style:none; }
-.nav-links a{
+.nav-logo .x{ color:var(--gold); font-size:1.55em; -webkit-text-stroke:1px currentColor; text-stroke:1px currentColor; }
+.nav-scroll-wrap{ position:relative; flex:1; min-width:0; margin-left:1.2rem; }
+.nav-scroll{ overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+.nav-scroll::-webkit-scrollbar{ display:none; }
+.nav-row{ display:flex; align-items:center; gap:1.35rem; min-width:max-content; padding-right:2rem; }
+.nav-row a{
   font-family:var(--sans); color:var(--cream-dim); text-decoration:none;
   font-size:.85rem; letter-spacing:1.5px; text-transform:uppercase; font-weight:400;
   padding:.4rem 0; position:relative; transition:color .3s; white-space:nowrap;
 }
-.nav-links a::after{
+.nav-row a::after{
   content:''; position:absolute; left:0; right:0; bottom:-2px; height:1px;
   background:var(--gold); transform:scaleX(0); transform-origin:center; transition:transform .3s;
 }
-.nav-links a:hover{ color:var(--gold-hi); }
-.nav-links a:hover::after{ transform:scaleX(1); }
-.nav-toggle{
-  display:none; flex-direction:column; gap:5px; background:none; border:none;
-  cursor:pointer; min-width:44px; min-height:44px; align-items:center; justify-content:center;
+.nav-row a:hover{ color:var(--gold-hi); }
+.nav-row a:hover::after{ transform:scaleX(1); }
+.nav-scroll-hint{
+  position:absolute; top:0; right:0; bottom:0; width:32px;
+  background:linear-gradient(to right, rgba(18,10,5,0), rgba(18,10,5,.92) 82%);
+  pointer-events:none; transition:opacity .3s ease;
 }
-.nav-toggle span{ display:block; width:24px; height:1.5px; background:var(--cream); transition:all .3s; }
-.nav-toggle.open span:nth-child(1){ transform:translateY(6.5px) rotate(45deg); }
-.nav-toggle.open span:nth-child(2){ opacity:0; }
-.nav-toggle.open span:nth-child(3){ transform:translateY(-6.5px) rotate(-45deg); }
-@media (max-width:1180px){
-  .nav-toggle{ display:flex; }
-  .nav-links{
-    position:absolute; top:68px; left:0; right:0; flex-direction:column; gap:0;
-    background:rgba(18,10,5,0.97); backdrop-filter:blur(12px);
-    border-bottom:1px solid rgba(201,168,76,0.18);
-    max-height:0; overflow:hidden; transition:max-height .4s ease;
-  }
-  .nav-links.open{ max-height:70vh; overflow-y:auto; }
-  .nav-links a{
-    padding:1rem 2rem; min-height:44px; display:flex; align-items:center;
-    border-top:1px solid rgba(201,168,76,0.07); font-size:.95rem;
-  }
-}
+.nav-scroll-hint.is-hidden{ opacity:0; }
 @media (max-width:480px){
   .nav-inner{ padding:0 1rem; }
-  .nav-logo{ font-size:.85rem; letter-spacing:2px; }
-  .nav-logo em{ letter-spacing:1px; }
+  .nav-logo{ font-size:1.05rem; letter-spacing:2px; }
+  .nav-scroll-wrap{ margin-left:.8rem; }
 }
+
+/* ── Compartir panel ── */
+.hsk-share-item{ position:relative; display:inline-flex; }
+.hsk-share-ico{
+  width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  background:rgba(201,168,76,.1); border:1px solid rgba(201,168,76,.4); color:var(--gold-hi);
+  text-decoration:none; cursor:pointer; transition:filter .2s ease, transform .2s ease; padding:0;
+}
+.hsk-share-ico:hover,.hsk-share-ico:focus-visible{ filter:brightness(1.18); transform:translateY(-2px); }
+.hsk-share-ico svg{ width:20px; height:20px; pointer-events:none; }
+.hsk-ico-whatsapp{ background:#25D366; border-color:#25D366; color:#fff; }
+.hsk-ico-facebook{ background:#1877F2; border-color:#1877F2; color:#fff; }
+.hsk-ico-x{ background:#000; border-color:#333; color:#fff; }
+.hsk-share-close-wrap{ position:absolute; top:6px; right:6px; }
+.hsk-share-close-wrap .hsk-share-tip{ bottom:auto; top:calc(100% + 6px); }
+.hsk-share-ico.hsk-share-close{ width:24px; height:24px; background:transparent; border:none; color:rgba(212,197,160,.6); }
+.hsk-share-ico.hsk-share-close:hover{ background:rgba(201,168,76,.15); color:var(--gold-hi); transform:none; filter:none; }
+.hsk-share-ico.hsk-share-close svg{ width:14px; height:14px; }
+.hsk-share-tip{
+  position:absolute; bottom:calc(100% + 9px); left:50%; transform:translateX(-50%); white-space:nowrap;
+  font-size:10px; letter-spacing:1px; text-transform:uppercase; color:var(--ink);
+  background:var(--gold-hi); padding:5px 9px; border-radius:5px; opacity:0; pointer-events:none;
+  transition:opacity .18s ease; font-weight:600;
+}
+.hsk-share-item.hsk-tip-left .hsk-share-tip{ left:0; transform:none; }
+.hsk-share-item.hsk-tip-right .hsk-share-tip{ left:auto; right:0; transform:none; }
+.hsk-share-item:hover .hsk-share-tip,.hsk-share-item:focus-within .hsk-share-tip,.hsk-share-item.hsk-tip-force .hsk-share-tip{ opacity:1; }
 
 /* ══════════════════════════════════════════════
    HERO
@@ -791,7 +804,7 @@ details.book-more[open] summary::before{ content:'− '; }
   .hero .section-page-num{ bottom:5.2rem; }
 }
 .hero,.intro,.centenario-section,.stats,.tl-section,.map-section,
-.gallery-section,.martyrs-section,.books-section,.media-section,.testimonios-section{
+.gallery-section,.martyrs-section,.books-section,.media-section{
   position:relative;
 }
 
@@ -821,27 +834,27 @@ dialog.media-dialog::backdrop{ background:rgba(0,0,0,.88); }
 footer{
   background:#1a100a;
   border-top:1px solid rgba(201,168,76,.12);
-  padding:4rem 2rem max(3rem, env(safe-area-inset-bottom));
+  padding:1.6rem 2rem max(1.8rem, env(safe-area-inset-bottom));
 }
 .footer-inner{
-  max-width:960px; margin:0 auto;
-  display:grid; grid-template-columns:1fr auto; gap:3rem; align-items:start;
+  width:100%; margin:0 auto;
+  display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; align-items:start;
 }
 .footer-logo{ font-family:var(--serif); color:var(--gold); font-size:1rem; letter-spacing:3px; margin-bottom:.6rem; }
-.footer-line{ font-size:.9rem; color:rgba(212,197,160,.58); line-height:1.7; max-width:340px; }
+.footer-line{ font-size:.9rem; color:rgba(212,197,160,.58); line-height:1.7; }
 .footer-sources h4{
   font-family:var(--serif); font-size:.82rem; letter-spacing:3px;
   text-transform:uppercase; color:var(--sepia); margin-bottom:.7rem;
 }
-.footer-sources ul{ list-style:none; }
-.footer-sources li{ font-size:.88rem; color:rgba(212,197,160,.58); margin-bottom:.35rem; line-height:1.5; }
-.footer-copy{
-  max-width:960px; margin:2rem auto 0; padding-top:1.5rem;
-  border-top:1px solid rgba(201,168,76,.08);
-  font-size:.82rem; color:rgba(212,197,160,.48);
-  display:flex; justify-content:space-between; flex-wrap:wrap; gap:.5rem;
+.footer-sources ul{ list-style:none; column-count:2; column-gap:1.5rem; }
+.footer-sources li{
+  font-size:.85rem; color:rgba(212,197,160,.58); line-height:1.15;
+  margin-bottom:.5rem; break-inside:avoid;
 }
-@media (max-width:580px){ .footer-inner{ grid-template-columns:1fr; } }
+@media (max-width:700px){
+  .footer-inner{ grid-template-columns:1fr; }
+  .footer-sources ul{ column-count:1; }
+}
 </style>
 </head>
 <body>
@@ -853,21 +866,23 @@ footer{
 <!-- ════════════ NAV ════════════ -->
 <nav id="nav">
   <div class="nav-inner">
-    <a class="nav-logo" href="#"><span class="x">✝&#xFE0E;</span> CRISTIADA <em>1926–2026</em></a>
-    <button class="nav-toggle" id="nav-toggle" aria-label="Menú" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="#cronologia">Cronología</a></li>
-      <li><a href="#escenarios">Escenarios</a></li>
-      <li><a href="#galeria">Galería</a></li>
-      <li><a href="hemeroteca.html">Hemeroteca</a></li>
-      <li><a href="#martires">Mártires</a></li>
-      <li><a href="#libros">Libros</a></li>
-      <li><a href="#multimedia">Multimedia</a></li>
-      <li><a href="#testimonios">Testimonios</a></li>
-      <li><a href="#centenario">Centenario</a></li>
-    </ul>
+    <a class="nav-logo" href="#"><span class="x">✝&#xFE0E;</span> CRISTIADA</a>
+    <div class="nav-scroll-wrap">
+      <div id="nav-scroll" class="nav-scroll">
+        <div class="nav-row" id="nav-row">
+          <a href="#centenario">Propósito</a>
+          <a href="#cronologia">Línea de Tiempo</a>
+          <a href="#escenarios">Geografía</a>
+          <a href="#martires">Personajes</a>
+          <a href="#galeria">Galería</a>
+          <a href="hemeroteca.html">Hemeroteca</a>
+          <a href="#multimedia">Videoteca</a>
+          <a href="#libros">Libros</a>
+          <a href="#" class="hsk-share-btn-trigger" aria-haspopup="true" aria-expanded="false">Compartir</a>
+        </div>
+      </div>
+      <div aria-hidden="true" id="nav-scroll-hint" class="nav-scroll-hint"></div>
+    </div>
   </div>
 </nav>
 
@@ -1284,6 +1299,70 @@ footer{
   <span class="section-page-num on-paper" aria-hidden="true">08</span>
 </section>
 
+<!-- ════════════ MÁRTIRES (paper) ════════════ -->
+<section class="martyrs-section bg-paper" id="martires">
+  <div class="section-header">
+    <div class="section-seal" style="border-color:rgba(139,115,85,.35);color:var(--red);">✝&#xFE0E;</div>
+    <span class="section-eyebrow">· Mártires y Figuras Clave ·</span>
+    <h2 class="section-title on-paper">Los que Ofrendaron su Vida</h2>
+    <div class="section-rule"></div>
+  </div>
+  <div class="martyrs-grid">
+    <div class="martyr-card reveal">
+      <div class="martyr-icon">✝&#xFE0E;</div>
+      <div class="martyr-name">Padre Miguel Pro</div>
+      <div class="martyr-date">† 23 Nov. 1927</div>
+      <p class="martyr-desc">Jesuita fusilado sin juicio. Murió con los brazos en cruz. Beatificado en 1988.</p>
+    </div>
+    <div class="martyr-card reveal">
+      <div class="martyr-icon">†</div>
+      <div class="martyr-name">Gral. Gorostieta</div>
+      <div class="martyr-date">† 2 Jun. 1929</div>
+      <p class="martyr-desc">Comandante militar cristero. Agnóstico que murió creyente en combate, semanas antes de los arreglos.</p>
+    </div>
+    <div class="martyr-card reveal">
+      <div class="martyr-icon">✝&#xFE0E;</div>
+      <div class="martyr-name">José Luis Sánchez</div>
+      <div class="martyr-date">† 10 Feb. 1928</div>
+      <p class="martyr-desc">El "niño cristero". Torturado y asesinado a los 14 años. Canonizado en 2000.</p>
+    </div>
+    <div class="martyr-card reveal">
+      <div class="martyr-icon">†</div>
+      <div class="martyr-name">Pbro. Rodrigo Aguilar</div>
+      <div class="martyr-date">† 28 Oct. 1927</div>
+      <p class="martyr-desc">Ahorcado de un árbol de mango. Sus últimas palabras: "Suba, suba. En el cielo lo veré."</p>
+    </div>
+    <div class="martyr-card reveal">
+      <div class="martyr-icon">✝&#xFE0E;</div>
+      <div class="martyr-name">Anacleto González</div>
+      <div class="martyr-date">† 1 Abr. 1927</div>
+      <p class="martyr-desc">El "Gandhi mexicano". Líder civil de la Liga. Torturado y fusilado en Guadalajara.</p>
+    </div>
+    <div class="martyr-card reveal">
+      <div class="martyr-icon">†</div>
+      <div class="martyr-name">25 Mártires</div>
+      <div class="martyr-date">Canonizados · 21 May. 2000</div>
+      <p class="martyr-desc">Juan Pablo II canonizó a 25 mártires mexicanos de la Cristiada en Roma.</p>
+    </div>
+  </div>
+
+  <div class="ornament-line"><span>· En Sus Propias Palabras ·</span></div>
+  <div class="quotes-wrap">
+    <div class="quote-display" id="quote-display">
+      <span class="q-mark">"</span>
+      <p class="q-text" id="q-text"></p>
+      <p class="q-author" id="q-author"></p>
+    </div>
+    <div class="q-nav">
+      <button class="q-btn" onclick="qNav(-1)" aria-label="Anterior">←</button>
+      <div class="q-dots" id="q-dots"></div>
+      <button class="q-btn" onclick="qNav(1)" aria-label="Siguiente">→</button>
+    </div>
+  </div>
+
+  <span class="section-page-num on-paper" aria-hidden="true">09</span>
+</section>
+
 <!-- ════════════ GALERÍA ════════════ -->
 <section class="gallery-section" id="galeria">
   <div class="section-header">
@@ -1384,7 +1463,7 @@ footer{
   <p style="text-align:center;margin-top:1.2rem;font-family:var(--serif);font-size:.82rem;letter-spacing:2px;color:rgba(201,168,76,.55);text-transform:uppercase;">
     Imágenes: Archivo histórico · Wikimedia Commons · Dominio público
   </p>
-  <span class="section-page-num" aria-hidden="true">09</span>
+  <span class="section-page-num" aria-hidden="true">10</span>
 </section>
 
 <dialog id="lb">
@@ -1392,109 +1471,6 @@ footer{
   <img class="lb-img" id="lb-img" src="" alt="">
   <p class="lb-cap" id="lb-cap"></p>
 </dialog>
-
-<!-- ════════════ MÁRTIRES (paper) ════════════ -->
-<section class="martyrs-section bg-paper" id="martires">
-  <div class="section-header">
-    <div class="section-seal" style="border-color:rgba(139,115,85,.35);color:var(--red);">✝&#xFE0E;</div>
-    <span class="section-eyebrow">· Mártires y Figuras Clave ·</span>
-    <h2 class="section-title on-paper">Los que Ofrendaron su Vida</h2>
-    <div class="section-rule"></div>
-  </div>
-  <div class="martyrs-grid">
-    <div class="martyr-card reveal">
-      <div class="martyr-icon">✝&#xFE0E;</div>
-      <div class="martyr-name">Padre Miguel Pro</div>
-      <div class="martyr-date">† 23 Nov. 1927</div>
-      <p class="martyr-desc">Jesuita fusilado sin juicio. Murió con los brazos en cruz. Beatificado en 1988.</p>
-    </div>
-    <div class="martyr-card reveal">
-      <div class="martyr-icon">†</div>
-      <div class="martyr-name">Gral. Gorostieta</div>
-      <div class="martyr-date">† 2 Jun. 1929</div>
-      <p class="martyr-desc">Comandante militar cristero. Agnóstico que murió creyente en combate, semanas antes de los arreglos.</p>
-    </div>
-    <div class="martyr-card reveal">
-      <div class="martyr-icon">✝&#xFE0E;</div>
-      <div class="martyr-name">José Luis Sánchez</div>
-      <div class="martyr-date">† 10 Feb. 1928</div>
-      <p class="martyr-desc">El "niño cristero". Torturado y asesinado a los 14 años. Canonizado en 2000.</p>
-    </div>
-    <div class="martyr-card reveal">
-      <div class="martyr-icon">†</div>
-      <div class="martyr-name">Pbro. Rodrigo Aguilar</div>
-      <div class="martyr-date">† 28 Oct. 1927</div>
-      <p class="martyr-desc">Ahorcado de un árbol de mango. Sus últimas palabras: "Suba, suba. En el cielo lo veré."</p>
-    </div>
-    <div class="martyr-card reveal">
-      <div class="martyr-icon">✝&#xFE0E;</div>
-      <div class="martyr-name">Anacleto González</div>
-      <div class="martyr-date">† 1 Abr. 1927</div>
-      <p class="martyr-desc">El "Gandhi mexicano". Líder civil de la Liga. Torturado y fusilado en Guadalajara.</p>
-    </div>
-    <div class="martyr-card reveal">
-      <div class="martyr-icon">†</div>
-      <div class="martyr-name">25 Mártires</div>
-      <div class="martyr-date">Canonizados · 21 May. 2000</div>
-      <p class="martyr-desc">Juan Pablo II canonizó a 25 mártires mexicanos de la Cristiada en Roma.</p>
-    </div>
-  </div>
-  <span class="section-page-num on-paper" aria-hidden="true">10</span>
-</section>
-
-<!-- ════════════ LIBROS (paper) ════════════ -->
-<section class="books-section bg-paper" id="libros">
-  <div class="section-header">
-    <span class="section-eyebrow">· Bibliografía Esencial ·</span>
-    <h2 class="section-title on-paper">Lecturas de la Cristiada</h2>
-    <div class="section-rule"></div>
-  </div>
-  <div class="books-grid">
-    <div class="book-card reveal">
-      <div class="book-head"><div class="book-spine"></div>
-        <div class="book-meta"><div class="book-title">La Cristiada (3 vols.)</div><div class="book-author">Jean Meyer — 1973</div></div>
-      </div>
-      <p class="book-synopsis">La obra más completa sobre el conflicto. Meyer entrevistó a cientos de sobrevivientes y construyó el relato definitivo de la guerra.</p>
-      <details class="book-more"><summary>Leer síntesis</summary><p class="book-full">El primer volumen narra la guerra desde sus orígenes. El segundo analiza el movimiento social. El tercero examina el papel de la Iglesia y el Estado. Meyer demuestra que la Cristiada fue un movimiento de campesinos que defendían su identidad frente a un Estado modernizador y laicista.</p></details>
-    </div>
-    <div class="book-card reveal">
-      <div class="book-head"><div class="book-spine"></div>
-        <div class="book-meta"><div class="book-title">El Santo de las Catacumbas</div><div class="book-author">Wilfrid Parsons — 1936</div></div>
-      </div>
-      <p class="book-synopsis">Biografía del Padre Miguel Pro, el jesuita que mantuvo la fe en la clandestinidad y fue fusilado en 1927.</p>
-      <details class="book-more"><summary>Leer síntesis</summary><p class="book-full">Parsons narra cómo el joven jesuita regresó a México disfrazado para administrar sacramentos en la clandestinidad. Describe su arresto y el fusilamiento que el gobierno quiso usar como propaganda, pero que lo convirtió en mártir.</p></details>
-    </div>
-    <div class="book-card reveal">
-      <div class="book-head"><div class="book-spine"></div>
-        <div class="book-meta"><div class="book-title">Soldados de Cristo Rey</div><div class="book-author">Antonio Rius Facius — 1960</div></div>
-      </div>
-      <p class="book-synopsis">Relato épico de las batallas cristeras con testimonios directos de combatientes del occidente de México.</p>
-      <details class="book-more"><summary>Leer síntesis</summary><p class="book-full">Rius Facius recopiló testimonios directos para construir una narrativa militar del conflicto. Detalla las tácticas guerrilleras, los líderes regionales y la vida cotidiana de los cristeros. Fuente primaria invaluable escrita desde la perspectiva del movimiento católico.</p></details>
-    </div>
-    <div class="book-card reveal">
-      <div class="book-head"><div class="book-spine"></div>
-        <div class="book-meta"><div class="book-title">Dios y el Diablo en la Tierra Caliente</div><div class="book-author">Luis González y González — 1968</div></div>
-      </div>
-      <p class="book-synopsis">Microhistoria de San José de Gracia, Michoacán, que muestra cómo vivió una comunidad el conflicto desde adentro.</p>
-      <details class="book-more"><summary>Leer síntesis</summary><p class="book-full">González y González narra la Cristiada a escala local, mostrando cómo el conflicto nacional se vivía en un pueblo concreto. Un clásico de la historiografía mexicana por su humanismo y profundidad documental.</p></details>
-    </div>
-    <div class="book-card reveal">
-      <div class="book-head"><div class="book-spine"></div>
-        <div class="book-meta"><div class="book-title">El Conflicto entre el Poder Civil y el Clero</div><div class="book-author">Alicia Olivera — 1987</div></div>
-      </div>
-      <p class="book-synopsis">Análisis académico de las relaciones Iglesia-Estado en México desde la Reforma hasta la Cristiada.</p>
-      <details class="book-more"><summary>Leer síntesis</summary><p class="book-full">Olivera contextualiza la Cristiada dentro de la larga historia del conflicto Iglesia-Estado. Especialmente valioso por su uso de archivos eclesiásticos y gubernamentales para comprender las negociaciones de 1929.</p></details>
-    </div>
-    <div class="book-card reveal">
-      <div class="book-head"><div class="book-spine"></div>
-        <div class="book-meta"><div class="book-title">Cristiada: Historia y Ficción</div><div class="book-author">Varios autores — 2013</div></div>
-      </div>
-      <p class="book-synopsis">Ensayos sobre las representaciones culturales, literarias y cinematográficas de la Guerra Cristera.</p>
-      <details class="book-more"><summary>Leer síntesis</summary><p class="book-full">Publicado tras el estreno de "For Greater Glory", reúne a historiadores, críticos de cine y teólogos para analizar cómo la Cristiada ha sido recordada en la cultura popular mexicana. Incluye análisis de corridos, pinturas y películas.</p></details>
-    </div>
-  </div>
-  <span class="section-page-num on-paper" aria-hidden="true">11</span>
-</section>
 
 <!-- ════════════ MULTIMEDIA ════════════ -->
 <section class="media-section" id="multimedia">
@@ -1555,7 +1531,7 @@ footer{
       </div>
     </div>
   </div>
-  <span class="section-page-num" aria-hidden="true">12</span>
+  <span class="section-page-num" aria-hidden="true">11</span>
 </section>
 
 <dialog class="media-dialog" id="media-dlg">
@@ -1564,26 +1540,58 @@ footer{
   <div class="md-body" id="md-body"></div>
 </dialog>
 
-<!-- ════════════ TESTIMONIOS (paper) ════════════ -->
-<section class="testimonios-section bg-paper" id="testimonios">
+<!-- ════════════ LIBROS (paper) ════════════ -->
+<section class="books-section bg-paper" id="libros">
   <div class="section-header">
-    <span class="section-eyebrow">· Voces de la Cristiada ·</span>
-    <h2 class="section-title on-paper">En Sus Propias Palabras</h2>
+    <span class="section-eyebrow">· Bibliografía Esencial ·</span>
+    <h2 class="section-title on-paper">Lecturas de la Cristiada</h2>
     <div class="section-rule"></div>
   </div>
-  <div class="quotes-wrap">
-    <div class="quote-display" id="quote-display">
-      <span class="q-mark">"</span>
-      <p class="q-text" id="q-text"></p>
-      <p class="q-author" id="q-author"></p>
+  <div class="books-grid">
+    <div class="book-card reveal">
+      <div class="book-head"><div class="book-spine"></div>
+        <div class="book-meta"><div class="book-title">La Cristiada (3 vols.)</div><div class="book-author">Jean Meyer — 1973</div></div>
+      </div>
+      <p class="book-synopsis">La obra más completa sobre el conflicto. Meyer entrevistó a cientos de sobrevivientes y construyó el relato definitivo de la guerra.</p>
+      <details class="book-more"><summary>Leer síntesis</summary><p class="book-full">El primer volumen narra la guerra desde sus orígenes. El segundo analiza el movimiento social. El tercero examina el papel de la Iglesia y el Estado. Meyer demuestra que la Cristiada fue un movimiento de campesinos que defendían su identidad frente a un Estado modernizador y laicista.</p></details>
     </div>
-    <div class="q-nav">
-      <button class="q-btn" onclick="qNav(-1)" aria-label="Anterior">←</button>
-      <div class="q-dots" id="q-dots"></div>
-      <button class="q-btn" onclick="qNav(1)" aria-label="Siguiente">→</button>
+    <div class="book-card reveal">
+      <div class="book-head"><div class="book-spine"></div>
+        <div class="book-meta"><div class="book-title">El Santo de las Catacumbas</div><div class="book-author">Wilfrid Parsons — 1936</div></div>
+      </div>
+      <p class="book-synopsis">Biografía del Padre Miguel Pro, el jesuita que mantuvo la fe en la clandestinidad y fue fusilado en 1927.</p>
+      <details class="book-more"><summary>Leer síntesis</summary><p class="book-full">Parsons narra cómo el joven jesuita regresó a México disfrazado para administrar sacramentos en la clandestinidad. Describe su arresto y el fusilamiento que el gobierno quiso usar como propaganda, pero que lo convirtió en mártir.</p></details>
+    </div>
+    <div class="book-card reveal">
+      <div class="book-head"><div class="book-spine"></div>
+        <div class="book-meta"><div class="book-title">Soldados de Cristo Rey</div><div class="book-author">Antonio Rius Facius — 1960</div></div>
+      </div>
+      <p class="book-synopsis">Relato épico de las batallas cristeras con testimonios directos de combatientes del occidente de México.</p>
+      <details class="book-more"><summary>Leer síntesis</summary><p class="book-full">Rius Facius recopiló testimonios directos para construir una narrativa militar del conflicto. Detalla las tácticas guerrilleras, los líderes regionales y la vida cotidiana de los cristeros. Fuente primaria invaluable escrita desde la perspectiva del movimiento católico.</p></details>
+    </div>
+    <div class="book-card reveal">
+      <div class="book-head"><div class="book-spine"></div>
+        <div class="book-meta"><div class="book-title">Dios y el Diablo en la Tierra Caliente</div><div class="book-author">Luis González y González — 1968</div></div>
+      </div>
+      <p class="book-synopsis">Microhistoria de San José de Gracia, Michoacán, que muestra cómo vivió una comunidad el conflicto desde adentro.</p>
+      <details class="book-more"><summary>Leer síntesis</summary><p class="book-full">González y González narra la Cristiada a escala local, mostrando cómo el conflicto nacional se vivía en un pueblo concreto. Un clásico de la historiografía mexicana por su humanismo y profundidad documental.</p></details>
+    </div>
+    <div class="book-card reveal">
+      <div class="book-head"><div class="book-spine"></div>
+        <div class="book-meta"><div class="book-title">El Conflicto entre el Poder Civil y el Clero</div><div class="book-author">Alicia Olivera — 1987</div></div>
+      </div>
+      <p class="book-synopsis">Análisis académico de las relaciones Iglesia-Estado en México desde la Reforma hasta la Cristiada.</p>
+      <details class="book-more"><summary>Leer síntesis</summary><p class="book-full">Olivera contextualiza la Cristiada dentro de la larga historia del conflicto Iglesia-Estado. Especialmente valioso por su uso de archivos eclesiásticos y gubernamentales para comprender las negociaciones de 1929.</p></details>
+    </div>
+    <div class="book-card reveal">
+      <div class="book-head"><div class="book-spine"></div>
+        <div class="book-meta"><div class="book-title">Cristiada: Historia y Ficción</div><div class="book-author">Varios autores — 2013</div></div>
+      </div>
+      <p class="book-synopsis">Ensayos sobre las representaciones culturales, literarias y cinematográficas de la Guerra Cristera.</p>
+      <details class="book-more"><summary>Leer síntesis</summary><p class="book-full">Publicado tras el estreno de "For Greater Glory", reúne a historiadores, críticos de cine y teólogos para analizar cómo la Cristiada ha sido recordada en la cultura popular mexicana. Incluye análisis de corridos, pinturas y películas.</p></details>
     </div>
   </div>
-  <span class="section-page-num on-paper" aria-hidden="true">13</span>
+  <span class="section-page-num on-paper" aria-hidden="true">12</span>
 </section>
 
 <!-- ════════════ FOOTER ════════════ -->
@@ -1591,7 +1599,7 @@ footer{
   <div class="footer-inner">
     <div>
       <div class="footer-logo">✝&#xFE0E; CRISTIADA · 1926–2026</div>
-      <p class="footer-line">Sitio conmemorativo de carácter histórico y cultural. Todos los textos son de dominio público o han sido elaborados con fines educativos y de difusión histórica.</p>
+      <p class="footer-line">Sitio Web conmemorativo sin objeto de lucro, con fines de difusión y educación históricas. Los textos, fotos y videos son de dominio público ó han sido elaborados ex-profeso para los fines de este sitio. Partes del sitio y algunas fotografías, textos y videos fueron creados, restaurados ó adaptados con ayuda de inteligencia artificial.</p>
     </div>
     <div class="footer-sources">
       <h4>Fuentes históricas</h4>
@@ -1602,12 +1610,20 @@ footer{
         <li>Mediateca INAH — mediateca.inah.gob.mx</li>
         <li>Library of Congress — loc.gov</li>
         <li>INEGI — datos geográficos</li>
+        <li>Antonio Rius Facius — <em>Soldados de Cristo Rey</em> (1960)</li>
+        <li>Wilfrid Parsons — <em>El Santo de las Catacumbas</em> (1936)</li>
+        <li>Luis González y González — <em>Dios y el Diablo en la Tierra Caliente</em> (1968)</li>
+        <li>Alicia Olivera — <em>El Conflicto entre el Poder Civil y el Clero</em> (1987)</li>
+        <li>David C. Bailey — <em>¡Viva Cristo Rey!</em> (1974)</li>
+        <li>Jim Tuck — <em>The Holy War in Los Altos</em> (1982)</li>
+        <li>El Informador — Hemeroteca, Guadalajara, Jal.</li>
+        <li>Hemeroteca Nacional Digital de México — UNAM</li>
+        <li>Fototeca Nacional del INAH — Pachuca, Hgo.</li>
+        <li>Archivo Casasola — Fototeca Nacional</li>
+        <li>Congregación para las Causas de los Santos — Vaticano</li>
+        <li>Sistema de Información Cultural — Secretaría de Cultura</li>
       </ul>
     </div>
-  </div>
-  <div class="footer-copy">
-    <span>✝&#xFE0E; 100 Años de la Guerra Cristera · 1926–2026</span>
-    <span>Sitio conmemorativo · Carácter histórico y cultural</span>
   </div>
 </footer>
 
@@ -1678,21 +1694,176 @@ footer{
   onScroll();
   window.addEventListener('scroll', onScroll, {passive:true});
 
-  /* ── Mobile menu ── */
-  var toggle = document.getElementById('nav-toggle');
-  var links  = document.getElementById('nav-links');
-  toggle.addEventListener('click', function(){
-    var open = links.classList.toggle('open');
-    toggle.classList.toggle('open', open);
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-  links.addEventListener('click', function(e){
-    if(e.target.tagName === 'A'){
-      links.classList.remove('open');
-      toggle.classList.remove('open');
-      toggle.setAttribute('aria-expanded','false');
+  /* ── Nav bar: horizontal auto-scroll loop (deja el control al usuario en cuanto toca) ── */
+  (function(){
+    var navScroll = document.getElementById('nav-scroll');
+    var navHint = document.getElementById('nav-scroll-hint');
+    if(!navScroll || !navHint) return;
+    var overflows = function(){ return navScroll.scrollWidth > navScroll.clientWidth + 4; };
+    var updateHint = function(){
+      var atEnd = navScroll.scrollLeft + navScroll.clientWidth >= navScroll.scrollWidth - 4;
+      navHint.classList.toggle('is-hidden', !overflows() || atEnd);
+    };
+    updateHint();
+    navScroll.addEventListener('scroll', updateHint, {passive:true});
+    window.addEventListener('resize', updateHint);
+
+    var loopActive = false, stepTimer = null, cloneEl = null, singleWidth = 0, resumeTimer = null;
+    var STEP_MS = 40, RESUME_DELAY = 1000;
+    var scheduleResume = function(){
+      clearTimeout(resumeTimer);
+      resumeTimer = setTimeout(function(){ startLoop(); }, RESUME_DELAY);
+    };
+    var stopLoop = function(){
+      loopActive = false;
+      if(stepTimer){ clearInterval(stepTimer); stepTimer = null; }
+      scheduleResume();
+    };
+    ['touchstart','pointerdown','wheel','mousedown'].forEach(function(evt){
+      navScroll.addEventListener(evt, stopLoop, {passive:true});
+    });
+    var startLoop = function(){
+      var resumeFrom = navScroll.scrollLeft;
+      clearTimeout(resumeTimer); resumeTimer = null;
+      if(stepTimer){ clearInterval(stepTimer); stepTimer = null; }
+      if(cloneEl && cloneEl.parentNode){ cloneEl.parentNode.removeChild(cloneEl); cloneEl = null; }
+      if(!overflows()){ navScroll.scrollLeft = 0; return; }
+      loopActive = true;
+      var navRow = navScroll.querySelector('.nav-row');
+      navRow.style.justifyContent = 'flex-start';
+      singleWidth = navRow.scrollWidth;
+      cloneEl = navRow.cloneNode(true);
+      cloneEl.removeAttribute('id');
+      cloneEl.style.justifyContent = 'flex-start';
+      navScroll.style.display = 'flex';
+      navScroll.appendChild(cloneEl);
+      navScroll.scrollLeft = singleWidth ? (resumeFrom % singleWidth) : 0;
+      var pxPerStep = (singleWidth / 40000) * STEP_MS;
+      stepTimer = setInterval(function(){
+        var next = navScroll.scrollLeft + pxPerStep;
+        if(next >= singleWidth) next -= singleWidth;
+        navScroll.scrollLeft = next;
+      }, STEP_MS);
+    };
+    setTimeout(startLoop, 1200);
+    window.addEventListener('pageshow', function(e){
+      if(e.persisted) setTimeout(startLoop, 300);
+    });
+    setInterval(function(){
+      if(!loopActive && !resumeTimer && overflows()) startLoop();
+    }, 4000);
+  })();
+
+  /* ── Compartir: panel con enlaces sociales ── */
+  (function(){
+    var TRIGGER_SELECTOR = '.hsk-share-btn-trigger';
+    var panel = null, btn = null;
+    var ICONS = {
+      whatsapp: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.66 15L2 22l5.16-1.35A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.18-1.15l-.3-.18-3.06.8.82-2.99-.2-.31A8.2 8.2 0 1 1 12 20.2zm4.5-6.14c-.25-.12-1.46-.72-1.68-.8-.23-.09-.39-.13-.56.12-.16.25-.64.8-.78.97-.14.16-.29.18-.53.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.23-1.46-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.22.25-.86.84-.86 2.05 0 1.21.88 2.38 1 2.55.12.16 1.74 2.65 4.2 3.72.59.25 1.05.4 1.4.52.59.19 1.13.16 1.56.1.47-.07 1.46-.6 1.67-1.18.2-.58.2-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>',
+      facebook: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.52l.38-2.93H13.5V8.7c0-.85.24-1.43 1.45-1.43h1.55V4.65c-.27-.04-1.19-.12-2.26-.12-2.24 0-3.77 1.37-3.77 3.88v2.16H8v2.93h2.47V21h3.03z"/></svg>',
+      x: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>',
+      correo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6.5 10 7 10-7"/></svg>',
+      liga: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5"/></svg>',
+      close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>'
+    };
+    function closePanel(){
+      if(!panel) return;
+      panel.remove(); panel = null;
+      if(btn) btn.setAttribute('aria-expanded','false');
+      document.removeEventListener('click', onDocClick);
+      document.removeEventListener('keydown', onKeydown);
     }
-  });
+    function onDocClick(e){ if(panel && !panel.contains(e.target) && e.target !== btn) closePanel(); }
+    function onKeydown(e){ if(e.key === 'Escape') closePanel(); }
+    function makeItem(iconKey, label, href, onClick, brandClass){
+      var wrap = document.createElement('span');
+      wrap.className = 'hsk-share-item';
+      var a = document.createElement(onClick ? 'button' : 'a');
+      a.className = 'hsk-share-ico' + (brandClass ? ' ' + brandClass : '');
+      a.innerHTML = ICONS[iconKey];
+      if(onClick){ a.type = 'button'; a.addEventListener('click', onClick); }
+      else { a.href = href; a.target = '_blank'; a.rel = 'noopener noreferrer'; }
+      a.setAttribute('aria-label', label);
+      var tip = document.createElement('span');
+      tip.className = 'hsk-share-tip';
+      tip.textContent = label;
+      wrap.appendChild(a); wrap.appendChild(tip);
+      wrap.addEventListener('mouseenter', function(){
+        wrap.classList.remove('hsk-tip-left','hsk-tip-right');
+        var r = tip.getBoundingClientRect();
+        if(r.right > window.innerWidth - 8) wrap.classList.add('hsk-tip-right');
+        else if(r.left < 8) wrap.classList.add('hsk-tip-left');
+      });
+      return { wrap:wrap, tip:tip };
+    }
+    function openPanel(){
+      var url = location.href, title = document.title;
+      var text = 'La Guerra Cristera · Cien Años de Memoria';
+      panel = document.createElement('div');
+      panel.setAttribute('role','menu');
+      panel.style.cssText = 'position:fixed;z-index:9999;background:var(--ink);border:1px solid rgba(201,168,76,.5);border-radius:12px;padding:36px 14px 14px;display:flex;flex-wrap:wrap;gap:10px;max-width:min(320px,calc(100vw - 16px));box-shadow:0 12px 30px rgba(0,0,0,.5);';
+
+      var closeWrap = document.createElement('span');
+      closeWrap.className = 'hsk-share-item hsk-share-close-wrap';
+      var closeBtn = document.createElement('button');
+      closeBtn.type = 'button';
+      closeBtn.className = 'hsk-share-ico hsk-share-close';
+      closeBtn.setAttribute('aria-label','Cerrar');
+      closeBtn.innerHTML = ICONS.close;
+      closeBtn.addEventListener('click', closePanel);
+      var closeTip = document.createElement('span');
+      closeTip.className = 'hsk-share-tip';
+      closeTip.textContent = 'Cerrar';
+      closeWrap.appendChild(closeBtn); closeWrap.appendChild(closeTip);
+      closeWrap.addEventListener('mouseenter', function(){
+        closeWrap.classList.remove('hsk-tip-left','hsk-tip-right');
+        var r = closeTip.getBoundingClientRect();
+        if(r.right > window.innerWidth - 8) closeWrap.classList.add('hsk-tip-right');
+        else if(r.left < 8) closeWrap.classList.add('hsk-tip-left');
+      });
+      panel.appendChild(closeWrap);
+
+      panel.appendChild(makeItem('whatsapp','WhatsApp','https://wa.me/?text=' + encodeURIComponent(text + ' ' + url), null, 'hsk-ico-whatsapp').wrap);
+      panel.appendChild(makeItem('facebook','Facebook','https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url), null, 'hsk-ico-facebook').wrap);
+      panel.appendChild(makeItem('x','X','https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url), null, 'hsk-ico-x').wrap);
+      panel.appendChild(makeItem('correo','Correo','mailto:?subject=' + encodeURIComponent(title) + '&body=' + encodeURIComponent(text + ' - ' + url)).wrap);
+
+      var copyItem = makeItem('liga','Copiar enlace', null, function(){
+        if(!navigator.clipboard) return;
+        navigator.clipboard.writeText(url).then(function(){
+          copyItem.tip.textContent = 'Copiado';
+          copyItem.wrap.classList.add('hsk-tip-force');
+          setTimeout(function(){
+            copyItem.tip.textContent = 'Copiar enlace';
+            copyItem.wrap.classList.remove('hsk-tip-force');
+          }, 1400);
+        });
+      });
+      panel.appendChild(copyItem.wrap);
+
+      document.body.appendChild(panel);
+      var r = btn.getBoundingClientRect();
+      var pw = panel.offsetWidth;
+      var left = Math.min(Math.max(8, r.left), window.innerWidth - pw - 8);
+      var top = r.bottom + 8;
+      if(top + panel.offsetHeight > window.innerHeight - 8) top = Math.max(8, r.top - panel.offsetHeight - 8);
+      panel.style.top = top + 'px';
+      panel.style.left = left + 'px';
+      btn.setAttribute('aria-expanded','true');
+      setTimeout(function(){
+        document.addEventListener('click', onDocClick);
+        document.addEventListener('keydown', onKeydown);
+      }, 0);
+    }
+    document.addEventListener('click', function(e){
+      var trigger = e.target.closest && e.target.closest(TRIGGER_SELECTOR);
+      if(!trigger) return;
+      e.preventDefault();
+      if(panel){ closePanel(); return; }
+      btn = trigger;
+      openPanel();
+    });
+  })();
 
   /* ── Counter animation ── */
   function animateCounters(){
@@ -1952,12 +2123,8 @@ body.theme-light nav.scrolled{
   background:rgba(247,241,230,.92); backdrop-filter:blur(10px);
   border-bottom-color:rgba(107,66,0,.18);
 }
-@media (max-width:1180px){
-  body.theme-light .nav-links{
-    background:rgba(247,241,230,.97);
-    border-bottom-color:rgba(107,66,0,.18);
-  }
-  body.theme-light .nav-links a{ border-top-color:rgba(107,66,0,.08); }
+body.theme-light .nav-scroll-hint{
+  background:linear-gradient(to right, rgba(247,241,230,0), rgba(247,241,230,.95) 82%);
 }
 body.theme-light footer{ background:#e6dbc4; border-top-color:rgba(107,66,0,.2); }
 
