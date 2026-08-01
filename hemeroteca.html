@@ -12,7 +12,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Lato:ital,wght@0,300;0,400;0,700;1,300&family=Special+Elite&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Lato:ital,wght@0,300;0,400;0,700;1,300&family=IM+Fell+English&display=swap" rel="stylesheet">
 <style>
 /* ══════════════════════════════════════════════
    TOKENS (shared with index.html)
@@ -35,7 +35,7 @@
   --serif:      'Cinzel', serif;
   --italic:     'Cormorant Garamond', serif;
   --sans:       'Lato', sans-serif;
-  --typewriter: 'Special Elite', 'Courier New', monospace;
+  --press: 'IM Fell English', 'Georgia', serif;
 }
 *,*::before,*::after{ margin:0; padding:0; box-sizing:border-box; }
 .cross,.nav-logo .x{ font-variant-emoji:text; }
@@ -150,8 +150,9 @@ nav{
 }
 .hem-hero p{
   max-width:660px; margin:1.6rem auto 0; font-family:var(--italic); font-style:italic;
-  font-size:clamp(1rem,2vw,1.2rem); line-height:1.85; color:var(--cream-dim);
+  font-size:clamp(1.3rem,2.6vw,1.56rem); line-height:1.8; color:var(--cream-dim);
 }
+.hem-hero p + p{ margin-top:1.1rem; }
 .hem-hero p strong{ font-style:normal; color:var(--gold-hi); font-weight:600; }
 
 /* ══════════════════════════════════════════════
@@ -168,20 +169,26 @@ nav{
 }
 .hem-archive-inner{ max-width:1180px; margin:0 auto; }
 
+.hem-pre-instructions{
+  max-width:820px; margin:0 auto 1.6rem; text-align:center;
+  font-family:var(--press); font-weight:400; text-transform:uppercase;
+  font-size:.88rem; line-height:1.8; letter-spacing:.5px; color:var(--sepia-deep);
+}
+
 .hem-instructions{
   max-width:820px; margin:0 auto 3.2rem; text-align:center;
   border:1px dashed rgba(139,115,85,.45); background:rgba(139,115,85,.07);
   padding:1.5rem 1.8rem;
 }
 .hem-instructions p{
-  font-family:var(--typewriter); font-weight:400; text-transform:uppercase;
-  font-size:.8rem; line-height:1.85; letter-spacing:.5px; color:var(--sepia-deep);
-  text-shadow:.4px 0 currentColor, -.4px 0 currentColor;
+  font-family:var(--press); font-weight:400; text-transform:uppercase;
+  font-size:.88rem; line-height:1.85; letter-spacing:.5px; color:var(--sepia-deep);
 }
 .hem-instructions p + p{ margin-top:.9rem; }
 @media (max-width:600px){
+  .hem-pre-instructions{ font-size:.78rem; }
   .hem-instructions{ padding:1.2rem 1.1rem; }
-  .hem-instructions p{ font-size:.72rem; }
+  .hem-instructions p{ font-size:.78rem; }
 }
 
 .hem-date-row{
@@ -196,10 +203,10 @@ nav{
 }
 .hem-badge-day{
   font-family:var(--serif); font-weight:900; line-height:1;
-  font-size:3.2rem; color:var(--red); display:block;
+  font-size:2.5rem; color:var(--red); display:block;
 }
 .hem-badge-month{
-  font-family:var(--serif); font-weight:900; font-size:.95rem; letter-spacing:3px; text-transform:uppercase;
+  font-family:var(--serif); font-weight:900; font-size:1.2rem; letter-spacing:3px; text-transform:uppercase;
   color:var(--sepia-ink); display:block; margin-top:.25rem;
 }
 .hem-badge-year{ font-size:.85rem; color:var(--dim); display:block; margin-top:.1rem; }
@@ -246,7 +253,8 @@ nav{
   .hem-date-badge{
     flex:none; text-align:left; display:flex; align-items:baseline; gap:.7rem; flex-wrap:wrap;
   }
-  .hem-badge-day{ font-size:1.9rem; }
+  .hem-badge-day{ font-size:1.6rem; }
+  .hem-badge-month{ font-size:1rem; }
   .hem-badge-weekday, .hem-badge-edition{ margin-top:0; padding-top:0; border-top:none; }
   .hem-badge-edition{ flex-basis:100%; margin-top:.3rem; }
 }
@@ -263,16 +271,20 @@ dialog#hem-lb{
 dialog#hem-lb[open]{ display:flex; }
 dialog#hem-lb::backdrop{ background:rgba(0,0,0,.92); backdrop-filter:blur(6px); }
 .hem-lb-bar{
-  display:flex; align-items:center; justify-content:space-between; gap:1rem;
-  padding:.8rem 1.1rem; border-bottom:1px solid rgba(201,168,76,.15); flex-wrap:wrap;
+  display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:1rem;
+  padding:.8rem 1.1rem; border-bottom:1px solid rgba(201,168,76,.15);
 }
-.hem-lb-info{ min-width:0; }
-.hem-lb-title{ font-family:var(--serif); color:var(--gold-hi); font-size:1rem; }
+.hem-lb-info{ min-width:0; overflow:hidden; }
+.hem-lb-title{
+  font-family:var(--serif); color:var(--gold-hi); font-size:1rem;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
 .hem-lb-meta{
   font-size:.72rem; letter-spacing:1.5px; text-transform:uppercase;
   color:rgba(201,168,76,.55); margin-top:.15rem;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
 }
-.hem-lb-actions{ display:flex; gap:.6rem; flex-shrink:0; align-items:center; }
+.hem-lb-actions{ grid-column:2; display:flex; gap:.6rem; flex-shrink:0; align-items:center; justify-self:center; }
 .hem-lb-btn{
   background:rgba(255,255,255,.05); border:1px solid rgba(201,168,76,.3); color:var(--cream);
   font-family:var(--sans); font-size:.78rem; font-weight:600; letter-spacing:1.3px; text-transform:uppercase;
@@ -299,10 +311,10 @@ dialog#hem-lb::backdrop{ background:rgba(0,0,0,.92); backdrop-filter:blur(6px); 
   color:rgba(242,232,213,.8); line-height:1.65;
 }
 @media (max-width:560px){
-  .hem-lb-bar{ padding:.7rem .8rem; flex-direction:column; align-items:stretch; gap:.6rem; }
+  .hem-lb-bar{ display:flex; flex-direction:column; align-items:stretch; gap:.6rem; padding:.7rem .8rem; }
   .hem-lb-title{ font-size:.9rem; }
   .hem-lb-cap{ padding:.7rem .8rem; }
-  .hem-lb-actions{ width:100%; flex-wrap:wrap; gap:.5rem; }
+  .hem-lb-actions{ width:100%; flex-wrap:wrap; gap:.5rem; justify-self:auto; }
   .hem-lb-btn, .hem-lb-close{
     flex:1 1 auto; padding:0 .6rem; font-size:.66rem; letter-spacing:.8px; height:40px;
   }
@@ -381,11 +393,12 @@ footer{
   <p>
     De la hemeroteca del periódico <strong>El Informador</strong>, publicado en Guadalajara, presentamos
     las primeras planas de fechas escogidas del siglo pasado, correspondientes a noticias pertinentes a
-    La Cristiada. Se incluyen noticias referentes a las persecuciones anti-religiosas, y actividades de
+    La Cristiada.
+  </p>
+  <p>
+    Se incluyen noticias referentes a las persecuciones anti-religiosas, y actividades de
     defensa de la libertad de cultos, que ocurrieron desde antes de la entrada en vigor de la «Ley Calles»
     el 31 de julio de 1926, y la suspensión del culto en los templos de México al día siguiente.
-    Cada primera plana va precedida por su fecha de publicación, y seguida por recortes, con la noticia
-    pertinente.
   </p>
 </header>
 
@@ -393,11 +406,13 @@ footer{
 <main class="hem-archive">
   <div class="hem-archive-inner">
 
+    <p class="hem-pre-instructions">Cada primera plana va precedida por su fecha de publicación, y seguida por recortes, con la noticia pertinente.</p>
+
     <div class="hem-instructions">
-      <p>[Toque cualquier plana o recorte para verlo en tamaño completo]</p>
-      <p>[Podrá usted leerlo mejorado con inteligencia artificial, con tamaño ajustado a su pantalla,
-        ó con tamaño extra grande. Por ser documentos antiguos, puede haber partes ilegibles ó con
-        erratas tipográficas.]</p>
+      <p>Toque cualquier plana o recorte para verlo en tamaño completo.</p>
+      <p>Podrá usted leerlo mejorado con inteligencia artificial, con tamaño ajustado a su pantalla,
+        ó con tamaño extra grande.</p>
+      <p>Por ser documentos antiguos, puede haber partes ilegibles ó con erratas tipográficas.</p>
     </div>
 
     <!-- 16 de julio de 1926 -->
