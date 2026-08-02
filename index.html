@@ -37,7 +37,7 @@
   --sans:       'Lato', sans-serif;
 }
 *,*::before,*::after{ margin:0; padding:0; box-sizing:border-box; }
-.cross,.seal,.ornament,.section-seal,.martyr-icon,.footer-logo,.nav-logo .x{
+.cross,.seal,.ornament,.footer-logo,.nav-logo .x{
   font-variant-emoji:text;
 }
 html{ scroll-behavior:smooth; }
@@ -374,18 +374,6 @@ nav.scrolled{
 .ornament-line span{ color:var(--gold); font-size:1rem; white-space:nowrap; letter-spacing:4px; }
 .ornament-line.light::before,.ornament-line.light::after{ background:rgba(201,168,76,0.3); opacity:1; }
 
-.section-seal{
-  width:54px; height:54px; border-radius:50%;
-  border:1px solid rgba(201,168,76,0.35);
-  display:flex; align-items:center; justify-content:center;
-  margin:0 auto 2rem; color:var(--gold); font-size:1rem;
-  position:relative;
-}
-.section-seal::before{
-  content:''; position:absolute; inset:4px;
-  border-radius:50%; border:1px solid rgba(201,168,76,0.15);
-}
-
 /* ══════════════════════════════════════════════
    STATS (paper)
 ══════════════════════════════════════════════ */
@@ -645,33 +633,6 @@ dialog#lb::backdrop{ background:rgba(0,0,0,.9); backdrop-filter:blur(6px); }
 }
 
 /* ══════════════════════════════════════════════
-   MARTYRS
-══════════════════════════════════════════════ */
-.martyrs-section{ padding:5rem 2rem 6rem; }
-.martyrs-grid{
-  max-width:1000px; margin:0 auto;
-  display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr));
-  gap:0; background:rgba(139,115,85,0.12);
-  border:1px solid rgba(139,115,85,0.2);
-}
-.martyr-card{
-  background:var(--bg); padding:2rem 1.2rem; text-align:center;
-  border-right:1px solid rgba(139,115,85,0.12);
-  border-bottom:1px solid rgba(139,115,85,0.12);
-  transition:background .3s;
-}
-.martyr-card:hover{ background:#dfd3b8; }
-.martyr-icon{
-  width:50px; height:50px; border-radius:50%; margin:0 auto 1rem;
-  border:1px solid rgba(139,115,85,.3);
-  display:flex; align-items:center; justify-content:center;
-  color:var(--red); font-size:1.1rem;
-}
-.martyr-name{ font-family:var(--serif); font-size:1rem; color:var(--text); margin-bottom:.2rem; }
-.martyr-date{ font-size:.88rem; color:var(--sepia-ink); letter-spacing:1px; margin-bottom:.6rem; }
-.martyr-desc{ font-size:.92rem; color:var(--dim); line-height:1.6; }
-
-/* ══════════════════════════════════════════════
    BOOKS
 ══════════════════════════════════════════════ */
 .books-section{ padding:5rem 2rem 6rem; }
@@ -751,33 +712,6 @@ details.book-more[open] summary::before{ content:'− '; }
 .social-desc{ font-size:.95rem; color:rgba(212,197,160,.72); line-height:1.6; margin-bottom:1rem; }
 
 /* ══════════════════════════════════════════════
-   TESTIMONIOS
-══════════════════════════════════════════════ */
-.testimonios-section{ padding:5rem 2rem 6rem; }
-.quotes-wrap{ max-width:720px; margin:0 auto; }
-.quote-display{ min-height:180px; text-align:center; padding:2rem 1rem; position:relative; }
-.q-mark{
-  font-family:var(--italic); font-size:7rem; color:rgba(139,115,85,.12);
-  line-height:0; position:absolute; top:2.8rem; left:0;
-  user-select:none; pointer-events:none;
-}
-.q-text{
-  font-family:var(--italic); font-style:italic;
-  font-size:clamp(1.05rem,2.5vw,1.4rem); color:var(--text);
-  line-height:1.85; margin-bottom:1.2rem; position:relative; z-index:1;
-}
-.q-author{ font-family:var(--serif); font-size:.88rem; letter-spacing:2px; color:var(--sepia-ink); text-transform:uppercase; }
-.q-nav{ display:flex; align-items:center; justify-content:center; gap:1rem; margin-top:2rem; }
-.q-btn{
-  background:none; border:1px solid rgba(139,115,85,.3); color:var(--sepia);
-  width:44px; height:44px; cursor:pointer; font-size:.9rem; transition:all .3s;
-}
-.q-btn:hover{ border-color:var(--gold); color:var(--gold); }
-.q-dots{ display:flex; gap:6px; }
-.q-dot{ width:6px; height:6px; border-radius:50%; background:rgba(139,115,85,.25); cursor:pointer; border:none; transition:background .3s; }
-.q-dot.active{ background:var(--gold); }
-
-/* ══════════════════════════════════════════════
    CENTENARIO
 ══════════════════════════════════════════════ */
 .centenario-section{ background:var(--ink); padding:6rem 2rem 7rem; position:relative; }
@@ -804,7 +738,7 @@ details.book-more[open] summary::before{ content:'− '; }
   .hero .section-page-num{ bottom:5.2rem; }
 }
 .hero,.intro,.centenario-section,.stats,.tl-section,.map-section,
-.gallery-section,.martyrs-section,.books-section,.media-section{
+.gallery-section,.books-section,.media-section{
   position:relative;
 }
 
@@ -873,7 +807,7 @@ footer{
           <a href="#centenario">Propósito</a>
           <a href="#cronologia">Línea de Tiempo</a>
           <a href="#escenarios">Geografía</a>
-          <a href="#martires">Personajes</a>
+          <a href="personajes.html">Personajes</a>
           <a href="#galeria">Galería</a>
           <a href="hemeroteca.html">Hemeroteca</a>
           <a href="#multimedia">Videoteca</a>
@@ -933,7 +867,7 @@ footer{
 </header>
 
 <audio id="bg-audio" loop preload="none">
-  <source src="assets/FondoCristeros.mp3" type="audio/mpeg">
+  <source src="assets/VerdiIntro.mp3" type="audio/mpeg">
 </audio>
 
 <!-- ════════════ INTRO ════════════ -->
@@ -1307,70 +1241,6 @@ footer{
   <span class="section-page-num on-paper" aria-hidden="true">08</span>
 </section>
 
-<!-- ════════════ MÁRTIRES (paper) ════════════ -->
-<section class="martyrs-section bg-paper" id="martires">
-  <div class="section-header">
-    <div class="section-seal" style="border-color:rgba(139,115,85,.35);color:var(--red);">✝&#xFE0E;</div>
-    <span class="section-eyebrow">· Mártires y Figuras Clave ·</span>
-    <h2 class="section-title on-paper">Los que Ofrendaron su Vida</h2>
-    <div class="section-rule"></div>
-  </div>
-  <div class="martyrs-grid">
-    <div class="martyr-card reveal">
-      <div class="martyr-icon">✝&#xFE0E;</div>
-      <div class="martyr-name">Padre Miguel Pro</div>
-      <div class="martyr-date">† 23 Nov. 1927</div>
-      <p class="martyr-desc">Jesuita fusilado sin juicio. Murió con los brazos en cruz. Beatificado en 1988.</p>
-    </div>
-    <div class="martyr-card reveal">
-      <div class="martyr-icon">†</div>
-      <div class="martyr-name">Gral. Gorostieta</div>
-      <div class="martyr-date">† 2 Jun. 1929</div>
-      <p class="martyr-desc">Comandante militar cristero. Agnóstico que murió creyente en combate, semanas antes de los arreglos.</p>
-    </div>
-    <div class="martyr-card reveal">
-      <div class="martyr-icon">✝&#xFE0E;</div>
-      <div class="martyr-name">José Luis Sánchez</div>
-      <div class="martyr-date">† 10 Feb. 1928</div>
-      <p class="martyr-desc">El "niño cristero". Torturado y asesinado a los 14 años. Canonizado en 2000.</p>
-    </div>
-    <div class="martyr-card reveal">
-      <div class="martyr-icon">†</div>
-      <div class="martyr-name">Pbro. Rodrigo Aguilar</div>
-      <div class="martyr-date">† 28 Oct. 1927</div>
-      <p class="martyr-desc">Ahorcado de un árbol de mango. Sus últimas palabras: "Suba, suba. En el cielo lo veré."</p>
-    </div>
-    <div class="martyr-card reveal">
-      <div class="martyr-icon">✝&#xFE0E;</div>
-      <div class="martyr-name">Anacleto González</div>
-      <div class="martyr-date">† 1 Abr. 1927</div>
-      <p class="martyr-desc">El "Gandhi mexicano". Líder civil de la Liga. Torturado y fusilado en Guadalajara.</p>
-    </div>
-    <div class="martyr-card reveal">
-      <div class="martyr-icon">†</div>
-      <div class="martyr-name">25 Mártires</div>
-      <div class="martyr-date">Canonizados · 21 May. 2000</div>
-      <p class="martyr-desc">Juan Pablo II canonizó a 25 mártires mexicanos de la Cristiada en Roma.</p>
-    </div>
-  </div>
-
-  <div class="ornament-line"><span>· En Sus Propias Palabras ·</span></div>
-  <div class="quotes-wrap">
-    <div class="quote-display" id="quote-display">
-      <span class="q-mark">"</span>
-      <p class="q-text" id="q-text"></p>
-      <p class="q-author" id="q-author"></p>
-    </div>
-    <div class="q-nav">
-      <button class="q-btn" onclick="qNav(-1)" aria-label="Anterior">←</button>
-      <div class="q-dots" id="q-dots"></div>
-      <button class="q-btn" onclick="qNav(1)" aria-label="Siguiente">→</button>
-    </div>
-  </div>
-
-  <span class="section-page-num on-paper" aria-hidden="true">09</span>
-</section>
-
 <!-- ════════════ GALERÍA ════════════ -->
 <section class="gallery-section" id="galeria">
   <div class="section-header">
@@ -1471,7 +1341,7 @@ footer{
   <p style="text-align:center;margin-top:1.2rem;font-family:var(--serif);font-size:.82rem;letter-spacing:2px;color:rgba(201,168,76,.55);text-transform:uppercase;">
     Imágenes: Archivo histórico · Wikimedia Commons · Dominio público
   </p>
-  <span class="section-page-num" aria-hidden="true">10</span>
+  <span class="section-page-num" aria-hidden="true">09</span>
 </section>
 
 <dialog id="lb">
@@ -1539,7 +1409,7 @@ footer{
       </div>
     </div>
   </div>
-  <span class="section-page-num" aria-hidden="true">11</span>
+  <span class="section-page-num" aria-hidden="true">10</span>
 </section>
 
 <dialog class="media-dialog" id="media-dlg">
@@ -1599,7 +1469,7 @@ footer{
       <details class="book-more"><summary>Leer síntesis</summary><p class="book-full">Publicado tras el estreno de "For Greater Glory", reúne a historiadores, críticos de cine y teólogos para analizar cómo la Cristiada ha sido recordada en la cultura popular mexicana. Incluye análisis de corridos, pinturas y películas.</p></details>
     </div>
   </div>
-  <span class="section-page-num on-paper" aria-hidden="true">12</span>
+  <span class="section-page-num on-paper" aria-hidden="true">11</span>
 </section>
 
 <!-- ════════════ FOOTER ════════════ -->
@@ -1959,40 +1829,6 @@ footer{
     var d = mediaData[id]; if(!d) return;
     mdTitle.textContent = d.title; mdBody.innerHTML = d.body; mediaDlg.showModal();
   };
-
-  /* ── Quotes carousel ── */
-  var quotes = [
-    { text:'"Morir de pie por Dios es mejor que vivir de rodillas ante los hombres."', author:'— Combatiente cristero anónimo' },
-    { text:'"¡Viva Cristo Rey! ¡Viva Santa María de Guadalupe!"', author:'— Grito de batalla de los cristeros' },
-    { text:'"Padre, perdono a todos mis enemigos y ruego a Dios que también los perdone."', author:'— P. Miguel Pro S.J. · antes de ser fusilado · 1927' },
-    { text:'"Suba, suba. En el cielo lo veré."', author:'— Pbro. Rodrigo Aguilar Alemán · al ser ahorcado · 1927' },
-    { text:'"La Cristiada fue el único momento en que el pueblo mexicano dijo No al Estado con las armas en la mano."', author:'— Jean Meyer, historiador' }
-  ];
-  var qCurrent = 0;
-  var qText   = document.getElementById('q-text');
-  var qAuthor = document.getElementById('q-author');
-  var qDots   = document.getElementById('q-dots');
-  function renderQuote(n){
-    qCurrent = (n + quotes.length) % quotes.length;
-    qText.textContent   = quotes[qCurrent].text;
-    qAuthor.textContent = quotes[qCurrent].author;
-    qDots.querySelectorAll('.q-dot').forEach(function(d,i){ d.classList.toggle('active', i===qCurrent); });
-  }
-  quotes.forEach(function(_,i){
-    var d = document.createElement('button');
-    d.className = 'q-dot' + (i===0?' active':'');
-    d.setAttribute('aria-label','Cita '+(i+1));
-    d.addEventListener('click', function(){ renderQuote(i); });
-    qDots.appendChild(d);
-  });
-  renderQuote(0);
-  window.qNav = function(dir){ renderQuote(qCurrent+dir); };
-  var qTimer = setInterval(function(){ renderQuote(qCurrent+1); }, 6000);
-  var qWrap = document.querySelector('.quotes-wrap');
-  if(qWrap){
-    qWrap.addEventListener('mouseenter', function(){ clearInterval(qTimer); });
-    qWrap.addEventListener('mouseleave', function(){ qTimer = setInterval(function(){ renderQuote(qCurrent+1); }, 6000); });
-  }
 
   /* ── Backdrop click closes dialogs ── */
   [lbDlg, mediaDlg].forEach(function(dlg){
