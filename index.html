@@ -604,6 +604,20 @@ details.book-more[open] summary::before{ content:'− '; }
   font-size:.95rem; color:var(--dim); line-height:1.7;
   padding-top:.7rem; border-top:1px solid rgba(139,115,85,.15); margin-top:.3rem;
 }
+.book-full p+p{ margin-top:.85rem; }
+.book-download{
+  display:inline-flex; align-items:center; gap:.4rem; margin-top:1rem;
+  font-family:var(--sans); font-size:.8rem; letter-spacing:1.5px; text-transform:uppercase;
+  font-weight:700; color:var(--sepia-ink); text-decoration:none;
+  border-bottom:1px solid rgba(139,101,71,.4); padding-bottom:2px;
+  transition:color .25s, border-color .25s;
+}
+.book-download::before{ content:'⬇'; font-size:.9em; }
+.book-download:hover{ color:var(--red); border-color:var(--red); }
+.section-note{
+  text-align:center; font-family:var(--italic); font-style:italic; font-size:1rem;
+  color:var(--sepia-ink); max-width:640px; margin:-2rem auto 3rem;
+}
 
 /* ══════════════════════════════════════════════
    MULTIMEDIA
@@ -837,6 +851,7 @@ footer{
       <p>En <em>agosto de 1926</em>, en Chalchihuites, Zacatecas, sonaron los primeros disparos de una guerra que el mundo no quiso recordar. <strong>Cien años después</strong>, ese silencio sigue siendo una deuda con los estados de México que vieron a sus padres, hijos y sacerdotes morir sin que ningún libro de texto escolar lo reconociera plenamente.</p>
       <p>El centenario de <em>2026</em> no es solo un aniversario: es una oportunidad para que México reconozca uno de los episodios más complejos de su historia moderna. <strong>La Cristiada no fue ni una rebelión de fanáticos ni una guerra de la Iglesia</strong>: fue la respuesta de comunidades enteras —campesinos, madres, jóvenes, sacerdotes— ante la eliminación forzada de su identidad cultural.</p>
       <p>Los <em>25 santos canonizados en Roma en el año 2000</em> son el recordatorio de que esta historia tiene nombre, rostro y fecha de martirio. Recordarlos no es política ni nostalgia: es <strong>honrar la verdad histórica</strong> de un pueblo que dijo No cuando el Estado le exigió callar lo que más amaba.</p>
+      <p>Por eso este sitio seguirá creciendo: iremos incorporando nuevos <em>personajes</em>, <em>libros</em> y <em>videos</em>, y sobre todo, las <em>noticias</em> correspondientes, conforme se vayan cumpliendo, día a día, los cien años de cada uno de los tres que duró la Cristiada (1926-1929).</p>
     </div>
     <div class="ornament-line light"><span>· 1926 · 2026 ·</span></div>
   </div>
@@ -1253,7 +1268,32 @@ footer{
     <h2 class="section-title on-paper">Lecturas de la Cristiada</h2>
     <div class="section-rule"></div>
   </div>
+  <p class="section-note reveal">Esta bibliografía seguirá creciendo: iremos añadiendo nuevos títulos conforme avance el centenario.</p>
   <div class="books-grid">
+    <div class="book-card reveal">
+      <div class="book-head"><div class="book-spine"></div>
+        <div class="book-meta"><div class="book-title">Los Cristeros del Volcán de Colima — Tomo I</div><div class="book-author">Spectator [Pbro. Enrique Ochoa] — 1942</div></div>
+      </div>
+      <p class="book-synopsis">Diario de campaña del Gral. cristero Dionisio Ochoa, hermano del autor y capellán de su tropa, que combatió en las faldas del Volcán de Colima. Testimonio directo de la lucha por la libertad religiosa, 1926-1929.</p>
+      <details class="book-more"><summary>Leer epígrafe y síntesis</summary>
+        <p class="book-full">SPECTATOR [seudónimo del Pbro. Enrique Ochoa], <em>Los cristeros del volcán de Colima. Escenas de la lucha por la libertad religiosa en México, 1926-1929</em>.</p>
+        <p class="book-full">Epígrafe: Historia del Gral. Cristero Dionisio Ochoa, hermano del autor, quien fungió como capellán de la tropa. Combatió en la agreste área de las faldas del Volcán de Colima. El libro fue publicado primero en italiano, en 1933, con el título <em>Fede di Popolo, Fiore di Eroi</em> ("Fe de Pueblo, Flor de Héroes") en Turín, Italia. Su edición en español se publicó hasta 1942, cuando el clima político en México permitió mayor apertura sobre el tema.</p>
+        <p class="book-full">El libro se basa en el diario de campaña del autor, con una visión "desde dentro" de la lucha. Relata las batallas en las faldas del volcán, la persecución religiosa y los sacrificios de los combatientes. El texto es una defensa apasionada de la causa cristera, describiendo a los insurgentes como mártires y héroes que lucharon contra la tiranía de un gobierno que estaba en contra de la religión del 95% de los mexicanos.</p>
+      </details>
+      <a class="book-download" href="assets/libros/1961_Spectator_Cristeros-Volcan-Colima_Tomo-I.pdf" download>Descargar PDF · Tomo I (19 MB)</a>
+    </div>
+    <div class="book-card reveal">
+      <div class="book-head"><div class="book-spine"></div>
+        <div class="book-meta"><div class="book-title">Los Cristeros del Volcán de Colima — Tomo II</div><div class="book-author">Spectator [Pbro. Enrique Ochoa] — 1942</div></div>
+      </div>
+      <p class="book-synopsis">Segundo tomo del testimonio de Spectator sobre la campaña cristera en el Volcán de Colima, con nueva correspondencia y episodios inéditos de la tropa del Gral. Dionisio Ochoa.</p>
+      <details class="book-more"><summary>Leer epígrafe y síntesis</summary>
+        <p class="book-full">SPECTATOR [seudónimo del Pbro. Enrique Ochoa], <em>Los cristeros del volcán de Colima. Escenas de la lucha por la libertad religiosa en México, 1926-1929</em>.</p>
+        <p class="book-full">Epígrafe: Historia del Gral. Cristero Dionisio Ochoa, hermano del autor, quien fungió como capellán de la tropa. Combatió en la agreste área de las faldas del Volcán de Colima. El libro fue publicado primero en italiano, en 1933, con el título <em>Fede di Popolo, Fiore di Eroi</em> ("Fe de Pueblo, Flor de Héroes") en Turín, Italia. Su edición en español se publicó hasta 1942, cuando el clima político en México permitió mayor apertura sobre el tema.</p>
+        <p class="book-full">El libro se basa en el diario de campaña del autor, con una visión "desde dentro" de la lucha. Relata las batallas en las faldas del volcán, la persecución religiosa y los sacrificios de los combatientes. El texto es una defensa apasionada de la causa cristera, describiendo a los insurgentes como mártires y héroes que lucharon contra la tiranía de un gobierno que estaba en contra de la religión del 95% de los mexicanos.</p>
+      </details>
+      <a class="book-download" href="assets/libros/1961_Spectator_Cristeros-Volcan-Colima_Tomo-II.pdf" download>Descargar PDF · Tomo II (85 MB)</a>
+    </div>
     <div class="book-card reveal">
       <div class="book-head"><div class="book-spine"></div>
         <div class="book-meta"><div class="book-title">La Cristiada (3 vols.)</div><div class="book-author">Jean Meyer — 1973</div></div>
@@ -1311,6 +1351,7 @@ footer{
       <h4>Fuentes históricas</h4>
       <ul>
         <li>Jean Meyer — <em>La Cristiada</em> (1973)</li>
+        <li>Spectator [Pbro. Enrique Ochoa] — <em>Los cristeros del volcán de Colima</em> (1942)</li>
         <li>Archivo General de la Nación — AGN</li>
         <li>Wikimedia Commons — Dominio público</li>
         <li>Mediateca INAH — mediateca.inah.gob.mx</li>
