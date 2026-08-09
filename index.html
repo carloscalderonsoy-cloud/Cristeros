@@ -661,6 +661,8 @@ details.book-more[open] summary::before{ content:'− '; }
 }
 .book-download::before{ content:'⬇'; font-size:.9em; }
 .book-download:hover{ color:var(--red); border-color:var(--red); }
+.book-downloads{ display:flex; flex-direction:column; align-items:flex-start; gap:.5rem; margin-top:1rem; }
+.book-downloads .book-download{ margin-top:0; }
 .section-note{
   text-align:center; font-family:var(--italic); font-style:italic; font-size:1rem;
   color:var(--sepia-ink); max-width:640px; margin:-2rem auto 3rem;
@@ -1388,6 +1390,11 @@ footer{
       </div>
       <p class="book-synopsis">La obra más completa sobre el conflicto. Meyer entrevistó a cientos de sobrevivientes y construyó el relato definitivo de la guerra.</p>
       <details class="book-more"><summary>Leer síntesis</summary><p class="book-full">El primer volumen narra la guerra desde sus orígenes. El segundo analiza el movimiento social. El tercero examina el papel de la Iglesia y el Estado. Meyer demuestra que la Cristiada fue un movimiento de campesinos que defendían su identidad frente a un Estado modernizador y laicista.</p></details>
+      <div class="book-downloads">
+        <a class="book-download" href="assets/libros/1985_Jean-Meyer_La-Cristiada_Tomo-1.pdf" download>Descargar PDF · Tomo I (32 MB)</a>
+        <a class="book-download" href="assets/libros/1985_Jean-Meyer_La-Cristiada_Tomo-2.pdf" download>Descargar PDF · Tomo II (30 MB)</a>
+        <a class="book-download" href="assets/libros/1985_Jean-Meyer_La-Cristiada_Tomo-3.pdf" download>Descargar PDF · Tomo III (26 MB)</a>
+      </div>
     </div>
     <div class="book-card reveal">
       <div class="book-head"><div class="book-spine"></div>
