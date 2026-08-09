@@ -165,6 +165,19 @@ nav{
 .btn-ghost:hover{ border-color:var(--gold); color:var(--gold-hi); }
 .per-audio{ display:flex; justify-content:center; margin-top:2.4rem; }
 
+#audio-btn{ position:relative; border-radius:999px; }
+#audio-btn::after{
+  content:''; position:absolute; inset:0; border-radius:999px;
+  pointer-events:none; animation:audioGlow 2.6s ease-in-out infinite;
+}
+@keyframes audioGlow{
+  0%,100%{ box-shadow:0 0 8px 1px rgba(201,168,76,.3), 0 0 18px 4px rgba(201,168,76,.15); }
+  50%{ box-shadow:0 0 18px 5px rgba(201,168,76,.75), 0 0 38px 14px rgba(201,168,76,.35); }
+}
+@media (prefers-reduced-motion: reduce){
+  #audio-btn::after{ animation:none; box-shadow:0 0 14px 3px rgba(201,168,76,.5); }
+}
+
 /* ══════════════════════════════════════════════
    MAIN (paper)
 ══════════════════════════════════════════════ */
