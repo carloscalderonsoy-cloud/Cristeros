@@ -239,38 +239,6 @@ nav{
   font-family:var(--italic); font-style:italic; font-size:1.05rem; line-height:1.75;
   color:var(--dim); text-align:center; max-width:720px; margin:0 auto 2.4rem;
 }
-.mrt25-list{ list-style:none; border-top:1px solid rgba(139,115,85,.25); counter-reset:mrt25-count; }
-.mrt25-item{
-  counter-increment:mrt25-count; position:relative;
-  padding:1rem .5rem 1rem 2.3rem;
-  border-bottom:1px solid rgba(139,115,85,.18);
-  transition:background .3s;
-}
-.mrt25-item::before{
-  content:counter(mrt25-count, decimal-leading-zero);
-  position:absolute; left:0; top:1.05rem;
-  font-family:var(--serif); font-size:.78rem; color:var(--gold); letter-spacing:1px;
-}
-.mrt25-item:hover{ background:rgba(139,115,85,.07); }
-.mrt25-item.mrt25-featured{ background:rgba(201,168,76,.08); border-bottom-color:rgba(201,168,76,.35); }
-.mrt25-row{
-  display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap;
-  gap:.3rem 1rem; margin-bottom:.35rem;
-}
-.mrt25-name{ font-family:var(--serif); font-size:1rem; color:var(--text); }
-.mrt25-tag{
-  font-family:var(--sans); font-style:normal; font-size:.62rem; letter-spacing:1.5px;
-  text-transform:uppercase; color:var(--gold-hi); border:1px solid rgba(201,168,76,.45);
-  padding:.1rem .45rem; border-radius:2px; margin-left:.5rem; white-space:nowrap;
-}
-.mrt25-tag-beato{ color:var(--sepia-ink); border-color:rgba(139,115,85,.4); }
-.mrt25-date{ font-size:.82rem; color:var(--sepia-ink); letter-spacing:.5px; white-space:nowrap; }
-.mrt25-note{ font-size:.9rem; color:var(--dim); line-height:1.6; max-width:680px; }
-@media (max-width:600px){
-  .mrt25-item{ padding-left:1.9rem; }
-  .mrt25-row{ flex-direction:column; align-items:flex-start; gap:.2rem; }
-  .mrt25-date{ font-size:.78rem; }
-}
 
 .ornament-line{
   display:flex; align-items:center; gap:1.2rem;
@@ -428,190 +396,164 @@ footer{
     <h3 class="mrt25-title reveal" id="mrt25-heading">Los 25 Mártires Canonizados</h3>
     <p class="mrt25-intro reveal">El 21 de mayo de 2000, en la Basílica de San Pedro, el papa Juan Pablo II canonizó a Cristóbal Magallanes y a otros veinticuatro sacerdotes y laicos mexicanos asesinados en distintas regiones del país durante la persecución religiosa de 1915 a 1937. Junto a ellos, la Iglesia honra también al beato Miguel Pro, jesuita fusilado en 1927 y beatificado por el mismo Juan Pablo II en 1988: no forma parte de los 25 canonizados en el año 2000, pero se le incluye aquí como otro mártir beatificado de la misma guerra cristera.</p>
 
-    <ol class="mrt25-list">
-      <li class="mrt25-item mrt25-featured reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Pbro. Toribio Romo González <em class="mrt25-tag">Santo</em></span>
-          <span class="mrt25-date">† 25 Feb. 1928 · Tequila, Jal.</span>
-        </div>
-        <p class="mrt25-note">Sorprendido de madrugada por una tropa en Tequila, murió por los disparos recibidos mientras dormía. Hoy es venerado como patrono de los migrantes.</p>
-      </li>
-      <li class="mrt25-item mrt25-featured reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">P. Miguel Pro, S.J. <em class="mrt25-tag mrt25-tag-beato">Beato</em></span>
-          <span class="mrt25-date">† 23 Nov. 1927 · Cd. de México</span>
-        </div>
-        <p class="mrt25-note">Fusilado sin juicio por el gobierno de Calles; extendió los brazos en cruz y murió gritando "¡Viva Cristo Rey!".</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Pbro. David Galván Bermúdez</span>
-          <span class="mrt25-date">† 30 Ene. 1915 · Guadalajara, Jal.</span>
-        </div>
-        <p class="mrt25-note">Auxiliaba a heridos en un enfrentamiento armado en Guadalajara cuando fue detenido sin proceso y fusilado junto al panteón de Belén.</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">David Roldán Lara</span>
-          <span class="mrt25-date">† 15 Ago. 1926 · Chalchihuites, Zac.</span>
-        </div>
-        <p class="mrt25-note">Laico de Acción Católica; fue arrestado en su casa y fusilado junto a tres compañeros de apostolado en Chalchihuites.</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Pbro. Luis Batis Sáinz</span>
-          <span class="mrt25-date">† 15 Ago. 1926 · Chalchihuites, Zac.</span>
-        </div>
-        <p class="mrt25-note">Párroco fusilado junto a tres laicos; al no lograr salvar a uno de ellos le dijo como despedida: "Hasta el cielo."</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Manuel Morales</span>
-          <span class="mrt25-date">† 15 Ago. 1926 · Chalchihuites, Zac.</span>
-        </div>
-        <p class="mrt25-note">Padre de familia y catequista; el Pbro. Batis intentó salvarlo recordando que dejaba esposa e hijos, sin éxito.</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Salvador Lara Puente</span>
-          <span class="mrt25-date">† 15 Ago. 1926 · Chalchihuites, Zac.</span>
-        </div>
-        <p class="mrt25-note">El más joven del grupo de Chalchihuites; fue fusilado junto a sus tres compañeros por negarse a renunciar a su fe.</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Pbro. Jenaro Sánchez Delgadillo</span>
-          <span class="mrt25-date">† 17 Ene. 1927 · Tecolotlán, Jal.</span>
-        </div>
-        <p class="mrt25-note">Ahorcado de un árbol tras negarse a huir de sus captores; perdonó a sus verdugos momentos antes de morir.</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Pbro. Mateo Correa Magallanes</span>
-          <span class="mrt25-date">† 6 Feb. 1927 · Durango</span>
-        </div>
-        <p class="mrt25-note">Fusilado por negarse a revelar ante un general federal lo que unos prisioneros le habían confiado en confesión.</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Pbro. Julio Álvarez Mendoza</span>
-          <span class="mrt25-date">† 30 Mar. 1927 · Guadalajara, Jal.</span>
-        </div>
-        <p class="mrt25-note">Párroco torturado durante varios días antes de ser fusilado; su cuerpo fue abandonado cerca de su parroquia.</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Pbro. David Uribe Velasco</span>
-          <span class="mrt25-date">† 12 Abr. 1927 · Vista Hermosa, Mor.</span>
-        </div>
-        <p class="mrt25-note">Antes de morir bendijo y perdonó a los soldados que lo fusilaron, y repartió entre ellos sus objetos personales.</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Pbro. Sabás Reyes Salazar</span>
-          <span class="mrt25-date">† 13 Abr. 1927 · Tototlán, Jal.</span>
-        </div>
-        <p class="mrt25-note">Torturado durante tres días —le quemaron las manos consagradas— antes de ser fusilado en el panteón de Tototlán.</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Pbro. Román Adame Rosales</span>
-          <span class="mrt25-date">† 21 Abr. 1927 · Yahualica, Jal.</span>
-        </div>
-        <p class="mrt25-note">Detenido casi a los setenta años, fue obligado a caminar descalzo hasta Yahualica, donde fue fusilado en el cementerio.</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Pbro. Cristóbal Magallanes Jara</span>
-          <span class="mrt25-date">† 25 May. 1927 · Colotlán, Jal.</span>
-        </div>
-        <p class="mrt25-note">Fusilado junto al seminarista Caloca; perdonó a sus verdugos y pidió que su sangre sirviera para la paz de México.</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Agustín Caloca Cortés</span>
-          <span class="mrt25-date">† 25 May. 1927 · Colotlán, Jal.</span>
-        </div>
-        <p class="mrt25-note">Seminarista y colaborador del Pbro. Magallanes; fue fusilado junto a él el mismo día en Colotlán.</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Pbro. José Isabel Flores Varela</span>
-          <span class="mrt25-date">† 21 Jun. 1927 · Zapotlanejo, Jal.</span>
-        </div>
-        <p class="mrt25-note">Sobrevivió a un intento de ahorcamiento y de fusilamiento antes de morir a manos de sus captores en el panteón de Zapotlanejo.</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Pbro. José María Robles Hurtado</span>
-          <span class="mrt25-date">† 26 Jun. 1927 · Sierra de Quila, Jal.</span>
-        </div>
-        <p class="mrt25-note">Fundador de una congregación religiosa; fue ahorcado en lo alto de la sierra de Quila al ser aprehendido mientras se disponía a celebrar misa.</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Pbro. Miguel de la Mora</span>
-          <span class="mrt25-date">† 7 Ago. 1927 · Colima</span>
-        </div>
-        <p class="mrt25-note">Aprehendido cuando huía hacia la sierra; fue fusilado dentro de un cuartel militar en Colima mientras rezaba el rosario.</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Pbro. Rodrigo Aguilar Alemán</span>
-          <span class="mrt25-date">† 28 Oct. 1927 · Ejutla, Jal.</span>
-        </div>
-        <p class="mrt25-note">Ahorcado de un árbol de mango; sus últimas palabras fueron: "Suba, suba. En el cielo lo veré."</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Pbro. Margarito Flores García</span>
-          <span class="mrt25-date">† 12 Nov. 1927 · Tulimán, Gro.</span>
-        </div>
-        <p class="mrt25-note">Se negó a que le vendaran los ojos y recibió los disparos del pelotón con los brazos extendidos en forma de cruz.</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Pbro. Pedro Esqueda Ramírez</span>
-          <span class="mrt25-date">† 22 Nov. 1927 · Teocaltitán, Jal.</span>
-        </div>
-        <p class="mrt25-note">De camino a su fusilamiento animó a un niño a no abandonar el catecismo; fue ejecutado a las afueras de Teocaltitán.</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Pbro. Jesús Méndez Montoya</span>
-          <span class="mrt25-date">† 5 Feb. 1928 · Valtierrilla, Gto.</span>
-        </div>
-        <p class="mrt25-note">Fue descubierto al salir de misa ocultando el copón bajo su tilma; los soldados lo reconocieron y lo fusilaron ese mismo día.</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Pbro. Atilano Cruz Alvarado</span>
-          <span class="mrt25-date">† 1 Jul. 1928 · Cuquío, Jal.</span>
-        </div>
-        <p class="mrt25-note">Vicario parroquial; murió acribillado en su habitación minutos después que su párroco, el Pbro. Orona, en el mismo asalto.</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Pbro. Justino Orona Madrigal</span>
-          <span class="mrt25-date">† 1 Jul. 1928 · Cuquío, Jal.</span>
-        </div>
-        <p class="mrt25-note">Sorprendido de madrugada por tropas federales en Cuquío, abrió la puerta gritando "¡Viva Cristo Rey!" y cayó al instante bajo las balas.</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Pbro. Tranquilino Ubiarco Robles</span>
-          <span class="mrt25-date">† 5 Oct. 1928 · Tepatitlán, Jal.</span>
-        </div>
-        <p class="mrt25-note">Descubierto mientras oficiaba una boda clandestina; bendijo la soga con la que sería ahorcado horas después.</p>
-      </li>
-      <li class="mrt25-item reveal">
-        <div class="mrt25-row">
-          <span class="mrt25-name">Pbro. Pedro de Jesús Maldonado Lucero</span>
-          <span class="mrt25-date">† 11 Feb. 1937 · Chihuahua</span>
-        </div>
-        <p class="mrt25-note">Detenido y golpeado brutalmente en Santa Isabel, Chihuahua; murió al día siguiente a causa de las heridas recibidas.</p>
-      </li>
-    </ol>
+    <div class="martyrs-grid">
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Toribio Romo González · Santo</div>
+        <div class="martyr-date">† 25 Feb. 1928 · Tequila, Jal.</div>
+        <p class="martyr-desc">Sorprendido de madrugada por una tropa en Tequila, murió por los disparos recibidos mientras dormía. Hoy es venerado como patrono de los migrantes.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">P. Miguel Pro, S.J. · Beato</div>
+        <div class="martyr-date">† 23 Nov. 1927 · Cd. de México</div>
+        <p class="martyr-desc">Fusilado sin juicio por el gobierno de Calles; extendió los brazos en cruz y murió gritando "¡Viva Cristo Rey!".</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. David Galván Bermúdez</div>
+        <div class="martyr-date">† 30 Ene. 1915 · Guadalajara, Jal.</div>
+        <p class="martyr-desc">Auxiliaba a heridos en un enfrentamiento armado en Guadalajara cuando fue detenido sin proceso y fusilado junto al panteón de Belén.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">David Roldán Lara</div>
+        <div class="martyr-date">† 15 Ago. 1926 · Chalchihuites, Zac.</div>
+        <p class="martyr-desc">Laico de Acción Católica; fue arrestado en su casa y fusilado junto a tres compañeros de apostolado en Chalchihuites.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Luis Batis Sáinz</div>
+        <div class="martyr-date">† 15 Ago. 1926 · Chalchihuites, Zac.</div>
+        <p class="martyr-desc">Párroco fusilado junto a tres laicos; al no lograr salvar a uno de ellos le dijo como despedida: "Hasta el cielo."</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Manuel Morales</div>
+        <div class="martyr-date">† 15 Ago. 1926 · Chalchihuites, Zac.</div>
+        <p class="martyr-desc">Padre de familia y catequista; el Pbro. Batis intentó salvarlo recordando que dejaba esposa e hijos, sin éxito.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Salvador Lara Puente</div>
+        <div class="martyr-date">† 15 Ago. 1926 · Chalchihuites, Zac.</div>
+        <p class="martyr-desc">El más joven del grupo de Chalchihuites; fue fusilado junto a sus tres compañeros por negarse a renunciar a su fe.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Jenaro Sánchez Delgadillo</div>
+        <div class="martyr-date">† 17 Ene. 1927 · Tecolotlán, Jal.</div>
+        <p class="martyr-desc">Ahorcado de un árbol tras negarse a huir de sus captores; perdonó a sus verdugos momentos antes de morir.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Mateo Correa Magallanes</div>
+        <div class="martyr-date">† 6 Feb. 1927 · Durango</div>
+        <p class="martyr-desc">Fusilado por negarse a revelar ante un general federal lo que unos prisioneros le habían confiado en confesión.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Julio Álvarez Mendoza</div>
+        <div class="martyr-date">† 30 Mar. 1927 · Guadalajara, Jal.</div>
+        <p class="martyr-desc">Párroco torturado durante varios días antes de ser fusilado; su cuerpo fue abandonado cerca de su parroquia.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. David Uribe Velasco</div>
+        <div class="martyr-date">† 12 Abr. 1927 · Vista Hermosa, Mor.</div>
+        <p class="martyr-desc">Antes de morir bendijo y perdonó a los soldados que lo fusilaron, y repartió entre ellos sus objetos personales.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Sabás Reyes Salazar</div>
+        <div class="martyr-date">† 13 Abr. 1927 · Tototlán, Jal.</div>
+        <p class="martyr-desc">Torturado durante tres días —le quemaron las manos consagradas— antes de ser fusilado en el panteón de Tototlán.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Román Adame Rosales</div>
+        <div class="martyr-date">† 21 Abr. 1927 · Yahualica, Jal.</div>
+        <p class="martyr-desc">Detenido casi a los setenta años, fue obligado a caminar descalzo hasta Yahualica, donde fue fusilado en el cementerio.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Cristóbal Magallanes Jara</div>
+        <div class="martyr-date">† 25 May. 1927 · Colotlán, Jal.</div>
+        <p class="martyr-desc">Fusilado junto al seminarista Caloca; perdonó a sus verdugos y pidió que su sangre sirviera para la paz de México.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Agustín Caloca Cortés</div>
+        <div class="martyr-date">† 25 May. 1927 · Colotlán, Jal.</div>
+        <p class="martyr-desc">Seminarista y colaborador del Pbro. Magallanes; fue fusilado junto a él el mismo día en Colotlán.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. José Isabel Flores Varela</div>
+        <div class="martyr-date">† 21 Jun. 1927 · Zapotlanejo, Jal.</div>
+        <p class="martyr-desc">Sobrevivió a un intento de ahorcamiento y de fusilamiento antes de morir a manos de sus captores en el panteón de Zapotlanejo.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. José María Robles Hurtado</div>
+        <div class="martyr-date">† 26 Jun. 1927 · Sierra de Quila, Jal.</div>
+        <p class="martyr-desc">Fundador de una congregación religiosa; fue ahorcado en lo alto de la sierra de Quila al ser aprehendido mientras se disponía a celebrar misa.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Miguel de la Mora</div>
+        <div class="martyr-date">† 7 Ago. 1927 · Colima</div>
+        <p class="martyr-desc">Aprehendido cuando huía hacia la sierra; fue fusilado dentro de un cuartel militar en Colima mientras rezaba el rosario.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Rodrigo Aguilar Alemán</div>
+        <div class="martyr-date">† 28 Oct. 1927 · Ejutla, Jal.</div>
+        <p class="martyr-desc">Ahorcado de un árbol de mango; sus últimas palabras fueron: "Suba, suba. En el cielo lo veré."</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Margarito Flores García</div>
+        <div class="martyr-date">† 12 Nov. 1927 · Tulimán, Gro.</div>
+        <p class="martyr-desc">Se negó a que le vendaran los ojos y recibió los disparos del pelotón con los brazos extendidos en forma de cruz.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Pedro Esqueda Ramírez</div>
+        <div class="martyr-date">† 22 Nov. 1927 · Teocaltitán, Jal.</div>
+        <p class="martyr-desc">De camino a su fusilamiento animó a un niño a no abandonar el catecismo; fue ejecutado a las afueras de Teocaltitán.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Jesús Méndez Montoya</div>
+        <div class="martyr-date">† 5 Feb. 1928 · Valtierrilla, Gto.</div>
+        <p class="martyr-desc">Fue descubierto al salir de misa ocultando el copón bajo su tilma; los soldados lo reconocieron y lo fusilaron ese mismo día.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Atilano Cruz Alvarado</div>
+        <div class="martyr-date">† 1 Jul. 1928 · Cuquío, Jal.</div>
+        <p class="martyr-desc">Vicario parroquial; murió acribillado en su habitación minutos después que su párroco, el Pbro. Orona, en el mismo asalto.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Justino Orona Madrigal</div>
+        <div class="martyr-date">† 1 Jul. 1928 · Cuquío, Jal.</div>
+        <p class="martyr-desc">Sorprendido de madrugada por tropas federales en Cuquío, abrió la puerta gritando "¡Viva Cristo Rey!" y cayó al instante bajo las balas.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Tranquilino Ubiarco Robles</div>
+        <div class="martyr-date">† 5 Oct. 1928 · Tepatitlán, Jal.</div>
+        <p class="martyr-desc">Descubierto mientras oficiaba una boda clandestina; bendijo la soga con la que sería ahorcado horas después.</p>
+      </div>
+      <div class="martyr-card reveal">
+        <div class="martyr-icon">✝&#xFE0E;</div>
+        <div class="martyr-name">Pbro. Pedro de Jesús Maldonado Lucero</div>
+        <div class="martyr-date">† 11 Feb. 1937 · Chihuahua</div>
+        <p class="martyr-desc">Detenido y golpeado brutalmente en Santa Isabel, Chihuahua; murió al día siguiente a causa de las heridas recibidas.</p>
+      </div>
+    </div>
   </section>
 
   <div class="ornament-line"><span>· En Sus Propias Palabras ·</span></div>
