@@ -271,6 +271,21 @@ nav.scrolled{
 .btn-ghost{ background:rgba(18,10,5,.25); color:var(--cream); border-color:rgba(242,232,213,.35);
   backdrop-filter:blur(2px); }
 .btn-ghost:hover{ border-color:var(--gold); color:var(--gold-hi); }
+
+#audio-btn{ position:relative; border-radius:999px; isolation:isolate; }
+#audio-btn::before{
+  content:''; position:absolute; inset:-14px; z-index:-1; border-radius:999px;
+  background:radial-gradient(circle, rgba(201,168,76,.6) 0%, rgba(201,168,76,0) 72%);
+  filter:blur(5px); pointer-events:none;
+  animation:audioGlow 2.6s ease-in-out infinite;
+}
+@keyframes audioGlow{
+  0%,100%{ opacity:.4; transform:scale(.9); }
+  50%{ opacity:1; transform:scale(1.12); }
+}
+@media (prefers-reduced-motion: reduce){
+  #audio-btn::before{ animation:none; opacity:.7; }
+}
 .scroll-cue{
   position:absolute; bottom:2rem; left:50%; transform:translateX(-50%); z-index:3;
   display:flex; flex-direction:column; align-items:center; gap:.7rem;
