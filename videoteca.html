@@ -4,11 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <base href="/conmemoracion-especial/">
-<title>Galería · La Guerra Cristera · Archivo Fotográfico · 1926–2026</title>
-<meta name="description" content="Galería fotográfica de la Guerra Cristera: cabalgatas, combatientes, familias y mujeres cristeras en imágenes de archivo histórico.">
-<meta property="og:title" content="Galería · La Guerra Cristera">
-<meta property="og:description" content="Archivo fotográfico histórico de la Guerra Cristera.">
-<meta property="og:image" content="assets/cabalgata-catedral.jpg">
+<title>Videoteca · La Guerra Cristera · Documentales y Medios · 1926–2026</title>
+<meta name="description" content="Videoteca de la Guerra Cristera: documentales, películas y redes sociales sobre el centenario de la Cristiada.">
+<meta property="og:title" content="Videoteca · La Guerra Cristera">
+<meta property="og:description" content="Documentales, películas y archivos audiovisuales del centenario de la Guerra Cristera.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -136,85 +135,101 @@ nav{
 /* ══════════════════════════════════════════════
    PAGE HERO (dark)
 ══════════════════════════════════════════════ */
-.gal-hero{
+.vt-hero{
   background:var(--ink); padding:9.5rem 1.5rem 3.5rem; text-align:center;
   position:relative;
 }
-.gal-eyebrow{
+.vt-eyebrow{
   font-family:var(--serif); font-size:.85rem; letter-spacing:4px;
   text-transform:uppercase; color:var(--gold); margin-bottom:.8rem; display:block;
 }
-.gal-hero h1{
+.vt-hero h1{
   font-family:var(--serif); font-weight:700; color:var(--cream);
   font-size:clamp(2.2rem,6vw,3.6rem); line-height:1.05;
 }
-.gal-hero p{
+.vt-hero p{
   max-width:660px; margin:1.6rem auto 0; font-family:var(--italic); font-style:italic;
   font-size:clamp(1.05rem,2.2vw,1.3rem); line-height:1.85; color:var(--cream-dim);
 }
 
 /* ══════════════════════════════════════════════
-   GALLERY
+   MULTIMEDIA
 ══════════════════════════════════════════════ */
-.gallery-section{ background:var(--ink); padding:2rem 2rem 5rem; }
-.photo-grid{
-  max-width:1100px; margin:0 auto;
-  display:grid; grid-template-columns:repeat(3,1fr);
-  grid-auto-rows:210px; gap:3px;
+.media-section{ background:var(--ink); padding:2rem 2rem 6rem; }
+.tabs-bar{
+  display:flex; gap:0; justify-content:center; flex-wrap:wrap;
+  margin-bottom:3rem; border-bottom:1px solid rgba(201,168,76,.15);
 }
-.photo-item{
-  overflow:hidden; cursor:pointer; position:relative; background:#1a1008;
-  border:none;
+.tab-btn{
+  font-family:var(--serif); font-size:.88rem; letter-spacing:2px;
+  text-transform:uppercase; font-weight:600;
+  padding:0 1.5rem; min-height:44px;
+  background:none; border:none; color:rgba(201,168,76,.62);
+  cursor:pointer; transition:color .3s; white-space:nowrap; position:relative;
 }
-.photo-item img{
-  width:100%; height:100%; object-fit:cover; display:block;
-  transition:transform .6s ease, filter .4s;
-  filter:sepia(0.25) contrast(1.05);
+.tab-btn::after{
+  content:''; position:absolute; bottom:-1px; left:0; right:0;
+  height:1px; background:var(--gold); transform:scaleX(0); transition:transform .3s;
 }
-.photo-item:hover img{ transform:scale(1.04); filter:sepia(0); }
-.photo-item.wide{ grid-column:span 2; }
-.photo-item.tall{ grid-row:span 2; }
-.photo-cap{
-  position:absolute; bottom:0; left:0; right:0; padding:.5rem .8rem;
-  background:linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-  font-family:var(--serif); font-size:.78rem; letter-spacing:1px;
-  color:rgba(201,168,76,.75); text-transform:uppercase;
-  opacity:0; transition:opacity .3s;
+.tab-btn.active,.tab-btn:hover{ color:var(--gold); }
+.tab-btn.active::after,.tab-btn:hover::after{ transform:scaleX(1); }
+.tab-panel{ display:none; max-width:1000px; margin:0 auto; }
+.tab-panel.active{ display:block; }
+.video-wrap{
+  position:relative; padding-bottom:22.5%; height:0; overflow:hidden; background:#111;
+  max-width:40%; margin:0 auto;
 }
-.photo-item:hover .photo-cap{ opacity:1; }
-.photo-ph{
-  width:100%; height:100%; display:flex; flex-direction:column;
-  align-items:center; justify-content:center;
-  background:linear-gradient(135deg, #1a0e05, #3d1c0e);
-  color:rgba(139,115,85,.4); font-family:var(--serif);
-  font-size:.82rem; letter-spacing:2px; text-transform:uppercase; text-align:center; gap:.5rem; padding:1rem;
-}
-.photo-ph span{ font-size:.75rem; opacity:.7; }
+.video-wrap iframe{ position:absolute; top:0; left:0; width:100%; height:100%; border:none; }
+.video-note{ text-align:center; margin-top:.8rem; font-size:.9rem; color:rgba(201,168,76,.6); font-family:var(--serif); letter-spacing:1px; }
 @media (max-width:640px){
-  .photo-grid{ grid-template-columns:repeat(2,1fr); grid-auto-rows:160px; }
-  .photo-item.wide{ grid-column:span 1; }
+  .video-wrap{ max-width:100%; padding-bottom:56.25%; }
 }
-dialog#lb{
-  width:min(92vw,900px); padding:0; background:var(--ink);
-  border:1px solid rgba(201,168,76,.25);
+.doc-grid{
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+  gap:1px; background:rgba(201,168,76,.08); margin-top:2.5rem;
+}
+.doc-card{
+  background:var(--ink); padding:1.5rem;
+  border:1px solid rgba(201,168,76,.08); cursor:pointer; transition:border-color .3s;
+}
+.doc-card:hover{ border-color:rgba(201,168,76,.25); }
+.doc-year{ font-family:var(--serif); font-size:.82rem; letter-spacing:2px; color:var(--gold); }
+.doc-title{ font-family:var(--serif); font-size:1.05rem; color:var(--cream); margin:.3rem 0 .5rem; }
+.doc-desc{ font-size:.95rem; color:rgba(212,197,160,.72); line-height:1.65; }
+.social-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:1px; background:rgba(201,168,76,.08); }
+.social-card{ background:var(--ink); padding:1.8rem 1.5rem; border:1px solid rgba(201,168,76,.08); }
+.social-label{ font-family:var(--serif); font-size:.82rem; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:.5rem; }
+.social-title{ font-family:var(--serif); font-size:1.05rem; color:var(--cream); margin-bottom:.5rem; }
+.social-desc{ font-size:.95rem; color:rgba(212,197,160,.72); line-height:1.6; margin-bottom:1rem; }
+.btn{
+  min-height:48px; padding:0 2.1rem; display:inline-flex; align-items:center; gap:.6rem;
+  font-family:var(--sans); font-size:.88rem; letter-spacing:3px; text-transform:uppercase;
+  font-weight:700; text-decoration:none; cursor:pointer; border:1px solid; transition:all .35s;
+}
+.btn-gold{ background:var(--gold); color:var(--ink); border-color:var(--gold);
+  box-shadow:0 8px 40px rgba(201,168,76,.18); }
+.btn-gold:hover{ background:transparent; color:var(--gold-hi);
+  box-shadow:0 8px 40px rgba(201,168,76,.05); }
+
+/* ══════════════════════════════════════════════
+   MEDIA MODAL
+══════════════════════════════════════════════ */
+dialog.media-dialog{
+  width:min(90vw,680px); background:var(--ink);
+  border:1px solid rgba(201,168,76,.22); padding:2rem;
   position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); margin:0;
-  max-height:90vh; overflow:hidden;
+  max-height:85vh; overflow-y:auto;
 }
-dialog#lb::backdrop{ background:rgba(0,0,0,.9); backdrop-filter:blur(6px); }
-.lb-img{ display:block; width:100%; max-height:78vh; object-fit:contain; }
-.lb-close{
-  position:absolute; top:.8rem; right:.8rem; z-index:10;
-  background:rgba(18,10,5,.7); border:1px solid rgba(201,168,76,.3);
-  color:var(--gold); width:36px; height:36px;
-  cursor:pointer; font-size:1rem; transition:background .3s;
-  display:flex; align-items:center; justify-content:center;
+dialog.media-dialog::backdrop{ background:rgba(0,0,0,.88); }
+.md-close{
+  position:absolute; top:1rem; right:1rem; background:none; border:none;
+  color:var(--gold); font-size:1.1rem; cursor:pointer;
+  width:44px; height:44px; display:flex; align-items:center; justify-content:center;
+  transition:color .3s;
 }
-.lb-close:hover{ background:var(--red); border-color:var(--red); color:#fff; }
-.lb-cap{
-  padding:.8rem 1.2rem; font-family:var(--serif); font-size:.85rem;
-  letter-spacing:1.5px; color:rgba(212,197,160,.68); text-transform:uppercase;
-  border-top:1px solid rgba(201,168,76,.1);
-}
+.md-close:hover{ color:var(--cream); }
+.md-title{ font-family:var(--serif); color:var(--gold); font-size:1.1rem; margin-bottom:1rem; padding-right:3rem; }
+.md-body p{ font-size:1.05rem; color:rgba(212,197,160,.78); line-height:1.85; margin-bottom:.8rem; }
 
 /* ══════════════════════════════════════════════
    FOOTER (shared)
@@ -267,9 +282,9 @@ footer{
           <a href="index.html#lineadetiempo">Línea de Tiempo</a>
           <a href="index.html#geografia">Geografía</a>
           <a href="personajes.html">Personajes</a>
-          <a href="galeria.html" class="current" aria-current="page">Galería</a>
+          <a href="galeria.html">Galería</a>
           <a href="hemeroteca.html">Hemeroteca</a>
-          <a href="videoteca.html">Videoteca</a>
+          <a href="videoteca.html" class="current" aria-current="page">Videoteca</a>
           <a href="index.html#libros">Libros</a>
           <a href="#" class="hsk-share-btn-trigger" aria-haspopup="true" aria-expanded="false">Compartir</a>
         </div>
@@ -280,116 +295,73 @@ footer{
 </nav>
 
 <!-- ════════════ HERO ════════════ -->
-<header class="gal-hero">
-  <span class="gal-eyebrow">Archivo Fotográfico</span>
-  <h1>Galería Histórica</h1>
+<header class="vt-hero">
+  <span class="vt-eyebrow">Archivo Audiovisual</span>
+  <h1>Videoteca</h1>
   <p>
-    Cabalgatas, combatientes, familias y mujeres cristeras en imágenes de archivo. Toca cualquier
-    fotografía para verla en tamaño completo.
+    Documentales, películas y redes sociales sobre el centenario de la Guerra Cristera.
   </p>
 </header>
 
-<!-- ════════════ GALERÍA ════════════ -->
-<section class="gallery-section">
-  <div class="photo-grid">
-
-    <div class="photo-item wide reveal" onclick="openLb(this)"
-         data-src="assets/cabalgata-catedral.jpg"
-         data-cap="Caballería cristera con el estandarte guadalupano ante la catedral · Archivo histórico">
-      <img src="assets/cabalgata-catedral.jpg" alt="Caballería cristera con el estandarte guadalupano ante la catedral" loading="lazy">
-      <div class="photo-cap">Cabalgata · Estandarte Guadalupano</div>
-    </div>
-
-    <div class="photo-item tall reveal" onclick="openLb(this)"
-         data-src="assets/cristero-crucifijo.jpg"
-         data-cap="Combatiente cristero con crucifijo al pecho · c. 1927 · Archivo histórico">
-      <img src="assets/cristero-crucifijo.jpg" alt="Combatiente cristero con crucifijo al pecho y canana, circa 1927" loading="lazy">
-      <div class="photo-cap">Cristero con crucifijo · c. 1927</div>
-    </div>
-
-    <div class="photo-item reveal" onclick="openLb(this)"
-         data-src="assets/padre-pro-oracion.jpg"
-         data-cap="Padre Miguel Pro S.J. orando de rodillas ante el pelotón · Ciudad de México · 23 Nov. 1927">
-      <img src="assets/padre-pro-oracion.jpg" alt="Padre Miguel Pro orando de rodillas ante el pelotón de fusilamiento, 1927" loading="lazy">
-      <div class="photo-cap">P. Pro ante el pelotón · 1927</div>
-    </div>
-
-    <div class="photo-item reveal" onclick="openLb(this)"
-         data-src="uploads/cristeros2.jpg"
-         data-cap="Combatientes cristeros · Archivo histórico">
-      <img src="uploads/cristeros2.jpg" alt="Combatientes cristeros" loading="lazy"
-           onerror="this.parentElement.innerHTML='<div class=\'photo-ph\'>Archivo<span>Cristeros · 1927–1929</span></div>'">
-      <div class="photo-cap">Cristeros · Bajío</div>
-    </div>
-
-    <div class="photo-item wide reveal" onclick="openLb(this)"
-         data-src="assets/familia.jpg"
-         data-cap="Familia cristera · Occidente de México · Archivo histórico">
-      <img src="assets/familia.jpg" alt="Familia cristera, occidente de México" loading="lazy"
-           onerror="this.parentElement.innerHTML='<div class=\'photo-ph\'>Archivo<span>Familia cristera · Los Altos de Jalisco</span></div>'">
-      <div class="photo-cap">Familia cristera · Los Altos de Jalisco</div>
-    </div>
-
-    <div class="photo-item reveal" onclick="openLb(this)"
-         data-src="uploads/Cristeros3.webp"
-         data-cap="Cristeros · Archivo fotográfico histórico">
-      <img src="uploads/Cristeros3.webp" alt="Cristeros, archivo fotográfico" loading="lazy"
-           onerror="this.parentElement.innerHTML='<div class=\'photo-ph\'>Archivo<span>Cristeros · 1928</span></div>'">
-      <div class="photo-cap">Cristeros · 1928</div>
-    </div>
-
-    <div class="photo-item wide reveal" onclick="openLb(this)"
-         data-src="assets/tropa-cristera.jpg"
-         data-cap="Tropa cristera posando con sus cananas y fusiles · c. 1927 · Archivo histórico">
-      <img src="assets/tropa-cristera.jpg" alt="Tropa cristera posando con cananas y fusiles, circa 1927" loading="lazy">
-      <div class="photo-cap">Tropa cristera · c. 1927</div>
-    </div>
-
-    <div class="photo-item tall reveal" onclick="openLb(this)"
-         data-src="assets/nina-viva-cristo-rey.jpg"
-         data-cap="Niña con cartel: «¡Viva Cristo Rey! Viva N. S. de Guadalupe. ¡Viva el Papa!» · Fotografía de época">
-      <img src="assets/nina-viva-cristo-rey.jpg" alt="Niña sosteniendo un cartel que dice Viva Cristo Rey, Viva Nuestra Señora de Guadalupe, Viva el Papa" loading="lazy">
-      <div class="photo-cap">«¡Viva Cristo Rey!» · Fotografía de época</div>
-    </div>
-
-    <div class="photo-item reveal" onclick="openLb(this)"
-         data-src="assets/mujeres-patriotas.jpg"
-         data-cap="«Mujeres Patriotas» · Las Brigadas Femeninas abastecieron de municiones y correo a los cristeros">
-      <img src="assets/mujeres-patriotas.jpg" alt="Mujeres patriotas armadas, integrantes de las Brigadas Femeninas" loading="lazy">
-      <div class="photo-cap">Mujeres Patriotas · Brigadas Femeninas</div>
-    </div>
-
-    <div class="photo-item reveal" onclick="openLb(this)"
-         data-src="assets/carmen-robles.jpg"
-         data-cap="Srta. Ma. Carmen Robles y compañeras, la víspera de su prisión por soldados callistas · Huejuquilla, Jal. · 18 Ene. 1928">
-      <img src="assets/carmen-robles.jpg" alt="Carmen Robles y compañeras vestidas de luto, la víspera de su prisión, Huejuquilla, Jalisco, 1928" loading="lazy">
-      <div class="photo-cap">Carmen Robles y compañeras · Huejuquilla · 1928</div>
-    </div>
-
-    <div class="photo-item reveal" onclick="openLb(this)"
-         data-src="assets/caballeria-sierra.jpg"
-         data-cap="Caballería cristera en la sierra · Archivo histórico">
-      <img src="assets/caballeria-sierra.jpg" alt="Caballería cristera formada frente a una casa rural en la sierra" loading="lazy">
-      <div class="photo-cap">Caballería en la sierra</div>
-    </div>
-
-    <div class="photo-item wide reveal" onclick="openLb(this)"
-         data-src="assets/combatientes-cananas.jpg"
-         data-cap="Combatientes cristeros con cananas cruzadas · c. 1927–1929 · Archivo histórico">
-      <img src="assets/combatientes-cananas.jpg" alt="Retrato de grupo de combatientes cristeros con cananas cruzadas" loading="lazy">
-      <div class="photo-cap">Combatientes · c. 1927–1929</div>
-    </div>
-
+<!-- ════════════ MULTIMEDIA ════════════ -->
+<section class="media-section" id="videoteca">
+  <div class="tabs-bar" role="tablist">
+    <button class="tab-btn active" onclick="switchTab(event,'videos')" role="tab">Videos</button>
+    <button class="tab-btn" onclick="switchTab(event,'documentales')" role="tab">Documentales</button>
+    <button class="tab-btn" onclick="switchTab(event,'redes')" role="tab">Redes Sociales</button>
   </div>
-  <p style="text-align:center;margin-top:1.2rem;font-family:var(--serif);font-size:.82rem;letter-spacing:2px;color:rgba(201,168,76,.55);text-transform:uppercase;">
-    Imágenes: Archivo histórico · Wikimedia Commons · Dominio público
-  </p>
+  <div id="tab-videos" class="tab-panel active">
+    <div class="video-wrap reveal">
+      <iframe src="https://www.youtube.com/embed/BIA9qoDM3hA?start=6907" title="Cinco hombres dieron su vida en Chalchihuites" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+  <div id="tab-documentales" class="tab-panel">
+    <div class="doc-grid">
+      <div class="doc-card reveal" onclick="openMedia('doc1')">
+        <div class="doc-year">Película · 2012</div>
+        <div class="doc-title">For Greater Glory</div>
+        <p class="doc-desc">Épica dirigida por Dean Wright, con Andy García como el general Gorostieta. Llevó la Cristiada a audiencias internacionales.</p>
+      </div>
+      <div class="doc-card reveal" onclick="openMedia('doc2')">
+        <div class="doc-year">Documental</div>
+        <div class="doc-title">La Cristiada — Historia de Fe</div>
+        <p class="doc-desc">Testimonios, archivos fotográficos y análisis del historiador Jean Meyer sobre el conflicto.</p>
+      </div>
+      <div class="doc-card reveal" onclick="openMedia('doc3')">
+        <div class="doc-year">Documental · 2007</div>
+        <div class="doc-title">Cristiada: El Cine de la Fe</div>
+        <p class="doc-desc">El impacto cultural del conflicto en el cine mexicano a lo largo de un siglo.</p>
+      </div>
+    </div>
+  </div>
+  <div id="tab-redes" class="tab-panel">
+    <div class="social-grid">
+      <div class="social-card reveal">
+        <div class="social-label">Instagram</div>
+        <div class="social-title">Reels Históricos</div>
+        <p class="social-desc">Contenido visual de la Cristiada en formato corto. Hashtag oficial: #GuerraCristera100</p>
+        <a href="https://instagram.com" target="_blank" rel="noopener" class="btn btn-gold" style="font-size:.88rem;min-height:44px;">Ver en Instagram</a>
+      </div>
+      <div class="social-card reveal">
+        <div class="social-label">TikTok</div>
+        <div class="social-title">@Cristiada100</div>
+        <p class="social-desc">Serie #LoSabíasQue — 60 segundos con datos que no te enseñaron en la escuela sobre la Cristiada.</p>
+        <a href="https://tiktok.com" target="_blank" rel="noopener" class="btn btn-gold" style="font-size:.88rem;min-height:44px;">Ver en TikTok</a>
+      </div>
+      <div class="social-card reveal">
+        <div class="social-label">YouTube</div>
+        <div class="social-title">Cristiada en México: Preparando los 100 años</div>
+        <p class="social-desc">Video del canal QNTLC («Qué No Te La Cuenten») del Padre Javier Olivera Ravasi, no es un canal oficial de este sitio.</p>
+        <a href="https://www.youtube.com/watch?v=WvEWf3SUT4w" target="_blank" rel="noopener" class="btn btn-gold" style="font-size:.88rem;min-height:44px;">Ver en YouTube</a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<dialog id="lb">
-  <button class="lb-close" onclick="document.getElementById('lb').close()" aria-label="Cerrar">✕</button>
-  <img class="lb-img" id="lb-img" src="" alt="">
-  <p class="lb-cap" id="lb-cap"></p>
+<dialog class="media-dialog" id="media-dlg">
+  <button class="md-close" onclick="document.getElementById('media-dlg').close()">✕</button>
+  <h2 class="md-title" id="md-title"></h2>
+  <div class="md-body" id="md-body"></div>
 </dialog>
 
 <!-- ════════════ FOOTER ════════════ -->
@@ -534,7 +506,7 @@ footer{
     }
     function openPanel(){
       var url = location.href, title = document.title;
-      var text = 'Galería · La Guerra Cristera';
+      var text = 'Videoteca · La Guerra Cristera';
       panel = document.createElement('div');
       panel.setAttribute('role','menu');
       panel.style.cssText = 'position:fixed;z-index:9999;background:var(--ink);border:1px solid rgba(201,168,76,.5);border-radius:12px;padding:36px 14px 14px;display:flex;flex-wrap:wrap;gap:10px;max-width:min(320px,calc(100vw - 16px));box-shadow:0 12px 30px rgba(0,0,0,.5);';
@@ -609,17 +581,33 @@ footer{
   }, {threshold:0.08, rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){ revObs.observe(el); });
 
-  /* ── Lightbox ── */
-  var lbDlg = document.getElementById('lb');
-  var lbImg = document.getElementById('lb-img');
-  var lbCap = document.getElementById('lb-cap');
-  window.openLb = function(el){
-    var src = el.dataset.src; var cap = el.dataset.cap || '';
-    if(!src) return;
-    lbImg.src = src; lbImg.alt = cap; lbCap.textContent = cap;
-    lbDlg.showModal();
+  /* ── Tabs ── */
+  window.switchTab = function(e, id){
+    document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+    document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
+    var panel = document.getElementById('tab-' + id);
+    if(panel) panel.classList.add('active');
+    e.target.classList.add('active');
   };
-  lbDlg.addEventListener('click', function(e){ if(e.target===lbDlg) lbDlg.close(); });
+
+  /* ── Media modal ── */
+  var mediaDlg = document.getElementById('media-dlg');
+  var mdTitle  = document.getElementById('md-title');
+  var mdBody   = document.getElementById('md-body');
+  var mediaData = {
+    doc1:{ title:'For Greater Glory (2012)', body:'<p>Película épica dirigida por Dean Wright, protagonizada por Andy García como el general Enrique Gorostieta. El film narra los principales eventos de la Guerra Cristera con producción de alto presupuesto y elenco internacional.</p>' },
+    doc2:{ title:'La Cristiada — Historia de Fe', body:'<p>Documental histórico que combina archivos fotográficos y fílmicos de época con testimonios de historiadores especializados y descendientes de participantes en el conflicto.</p>' },
+    doc3:{ title:'Cristiada: El Cine de la Fe (2007)', body:'<p>Este documental analiza cómo el cine mexicano ha retratado la Guerra Cristera a lo largo de un siglo, desde las primeras producciones de los años treinta hasta las películas contemporáneas.</p>' }
+  };
+  window.openMedia = function(id){
+    var d = mediaData[id]; if(!d) return;
+    mdTitle.textContent = d.title; mdBody.innerHTML = d.body; mediaDlg.showModal();
+  };
+
+  /* ── Backdrop click closes dialogs ── */
+  [mediaDlg].forEach(function(dlg){
+    if(dlg) dlg.addEventListener('click', function(e){ if(e.target===dlg) dlg.close(); });
+  });
 
 })();
 </script>

@@ -669,50 +669,6 @@ details.book-more[open] summary::before{ content:'− '; }
 }
 
 /* ══════════════════════════════════════════════
-   MULTIMEDIA
-══════════════════════════════════════════════ */
-.media-section{ background:var(--ink); padding:5rem 2rem 6rem; }
-.tabs-bar{
-  display:flex; gap:0; justify-content:center; flex-wrap:wrap;
-  margin-bottom:3rem; border-bottom:1px solid rgba(201,168,76,.15);
-}
-.tab-btn{
-  font-family:var(--serif); font-size:.88rem; letter-spacing:2px;
-  text-transform:uppercase; font-weight:600;
-  padding:0 1.5rem; min-height:44px;
-  background:none; border:none; color:rgba(201,168,76,.62);
-  cursor:pointer; transition:color .3s; white-space:nowrap; position:relative;
-}
-.tab-btn::after{
-  content:''; position:absolute; bottom:-1px; left:0; right:0;
-  height:1px; background:var(--gold); transform:scaleX(0); transition:transform .3s;
-}
-.tab-btn.active,.tab-btn:hover{ color:var(--gold); }
-.tab-btn.active::after,.tab-btn:hover::after{ transform:scaleX(1); }
-.tab-panel{ display:none; max-width:1000px; margin:0 auto; }
-.tab-panel.active{ display:block; }
-.video-wrap{ position:relative; padding-bottom:56.25%; height:0; overflow:hidden; background:#111; }
-.video-wrap iframe{ position:absolute; top:0; left:0; width:100%; height:100%; border:none; }
-.video-note{ text-align:center; margin-top:.8rem; font-size:.9rem; color:rgba(201,168,76,.6); font-family:var(--serif); letter-spacing:1px; }
-.doc-grid{
-  display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
-  gap:1px; background:rgba(201,168,76,.08); margin-top:2.5rem;
-}
-.doc-card{
-  background:var(--ink); padding:1.5rem;
-  border:1px solid rgba(201,168,76,.08); cursor:pointer; transition:border-color .3s;
-}
-.doc-card:hover{ border-color:rgba(201,168,76,.25); }
-.doc-year{ font-family:var(--serif); font-size:.82rem; letter-spacing:2px; color:var(--gold); }
-.doc-title{ font-family:var(--serif); font-size:1.05rem; color:var(--cream); margin:.3rem 0 .5rem; }
-.doc-desc{ font-size:.95rem; color:rgba(212,197,160,.72); line-height:1.65; }
-.social-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:1px; background:rgba(201,168,76,.08); }
-.social-card{ background:var(--ink); padding:1.8rem 1.5rem; border:1px solid rgba(201,168,76,.08); }
-.social-label{ font-family:var(--serif); font-size:.82rem; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:.5rem; }
-.social-title{ font-family:var(--serif); font-size:1.05rem; color:var(--cream); margin-bottom:.5rem; }
-.social-desc{ font-size:.95rem; color:rgba(212,197,160,.72); line-height:1.6; margin-bottom:1rem; }
-
-/* ══════════════════════════════════════════════
    CENTENARIO
 ══════════════════════════════════════════════ */
 .centenario-section{ background:var(--ink); padding:6rem 2rem 7rem; position:relative; }
@@ -739,29 +695,9 @@ details.book-more[open] summary::before{ content:'− '; }
   .hero .section-page-num{ bottom:5.2rem; }
 }
 .hero,.intro,.centenario-section,.stats,.tl-section,.map-section,
-.books-section,.media-section{
+.books-section{
   position:relative;
 }
-
-/* ══════════════════════════════════════════════
-   MEDIA MODAL
-══════════════════════════════════════════════ */
-dialog.media-dialog{
-  width:min(90vw,680px); background:var(--ink);
-  border:1px solid rgba(201,168,76,.22); padding:2rem;
-  position:fixed; top:50%; left:50%; transform:translate(-50%,-50%); margin:0;
-  max-height:85vh; overflow-y:auto;
-}
-dialog.media-dialog::backdrop{ background:rgba(0,0,0,.88); }
-.md-close{
-  position:absolute; top:1rem; right:1rem; background:none; border:none;
-  color:var(--gold); font-size:1.1rem; cursor:pointer;
-  width:44px; height:44px; display:flex; align-items:center; justify-content:center;
-  transition:color .3s;
-}
-.md-close:hover{ color:var(--cream); }
-.md-title{ font-family:var(--serif); color:var(--gold); font-size:1.1rem; margin-bottom:1rem; padding-right:3rem; }
-.md-body p{ font-size:1.05rem; color:rgba(212,197,160,.78); line-height:1.85; margin-bottom:.8rem; }
 
 /* ══════════════════════════════════════════════
    FOOTER
@@ -812,7 +748,7 @@ footer{
           <a href="personajes.html">Personajes</a>
           <a href="galeria.html">Galería</a>
           <a href="hemeroteca.html">Hemeroteca</a>
-          <a href="#videoteca">Videoteca</a>
+          <a href="videoteca.html">Videoteca</a>
           <a href="#libros">Libros</a>
           <a href="#" class="hsk-share-btn-trigger" aria-haspopup="true" aria-expanded="false">Compartir</a>
         </div>
@@ -1284,73 +1220,6 @@ footer{
   <span class="section-page-num on-paper" aria-hidden="true">08</span>
 </section>
 
-<!-- ════════════ MULTIMEDIA ════════════ -->
-<section class="media-section" id="videoteca">
-  <div class="section-header">
-    <span class="section-eyebrow">· Archivo Multimedia ·</span>
-    <h2 class="section-title on-dark">Documentales y Medios</h2>
-    <div class="section-rule"></div>
-  </div>
-  <div class="tabs-bar" role="tablist">
-    <button class="tab-btn active" onclick="switchTab(event,'videos')" role="tab">Videos</button>
-    <button class="tab-btn" onclick="switchTab(event,'documentales')" role="tab">Documentales</button>
-    <button class="tab-btn" onclick="switchTab(event,'redes')" role="tab">Redes Sociales</button>
-  </div>
-  <div id="tab-videos" class="tab-panel active">
-    <div class="video-wrap">
-      <iframe src="https://www.youtube.com/embed/BIA9qoDM3hA?start=6907" title="Cinco hombres dieron su vida en Chalchihuites" allowfullscreen loading="lazy"></iframe>
-    </div>
-  </div>
-  <div id="tab-documentales" class="tab-panel">
-    <div class="doc-grid">
-      <div class="doc-card" onclick="openMedia('doc1')">
-        <div class="doc-year">Película · 2012</div>
-        <div class="doc-title">For Greater Glory</div>
-        <p class="doc-desc">Épica dirigida por Dean Wright, con Andy García como el general Gorostieta. Llevó la Cristiada a audiencias internacionales.</p>
-      </div>
-      <div class="doc-card" onclick="openMedia('doc2')">
-        <div class="doc-year">Documental</div>
-        <div class="doc-title">La Cristiada — Historia de Fe</div>
-        <p class="doc-desc">Testimonios, archivos fotográficos y análisis del historiador Jean Meyer sobre el conflicto.</p>
-      </div>
-      <div class="doc-card" onclick="openMedia('doc3')">
-        <div class="doc-year">Documental · 2007</div>
-        <div class="doc-title">Cristiada: El Cine de la Fe</div>
-        <p class="doc-desc">El impacto cultural del conflicto en el cine mexicano a lo largo de un siglo.</p>
-      </div>
-    </div>
-  </div>
-  <div id="tab-redes" class="tab-panel">
-    <div class="social-grid">
-      <div class="social-card">
-        <div class="social-label">Instagram</div>
-        <div class="social-title">Reels Históricos</div>
-        <p class="social-desc">Contenido visual de la Cristiada en formato corto. Hashtag oficial: #GuerraCristera100</p>
-        <a href="https://instagram.com" target="_blank" rel="noopener" class="btn btn-gold" style="font-size:.88rem;min-height:44px;">Ver en Instagram</a>
-      </div>
-      <div class="social-card">
-        <div class="social-label">TikTok</div>
-        <div class="social-title">@Cristiada100</div>
-        <p class="social-desc">Serie #LoSabíasQue — 60 segundos con datos que no te enseñaron en la escuela sobre la Cristiada.</p>
-        <a href="https://tiktok.com" target="_blank" rel="noopener" class="btn btn-gold" style="font-size:.88rem;min-height:44px;">Ver en TikTok</a>
-      </div>
-      <div class="social-card">
-        <div class="social-label">YouTube</div>
-        <div class="social-title">Cristiada en México: Preparando los 100 años</div>
-        <p class="social-desc">Video del canal QNTLC («Qué No Te La Cuenten») del Padre Javier Olivera Ravasi, no es un canal oficial de este sitio.</p>
-        <a href="https://www.youtube.com/watch?v=WvEWf3SUT4w" target="_blank" rel="noopener" class="btn btn-gold" style="font-size:.88rem;min-height:44px;">Ver en YouTube</a>
-      </div>
-    </div>
-  </div>
-  <span class="section-page-num" aria-hidden="true">09</span>
-</section>
-
-<dialog class="media-dialog" id="media-dlg">
-  <button class="md-close" onclick="document.getElementById('media-dlg').close()">✕</button>
-  <h2 class="md-title" id="md-title"></h2>
-  <div class="md-body" id="md-body"></div>
-</dialog>
-
 <!-- ════════════ LIBROS (paper) ════════════ -->
 <section class="books-section bg-paper" id="libros">
   <div class="section-header">
@@ -1432,7 +1301,7 @@ footer{
       <details class="book-more"><summary>Leer síntesis</summary><p class="book-full">Publicado tras el estreno de "For Greater Glory", reúne a historiadores, críticos de cine y teólogos para analizar cómo la Cristiada ha sido recordada en la cultura popular mexicana. Incluye análisis de corridos, pinturas y películas.</p></details>
     </div>
   </div>
-  <span class="section-page-num on-paper" aria-hidden="true">10</span>
+  <span class="section-page-num on-paper" aria-hidden="true">09</span>
 </section>
 
 <!-- ════════════ FOOTER ════════════ -->
@@ -1762,34 +1631,6 @@ footer{
   }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(function(el){ revObs.observe(el); });
 
-  /* ── Tabs ── */
-  window.switchTab = function(e, id){
-    document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
-    document.querySelectorAll('.tab-btn').forEach(function(b){ b.classList.remove('active'); });
-    var panel = document.getElementById('tab-' + id);
-    if(panel) panel.classList.add('active');
-    e.target.classList.add('active');
-  };
-
-  /* ── Media modal ── */
-  var mediaDlg = document.getElementById('media-dlg');
-  var mdTitle  = document.getElementById('md-title');
-  var mdBody   = document.getElementById('md-body');
-  var mediaData = {
-    doc1:{ title:'For Greater Glory (2012)', body:'<p>Película épica dirigida por Dean Wright, protagonizada por Andy García como el general Enrique Gorostieta. El film narra los principales eventos de la Guerra Cristera con producción de alto presupuesto y elenco internacional.</p>' },
-    doc2:{ title:'La Cristiada — Historia de Fe', body:'<p>Documental histórico que combina archivos fotográficos y fílmicos de época con testimonios de historiadores especializados y descendientes de participantes en el conflicto.</p>' },
-    doc3:{ title:'Cristiada: El Cine de la Fe (2007)', body:'<p>Este documental analiza cómo el cine mexicano ha retratado la Guerra Cristera a lo largo de un siglo, desde las primeras producciones de los años treinta hasta las películas contemporáneas.</p>' }
-  };
-  window.openMedia = function(id){
-    var d = mediaData[id]; if(!d) return;
-    mdTitle.textContent = d.title; mdBody.innerHTML = d.body; mediaDlg.showModal();
-  };
-
-  /* ── Backdrop click closes dialogs ── */
-  [mediaDlg].forEach(function(dlg){
-    if(dlg) dlg.addEventListener('click', function(e){ if(e.target===dlg) dlg.close(); });
-  });
-
 })();
 </script>
 
@@ -1798,9 +1639,6 @@ footer{
 body.theme-light .tl-desc{ color:rgba(30,15,5,.80); }
 body.theme-light .tl-quote{ color:rgba(100,55,0,.85); border-left-color:rgba(100,55,0,.35); }
 body.theme-light .centenario-body p{ color:rgba(30,15,5,.80); }
-body.theme-light .md-body p{ color:rgba(30,15,5,.82); }
-body.theme-light .doc-desc,
-body.theme-light .social-desc{ color:rgba(30,15,5,.68); }
 body.theme-light .footer-line,
 body.theme-light .footer-sources li{ color:rgba(30,15,5,.55); }
 body.theme-light .footer-copy{ color:rgba(30,15,5,.45); }
@@ -1832,10 +1670,6 @@ body.theme-light .hero .btn-ghost{ color:#f2e8d5; }
 body.theme-light .dark-band-text blockquote{ color:#f2e8d5; }
 body.theme-light .dark-band-text cite{ color:#e7c873; }
 body.theme-light .dark-band-caption{ color:rgba(231,200,115,.6); }
-
-/* ── light-theme: dorados literales sobre fondo claro → sepia ── */
-body.theme-light .tab-btn{ color:rgba(107,66,0,.6); }
-body.theme-light .video-note{ color:rgba(107,66,0,.6); }
 
 /* ══ COMPOSICIÓN LANDING ══ */
 /* editorial: bloque alineado a la izquierda, estilo portada de revista */
