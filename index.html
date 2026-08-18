@@ -36,10 +36,10 @@
   --serif:      'Cinzel', serif;
   --italic:     'Cormorant Garamond', serif;
   --sans:       'Lato', sans-serif;
-  --map-epi:    #a61c1c;
-  --map-alta:   #d97706;
-  --map-mod:    #2f6f47;
-  --map-menor:  #2f5d80;
+  --map-epi:    #ed1c24;
+  --map-alta:   #ff7f27;
+  --map-menor:  #ffc90e;
+  --map-sin:    #9c9891;
 }
 *,*::before,*::after{ margin:0; padding:0; box-sizing:border-box; }
 .cross,.seal,.ornament,.footer-logo,.nav-logo .x{
@@ -548,20 +548,6 @@ nav.scrolled{
   border:1px solid rgba(139,115,85,0.2);
   background:rgba(212,197,160,0.12);
 }
-.map-svg-wrap svg{ display:block; width:100%; height:auto; }
-.mx-state{
-  fill:var(--cream);
-  stroke:var(--sepia);
-  stroke-width:0.75;
-  stroke-linejoin:round;
-  transition:fill .3s, filter .3s;
-}
-.mx-state:hover{ filter:brightness(1.08); }
-.mx-epi{ fill:var(--map-epi); }
-.mx-alta{ fill:var(--map-alta); }
-.mx-mod{ fill:var(--map-mod); }
-.mx-menor{ fill:var(--map-menor); }
-.mx-epi,.mx-alta,.mx-mod,.mx-menor{ stroke:var(--sepia-deep); stroke-width:1; }
 .map-svg-caption{
   text-align:center; font-family:var(--italic); font-style:italic; font-size:.85rem;
   color:var(--sepia-ink); margin-top:.9rem;
@@ -577,8 +563,8 @@ nav.scrolled{
 .legend-dot{ width:9px; height:9px; border-radius:50%; flex-shrink:0; }
 .legend-dot.epi{ background:var(--map-epi); }
 .legend-dot.alta{ background:var(--map-alta); }
-.legend-dot.mod{ background:var(--map-mod); }
 .legend-dot.menor{ background:var(--map-menor); }
+.legend-dot.sin{ background:var(--map-sin); }
 .map-regions{
   display:grid; grid-template-columns:repeat(auto-fit, minmax(270px,1fr));
   gap:0; border:1px solid rgba(139,115,85,0.2);
@@ -601,8 +587,8 @@ details.state-item summary::-webkit-details-marker{ display:none; }
 .st-dot{ width:7px; height:7px; border-radius:50%; flex-shrink:0; }
 .st-dot.epi{ background:var(--map-epi); }
 .st-dot.alta{ background:var(--map-alta); }
-.st-dot.mod{ background:var(--map-mod); }
 .st-dot.menor{ background:var(--map-menor); }
+.st-dot.sin{ background:var(--map-sin); }
 .st-name{ font-family:var(--serif); font-size:1rem; color:var(--text); }
 .st-arrow{ font-size:.82rem; color:var(--sepia); margin-left:auto; transition:transform .3s; }
 details.state-item[open] .st-arrow{ transform:rotate(90deg); }
@@ -1121,8 +1107,8 @@ footer{
     <div class="map-legend reveal">
       <div class="legend-item"><div class="legend-dot epi"></div> Epicentro del conflicto</div>
       <div class="legend-item"><div class="legend-dot alta"></div> Alta actividad cristera</div>
-      <div class="legend-item"><div class="legend-dot mod"></div> Actividad moderada</div>
       <div class="legend-item"><div class="legend-dot menor"></div> Actividad menor</div>
+      <div class="legend-item"><div class="legend-dot sin"></div> Sin actividad registrada</div>
     </div>
     <div class="map-regions reveal">
       <div class="map-group">
@@ -1136,8 +1122,8 @@ footer{
           <div class="st-body"><p class="st-sub">Segundo estado en intensidad cristera</p><p class="st-desc">León, Irapuato y el sur del estado fueron escenario de combates constantes. Los cristeros guanajuatenses se destacaron por su organización y resistencia prolongada.</p><dl class="st-facts"><div class="st-fact"><dt>Combatientes est.</dt><dd>~12,000</dd></div><div class="st-fact"><dt>Mártires canonizados</dt><dd>4</dd></div></dl></div>
         </details>
         <details class="state-item">
-          <summary><div class="st-dot epi"></div><span class="st-name">Michoacán</span><span class="st-arrow">▶</span></summary>
-          <div class="st-body"><p class="st-sub">Cuna de líderes cristeros y mártires</p><p class="st-desc">La región de Sahuayo y la Cañada de los Once Pueblos produjeron destacados mártires. El Padre Cristóbal Magallanes, canonizado en 2000, desarrolló aquí su ministerio.</p><dl class="st-facts"><div class="st-fact"><dt>Combatientes est.</dt><dd>~10,000</dd></div><div class="st-fact"><dt>Mártires canonizados</dt><dd>6</dd></div></dl></div>
+          <summary><div class="st-dot epi"></div><span class="st-name">Zacatecas</span><span class="st-arrow">▶</span></summary>
+          <div class="st-body"><p class="st-sub">Estado natal del Padre Miguel Pro</p><p class="st-desc">Zacatecas aportó uno de los símbolos más reconocidos de la Cristiada: el Padre Miguel Pro, nacido en Guadalupe, Zac. El estado fue escenario de importantes operaciones militares.</p><dl class="st-facts"><div class="st-fact"><dt>Combatientes est.</dt><dd>~8,000</dd></div></dl></div>
         </details>
         <details class="state-item">
           <summary><div class="st-dot epi"></div><span class="st-name">Aguascalientes</span><span class="st-arrow">▶</span></summary>
@@ -1147,35 +1133,38 @@ footer{
       <div class="map-group">
         <div class="map-group-header"><div class="legend-dot alta"></div> Alta Actividad Cristera</div>
         <details class="state-item">
-          <summary><div class="st-dot alta"></div><span class="st-name">Zacatecas</span><span class="st-arrow">▶</span></summary>
-          <div class="st-body"><p class="st-sub">Estado natal del Padre Miguel Pro</p><p class="st-desc">Zacatecas aportó uno de los símbolos más reconocidos de la Cristiada: el Padre Miguel Pro, nacido en Guadalupe, Zac. El estado fue escenario de importantes operaciones militares.</p><dl class="st-facts"><div class="st-fact"><dt>Combatientes est.</dt><dd>~8,000</dd></div></dl></div>
+          <summary><div class="st-dot alta"></div><span class="st-name">Michoacán</span><span class="st-arrow">▶</span></summary>
+          <div class="st-body"><p class="st-sub">Cuna de líderes cristeros y mártires</p><p class="st-desc">La región de Sahuayo y la Cañada de los Once Pueblos produjeron destacados mártires. El Padre Cristóbal Magallanes, canonizado en 2000, desarrolló aquí su ministerio.</p><dl class="st-facts"><div class="st-fact"><dt>Combatientes est.</dt><dd>~10,000</dd></div><div class="st-fact"><dt>Mártires canonizados</dt><dd>6</dd></div></dl></div>
         </details>
         <details class="state-item">
           <summary><div class="st-dot alta"></div><span class="st-name">San Luis Potosí</span><span class="st-arrow">▶</span></summary>
           <div class="st-body"><p class="st-sub">Zona de apoyo y combate</p><p class="st-desc">Parte del cinturón cristero del Bajío. Su zona sur, limítrofe con Jalisco y Guanajuato, registró importantes actividades militares.</p><dl class="st-facts"><div class="st-fact"><dt>Combatientes est.</dt><dd>~5,000</dd></div></dl></div>
         </details>
-        <details class="state-item">
-          <summary><div class="st-dot alta"></div><span class="st-name">Colima</span><span class="st-arrow">▶</span></summary>
-          <div class="st-body"><p class="st-sub">Puerta de la costa al Bajío cristero</p><p class="st-desc">Su frontera con Jalisco lo convirtió en zona de paso y apoyo logístico para los cristeros de la costa.</p><dl class="st-facts"><div class="st-fact"><dt>Combatientes est.</dt><dd>~2,500</dd></div></dl></div>
-        </details>
       </div>
       <div class="map-group">
-        <div class="map-group-header"><div class="legend-dot mod"></div> Actividad Moderada y Menor</div>
+        <div class="map-group-header"><div class="legend-dot menor"></div> Actividad Menor</div>
         <details class="state-item">
-          <summary><div class="st-dot mod"></div><span class="st-name">Nayarit</span><span class="st-arrow">▶</span></summary>
+          <summary><div class="st-dot menor"></div><span class="st-name">Colima</span><span class="st-arrow">▶</span></summary>
+          <div class="st-body"><p class="st-sub">Puerta de la costa al Bajío cristero</p><p class="st-desc">Su frontera con Jalisco lo convirtió en zona de paso y apoyo logístico para los cristeros de la costa.</p><dl class="st-facts"><div class="st-fact"><dt>Combatientes est.</dt><dd>~2,500</dd></div></dl></div>
+        </details>
+        <details class="state-item">
+          <summary><div class="st-dot menor"></div><span class="st-name">Nayarit</span><span class="st-arrow">▶</span></summary>
           <div class="st-body"><p class="st-sub">Extensión del frente occidental</p><p class="st-desc">Actividad cristera principalmente en la zona serrana, limítrofe con Jalisco y Durango, aprovechando el terreno montañoso para tácticas guerrilleras.</p><dl class="st-facts"><div class="st-fact"><dt>Combatientes est.</dt><dd>~3,000</dd></div></dl></div>
         </details>
         <details class="state-item">
-          <summary><div class="st-dot mod"></div><span class="st-name">Durango</span><span class="st-arrow">▶</span></summary>
+          <summary><div class="st-dot menor"></div><span class="st-name">Durango</span><span class="st-arrow">▶</span></summary>
           <div class="st-body"><p class="st-sub">Frente norte de la Cristiada</p><p class="st-desc">Su vasto territorio serrano albergó grupos guerrilleros. Varios sacerdotes duranguenses fueron asesinados durante el conflicto.</p><dl class="st-facts"><div class="st-fact"><dt>Combatientes est.</dt><dd>~2,000</dd></div></dl></div>
         </details>
         <details class="state-item">
           <summary><div class="st-dot menor"></div><span class="st-name">Sinaloa</span><span class="st-arrow">▶</span></summary>
           <div class="st-body"><p class="st-sub">Contexto político relevante</p><p class="st-desc">No fue teatro de operaciones mayor, pero vivió la aplicación de las leyes anticlericales con la misma dureza. Varios sacerdotes fueron expulsados y las iglesias clausuradas.</p></div>
         </details>
+      </div>
+      <div class="map-group">
+        <div class="map-group-header"><div class="legend-dot sin"></div> Sin Actividad Registrada</div>
         <details class="state-item">
-          <summary><div class="st-dot menor"></div><span class="st-name">Chihuahua</span><span class="st-arrow">▶</span></summary>
-          <div class="st-body"><p class="st-sub">Lejos del núcleo cristero</p><p class="st-desc">Relativamente alejado del núcleo de la Cristiada. Su historia reciente de violencia revolucionaria había marcado una relación compleja entre la Iglesia y el gobierno en la región.</p></div>
+          <summary><div class="st-dot sin"></div><span class="st-name">Chihuahua</span><span class="st-arrow">▶</span></summary>
+          <div class="st-body"><p class="st-sub">Lejos del núcleo cristero</p><p class="st-desc">El nuevo mapa de referencia no marca actividad cristera significativa en este estado. Relativamente alejado del núcleo de la Cristiada; su historia reciente de violencia revolucionaria había marcado una relación compleja entre la Iglesia y el gobierno en la región.</p></div>
         </details>
       </div>
     </div>
