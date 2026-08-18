@@ -39,7 +39,6 @@
   --map-epi:    #ed1c24;
   --map-alta:   #ff7f27;
   --map-menor:  #ffc90e;
-  --map-sin:    #9c9891;
 }
 *,*::before,*::after{ margin:0; padding:0; box-sizing:border-box; }
 .cross,.seal,.ornament,.footer-logo,.nav-logo .x{
@@ -564,7 +563,6 @@ nav.scrolled{
 .legend-dot.epi{ background:var(--map-epi); }
 .legend-dot.alta{ background:var(--map-alta); }
 .legend-dot.menor{ background:var(--map-menor); }
-.legend-dot.sin{ background:var(--map-sin); }
 .map-regions{
   display:grid; grid-template-columns:repeat(auto-fit, minmax(270px,1fr));
   gap:0; border:1px solid rgba(139,115,85,0.2);
@@ -588,7 +586,6 @@ details.state-item summary::-webkit-details-marker{ display:none; }
 .st-dot.epi{ background:var(--map-epi); }
 .st-dot.alta{ background:var(--map-alta); }
 .st-dot.menor{ background:var(--map-menor); }
-.st-dot.sin{ background:var(--map-sin); }
 .st-name{ font-family:var(--serif); font-size:1rem; color:var(--text); }
 .st-arrow{ font-size:.82rem; color:var(--sepia); margin-left:auto; transition:transform .3s; }
 details.state-item[open] .st-arrow{ transform:rotate(90deg); }
@@ -1108,7 +1105,6 @@ footer{
       <div class="legend-item"><div class="legend-dot epi"></div> Epicentro del conflicto</div>
       <div class="legend-item"><div class="legend-dot alta"></div> Alta actividad cristera</div>
       <div class="legend-item"><div class="legend-dot menor"></div> Actividad menor</div>
-      <div class="legend-item"><div class="legend-dot sin"></div> Sin actividad registrada</div>
     </div>
     <div class="map-regions reveal">
       <div class="map-group">
@@ -1158,13 +1154,6 @@ footer{
         <details class="state-item">
           <summary><div class="st-dot menor"></div><span class="st-name">Sinaloa</span><span class="st-arrow">▶</span></summary>
           <div class="st-body"><p class="st-sub">Contexto político relevante</p><p class="st-desc">No fue teatro de operaciones mayor, pero vivió la aplicación de las leyes anticlericales con la misma dureza. Varios sacerdotes fueron expulsados y las iglesias clausuradas.</p></div>
-        </details>
-      </div>
-      <div class="map-group">
-        <div class="map-group-header"><div class="legend-dot sin"></div> Sin Actividad Registrada</div>
-        <details class="state-item">
-          <summary><div class="st-dot sin"></div><span class="st-name">Chihuahua</span><span class="st-arrow">▶</span></summary>
-          <div class="st-body"><p class="st-sub">Lejos del núcleo cristero</p><p class="st-desc">El nuevo mapa de referencia no marca actividad cristera significativa en este estado. Relativamente alejado del núcleo de la Cristiada; su historia reciente de violencia revolucionaria había marcado una relación compleja entre la Iglesia y el gobierno en la región.</p></div>
         </details>
       </div>
     </div>
