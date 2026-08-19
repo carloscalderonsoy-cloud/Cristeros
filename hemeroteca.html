@@ -1494,6 +1494,14 @@ footer{
     });
     if(!matches.length) return;
 
+    /* Orden curado: la Carta R. Jaime (15 ago) antes que el Santuario de Guadalupe (4 y 5 ago) */
+    var extraOrder = ['fecha-1926-08-15', 'fecha-1926-08-04', 'fecha-1926-08-05'];
+    matches.sort(function(a, b){
+      var ia = extraOrder.indexOf(a.id); if(ia === -1) ia = extraOrder.length;
+      var ib = extraOrder.indexOf(b.id); if(ib === -1) ib = extraOrder.length;
+      return ia - ib;
+    });
+
     matches.forEach(function(row){
       var item = document.createElement('div');
       item.className = 'hem-extra-item';
