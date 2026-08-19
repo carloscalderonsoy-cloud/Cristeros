@@ -1492,15 +1492,24 @@ footer{
       var centenary = new Date(parts[0] + 100, parts[1] - 1, parts[2]);
       if(centenary >= weekStart && centenary <= weekEnd) matches.push(row);
     });
-    if(!matches.length) return;
 
-    /* Orden curado: la Carta R. Jaime (15 ago) antes que el Santuario de Guadalupe (4 y 5 ago) */
+    /* Destacado curado: la Carta R. Jaime (15 ago) y el Santuario de Guadalupe (4 y 5 ago)
+       se muestran siempre juntas y en este orden, sin depender de la semana en curso,
+       porque narran el mismo episodio (2do y 1er grupo de 4 mártires de la Cristiada). */
     var extraOrder = ['fecha-1926-08-15', 'fecha-1926-08-04', 'fecha-1926-08-05'];
+    extraOrder.forEach(function(id){
+      if(matches.indexOf(document.getElementById(id)) === -1){
+        var el = document.getElementById(id);
+        if(el) matches.push(el);
+      }
+    });
     matches.sort(function(a, b){
       var ia = extraOrder.indexOf(a.id); if(ia === -1) ia = extraOrder.length;
       var ib = extraOrder.indexOf(b.id); if(ib === -1) ib = extraOrder.length;
       return ia - ib;
     });
+
+    if(!matches.length) return;
 
     matches.forEach(function(row){
       var item = document.createElement('div');
