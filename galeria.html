@@ -172,7 +172,7 @@ nav{
   filter:sepia(0.25) contrast(1.05);
 }
 .photo-item:hover img{ transform:scale(1.04); filter:sepia(0); }
-.photo-item.wide{ grid-column:span 2; }
+.photo-item.wide{ grid-column:span 2; grid-row:span 2; }
 .photo-item.tall{ grid-row:span 2; }
 .photo-cap{
   position:absolute; bottom:0; left:0; right:0; padding:.5rem .8rem;
@@ -328,7 +328,7 @@ footer{
       <div class="photo-cap">Familia cristera · Estandarte Guadalupano</div>
     </div>
 
-    <div class="photo-item wide reveal" onclick="openLb(this)"
+    <div class="photo-item tall reveal" onclick="openLb(this)"
          data-src="assets/ahunam-ejercito-cristero-caballeria.png"
          data-cap="Parte del ejército cristero zacatecano, de caballería">
       <img src="assets/ahunam-ejercito-cristero-caballeria.png" alt="Parte del ejército cristero zacatecano, de caballería, Zacatecas" loading="lazy">
@@ -384,6 +384,13 @@ footer{
       <div class="photo-cap">Caballería en la sierra</div>
     </div>
 
+    <div class="photo-item reveal" onclick="openLb(this)"
+         data-src="assets/ahunam-soldados-familia-zacatecanos.jpg"
+         data-cap="5 soldados cristeros zacatecanos con cananas, acompañados por familia, 3 mujeres y 2 niños">
+      <img src="assets/ahunam-soldados-familia-zacatecanos.jpg" alt="5 soldados cristeros zacatecanos con cananas, acompañados por familia, 3 mujeres y 2 niños" loading="lazy">
+      <div class="photo-cap">5 soldados cristeros zacatecanos con familia</div>
+    </div>
+
     <div class="photo-item wide reveal" onclick="openLb(this)"
          data-src="assets/combatientes-cananas.jpg"
          data-cap="Combatientes cristeros con cananas cruzadas · c. 1927–1929 · Archivo histórico">
@@ -392,8 +399,8 @@ footer{
     </div>
 
   </div>
-  <p style="text-align:center;margin-top:1.2rem;font-family:var(--serif);font-size:.82rem;letter-spacing:2px;color:rgba(201,168,76,.55);text-transform:uppercase;">
-    Imágenes: Archivo histórico · Wikimedia Commons · Dominio público
+  <p style="text-align:center;margin-top:1.2rem;font-family:var(--serif);font-size:.82rem;letter-spacing:2px;color:rgba(201,168,76,.55);">
+    Imágenes: Archivo Histórico UNAM · Wikimedia Commons · Dominio Público
   </p>
 </section>
 
