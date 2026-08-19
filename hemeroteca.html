@@ -1514,6 +1514,14 @@ footer{
     matches.forEach(function(row){
       var item = document.createElement('div');
       item.className = 'hem-extra-item';
+      if(row.id === 'fecha-1926-08-15'){
+        var noteEl = document.querySelector('.hem-special-note');
+        if(noteEl){
+          var noteClone = noteEl.cloneNode(true);
+          noteClone.classList.remove('reveal');
+          item.appendChild(noteClone);
+        }
+      }
       var clone = row.cloneNode(true);
       clone.removeAttribute('id');
       clone.classList.remove('reveal');
